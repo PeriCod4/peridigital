@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import Container from "./Container";
-import { NAV_LINKS } from "./nav";
+import { SERVICES, SITE } from "@/lib/site";
+
+const COMPANY_LINKS = [
+  { href: "/proyectos-web/", label: "Proyectos" },
+  { href: "/nosotros/", label: "Nosotros" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/hablemos/", label: "Hablemos" },
+];
 
 const LEGAL_LINKS = [
   { href: "/aviso-legal/", label: "Aviso legal" },
@@ -14,45 +21,59 @@ export default function Footer() {
     <footer className="mt-24 bg-ink text-white/70">
       <Container className="py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
+          <div>
             <div className="flex items-center gap-2">
-              <Image
-                src="/brand/icon_campero_digital_blanco.webp"
-                alt="Campero Digital"
-                width={36}
-                height={26}
-              />
+              <Image src="/brand/icon_campero_digital_blanco.webp" alt="Campero Digital" width={36} height={26} />
               <span className="text-lg font-extrabold text-white">
                 Campero<span className="text-brand">Digital</span>
               </span>
             </div>
-            <p className="mt-4 max-w-sm text-sm">
-              Agencia de marketing digital 360. Diseño web, ecommerce, paid media,
-              SEO y software a medida.
+            <p className="mt-4 max-w-xs text-sm">
+              Agencia digital 360. Diseño web, ecommerce, software a medida, CRM y
+              automatización.
+            </p>
+            <p className="mt-4 text-sm">
+              SEO por{" "}
+              <a href={SITE.periseo} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand hover:underline">
+                PeriSEO
+              </a>
             </p>
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-white">Navegación</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white">Servicios</h3>
             <ul className="space-y-2 text-sm">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="hover:text-brand">
-                    {l.label}
-                  </Link>
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/${s.slug}/`} className="hover:text-brand">{s.nav}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-white">Legal</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white">Campero Digital</h3>
             <ul className="space-y-2 text-sm">
+              {COMPANY_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-brand">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-white">Contacto y legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-brand">{SITE.phone}</a>
+              </li>
+              <li>
+                <a href={`mailto:${SITE.email}`} className="hover:text-brand">{SITE.email}</a>
+              </li>
               {LEGAL_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="hover:text-brand">
-                    {l.label}
-                  </Link>
+                  <Link href={l.href} className="hover:text-brand">{l.label}</Link>
                 </li>
               ))}
             </ul>

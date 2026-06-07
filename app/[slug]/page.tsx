@@ -1,7 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import JsonLd from "@/components/JsonLd";
 import { getPostSlugs, getPost } from "@/lib/wp";
+import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
+import { SITE, SERVICES } from "@/lib/site";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -44,8 +47,28 @@ export default async function Article({
   const post = await getPost(slug);
   if (!post) notFound();
 
+  const plainTitle = post.title.replace(/<[^>]+>/g, "");
+  const plainDesc = post.excerpt.replace(/<[^>]+>/g, "").trim().slice(0, 160);
+
   return (
     <main>
+      <JsonLd
+        data={articleSchema({
+          title: plainTitle,
+          description: plainDesc,
+          slug: post.slug,
+          date: post.date,
+          modified: post.modified,
+          image: post.coverUrl,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Inicio", url: `${SITE.url}/` },
+          { name: "Blog", url: `${SITE.url}/blog/` },
+          { name: plainTitle, url: `${SITE.url}/${post.slug}/` },
+        ])}
+      />
       <section className="bg-ink text-white">
         <Container className="py-14 sm:py-16">
           <Link href="/blog/" className="text-sm font-medium text-brand hover:underline">
@@ -81,16 +104,29 @@ export default async function Article({
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
 
-          <div className="mt-14 rounded-2xl bg-brand/10 p-8 text-center">
-            <h2 className="text-xl font-bold text-ink">
+          <div className="mt-14 rounded-2xl bg-brand/10 p-8">
+            <h2 className="text-center text-xl font-bold text-ink">
               ¿Hablamos de tu proyecto?
             </h2>
-            <Link
-              href="/hablemos/"
-              className="mt-5 inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white hover:bg-ink-soft"
-            >
-              Contactar
-            </Link>
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
+              {SERVICES.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/${s.slug}/`}
+                  className="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition-colors hover:text-brand-dark"
+                >
+                  {s.nav}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 text-center">
+              <Link
+                href="/hablemos/"
+                className="inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white hover:bg-ink-soft"
+              >
+                Contactar
+              </Link>
+            </div>
           </div>
         </article>
       </Container>

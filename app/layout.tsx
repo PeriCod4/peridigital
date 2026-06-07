@@ -3,6 +3,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${montserrat.variable} h-full`}>
       <body className="flex min-h-full flex-col">
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />

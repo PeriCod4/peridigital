@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import Container from "./Container";
 import Aurora from "./Aurora";
+
+const WORDS = ["clientes", "ventas", "resultados", "crecimiento"];
 
 const container = {
   hidden: {},
@@ -15,30 +18,41 @@ const item = {
 };
 
 export default function HeroHome() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % WORDS.length), 2200);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       <Aurora />
       <Container className="relative py-28 sm:py-36">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p
-            variants={item}
-            className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand"
-          >
-            Agencia de marketing digital 360
+          <motion.p variants={item} className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand">
+            Agencia digital 360
           </motion.p>
-          <motion.h1
-            variants={item}
-            className="max-w-4xl text-5xl font-extrabold leading-[1.05] sm:text-7xl"
-          >
-            Páginas web que{" "}
-            <span className="text-gradient">venden</span>
+          <motion.h1 variants={item} className="max-w-4xl text-4xl font-extrabold leading-[1.1] sm:text-6xl">
+            Convertimos lo digital en
+            <br />
+            <span className="relative inline-block min-h-[1.2em]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={WORDS[i]}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-gradient inline-block"
+                >
+                  {WORDS[i]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </motion.h1>
-          <motion.p
-            variants={item}
-            className="mt-6 max-w-xl text-lg text-white/75"
-          >
-            Soluciones a medida para lo que TU negocio necesita: diseño web,
-            ecommerce, paid media, SEO y software propio.
+          <motion.p variants={item} className="mt-6 max-w-xl text-lg text-white/75">
+            Diseño web y ecommerce, software a medida, CRM y automatización. Somos
+            tu equipo de marketing digital, no una agencia más.
           </motion.p>
           <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
@@ -46,7 +60,7 @@ export default function HeroHome() {
                 href="/hablemos/"
                 className="inline-block rounded-full bg-brand px-8 py-3.5 font-semibold text-ink shadow-lg shadow-brand/30 transition-colors hover:bg-brand-dark"
               >
-                Hablemos
+                Agenda una reunión
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
@@ -61,7 +75,6 @@ export default function HeroHome() {
         </motion.div>
       </Container>
 
-      {/* indicador de scroll */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40"
         animate={{ y: [0, 8, 0] }}

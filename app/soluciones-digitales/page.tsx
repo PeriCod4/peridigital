@@ -1,51 +1,41 @@
-import Link from "next/link";
-import Container from "@/components/Container";
-import PageHero from "@/components/PageHero";
+import type { Metadata } from "next";
+import ServiceLayout from "@/components/ServiceLayout";
 
-export const metadata = {
-  title: "Soluciones Digitales",
-  description:
-    "Paid media, SEO, software a medida, CRM, automatización y analítica para hacer crecer tu negocio.",
+const DESC =
+  "Software a medida, SaaS y apps para tu negocio: automatizamos procesos e integramos sistemas (web, CRM, correo, móvil) para que ahorres tiempo y escales.";
+
+export const metadata: Metadata = {
+  title: "Soluciones digitales y software a medida",
+  description: DESC,
+  alternates: { canonical: "/soluciones-digitales/" },
 };
-
-const SERVICES = [
-  ["Paid Media & CRO", "Campañas en Meta y Google Ads + optimización de la tasa de conversión."],
-  ["Apps & Softwares", "Desarrollo de aplicaciones y software a medida para tu operativa."],
-  ["SEO", "Posicionamiento orgánico para captar tráfico cualificado de forma sostenible."],
-  ["CRM & Automatización", "Implantación de CRM y automatización de procesos de marketing y ventas."],
-  ["Analítica & Data", "Medición, dashboards y decisiones basadas en datos."],
-  ["Creación de marca", "Identidad visual y estrategia para que tu marca destaque."],
-];
 
 export default function Page() {
   return (
-    <main>
-      <PageHero
-        eyebrow="Soluciones Digitales"
-        title="Soluciones a medida para lo que TU negocio necesita"
-        subtitle="Un partner 360: desde la captación hasta la automatización y el dato."
-      />
-      <Container className="py-20">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map(([t, d]) => (
-            <div
-              key={t}
-              className="rounded-2xl border border-gray-200 p-7 transition-all hover:border-brand hover:shadow-lg"
-            >
-              <h2 className="text-lg font-bold text-ink">{t}</h2>
-              <p className="mt-3 text-sm text-gray-600">{d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12">
-          <Link
-            href="/hablemos/"
-            className="inline-block rounded-full bg-brand px-7 py-3 font-semibold text-ink hover:bg-brand-dark"
-          >
-            Hablemos de tu proyecto
-          </Link>
-        </div>
-      </Container>
-    </main>
+    <ServiceLayout
+      slug="soluciones-digitales"
+      metaDescription={DESC}
+      eyebrow="Soluciones digitales"
+      title="Soluciones digitales que ahorran tiempo"
+      subtitle="Automatiza tu trabajo, gana tiempo y ahorra dinero con software y aplicaciones hechos a tu medida."
+      intro={[
+        "La idea de las soluciones digitales es quitarte trabajo y facilitártelo, no darte más. Desarrollamos plugins, aplicaciones y sistemas personalizados para digitalizar y agilizar los procesos internos de tu empresa.",
+        "Desde una app para gestionar los productos de tu tienda desde el móvil hasta un sistema de reservas a medida o software de gestión: creamos lo que tu negocio necesita y lo integramos donde le saques partido.",
+      ]}
+      features={[
+        { title: "Software a medida", desc: "Desarrollo de aplicaciones y sistemas personalizados adaptados a tus procesos reales." },
+        { title: "Automatización de procesos", desc: "Elimina tareas repetitivas: deja que el sistema trabaje por ti y te ahorre tiempo." },
+        { title: "Integración incluida", desc: "Integramos la solución donde le saques partido: web, CRM, correo, móvil. Un todo en uno." },
+        { title: "SaaS y apps", desc: "Productos digitales escalables, desde un MVP hasta una plataforma SaaS completa." },
+        { title: "Escalable y ampliable", desc: "Si en unos meses se te queda corto, seguimos ampliando el sistema para que cubra tus necesidades." },
+        { title: "APIs e integraciones", desc: "Conectamos tus herramientas (pagos, ERP, logística, terceros) con arquitectura moderna." },
+      ]}
+      faqs={[
+        { q: "¿Software a medida o una solución SaaS estándar?", a: "Depende: lo estándar lo resolvemos con SaaS (coste menor) y desarrollamos a medida solo lo que te diferencia. Te asesoramos para que inviertas donde aporta valor." },
+        { q: "¿Podéis integrarlo con mi web o mi CRM?", a: "Sí. Diseñamos las soluciones para que se integren con tu web, CRM, correo o móvil mediante APIs." },
+        { q: "¿Qué pasa cuando crece mi negocio?", a: "El sistema se amplía. Partimos de una base escalable y seguimos evolucionándolo según tus necesidades." },
+      ]}
+      ctaLabel="Cuéntanos tu idea"
+    />
   );
 }

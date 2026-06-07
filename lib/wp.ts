@@ -1,3 +1,5 @@
+import { REDIRECT_SLUGS } from "./dedupe";
+
 const API = process.env.WP_API!;
 
 if (!API) {
@@ -61,12 +63,13 @@ export async function getAllPosts(): Promise<WPPost[]> {
   const data = await getJSON<unknown[]>(
     `${API}/posts?per_page=100&_embed=wp:featuredmedia,wp:term&_fields=${POST_FIELDS}`,
   );
-  return data.map(mapPost);
+  // Excluir duplicados consolidados (variantes -2/-3 redirigidas al canónico).
+  return data.map(mapPost).filter((p) => !REDIRECT_SLUGS.has(p.slug));
 }
 
 export async function getPostSlugs(): Promise<string[]> {
   const data = await getJSON<{ slug: string }[]>(`${API}/posts?per_page=100&_fields=slug`);
-  return data.map((p) => p.slug);
+  return data.map((p) => p.slug).filter((slug) => !REDIRECT_SLUGS.has(slug));
 }
 
 export async function getPost(slug: string): Promise<WPPost | null> {
@@ -81,4 +84,27 @@ export async function getPage(slug: string): Promise<WPPost | null> {
     `${API}/pages?slug=${encodeURIComponent(slug)}&_embed`,
   );
   return data[0] ? mapPost(data[0]) : null;
+}
+
+export interface CategoryWithPosts {
+  slug: string;
+  name: string;
+  posts: WPPost[];
+}
+
+// Categorías derivadas de los posts canónicos. Consolidación: sólo las que
+// tienen >= minPosts (evita taxonomía inflada con categorías de 1 post).
+export async function getCategoriesWithPosts(minPosts = 2): Promise<CategoryWithPosts[]> {
+  const posts = await getAllPosts();
+  const map = new Map<string, CategoryWithPosts>();
+  for (const p of posts) {
+    for (const c of p.categories) {
+      if (!c.slug) continue;
+      if (!map.has(c.slug)) map.set(c.slug, { slug: c.slug, name: c.name, posts: [] });
+      map.get(c.slug)!.posts.push(p);
+    }
+  }
+  return [...map.values()]
+    .filter((c) => c.posts.length >= minPosts)
+    .sort((a, b) => b.posts.length - a.posts.length);
 }

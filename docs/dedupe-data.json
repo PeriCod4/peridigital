@@ -1,0 +1,130 @@
+{
+  "optimizacion-web-moviles-espana": {
+    "canon": "optimizacion-web-moviles-espana",
+    "redirects": [
+      "optimizacion-web-moviles-espana-2"
+    ],
+    "lens": [
+      "optimizacion-web-moviles-espana-2:15064",
+      "optimizacion-web-moviles-espana:15064"
+    ]
+  },
+  "mantenimiento-web-para-empresas": {
+    "canon": "mantenimiento-web-para-empresas",
+    "redirects": [
+      "mantenimiento-web-para-empresas-2"
+    ],
+    "lens": [
+      "mantenimiento-web-para-empresas-2:13955",
+      "mantenimiento-web-para-empresas:13955"
+    ]
+  },
+  "marketing-digital-para-abogados": {
+    "canon": "marketing-digital-para-abogados",
+    "redirects": [
+      "marketing-digital-para-abogados-3",
+      "marketing-digital-para-abogados-2"
+    ],
+    "lens": [
+      "marketing-digital-para-abogados-3:13796",
+      "marketing-digital-para-abogados-2:13796",
+      "marketing-digital-para-abogados:13796"
+    ]
+  },
+  "pagina-web-para-psicologos-espana": {
+    "canon": "pagina-web-para-psicologos-espana",
+    "redirects": [
+      "pagina-web-para-psicologos-espana-2"
+    ],
+    "lens": [
+      "pagina-web-para-psicologos-espana-2:15174",
+      "pagina-web-para-psicologos-espana:15174"
+    ]
+  },
+  "desarrollo-web-a-medida-espana": {
+    "canon": "desarrollo-web-a-medida-espana",
+    "redirects": [
+      "desarrollo-web-a-medida-espana-3",
+      "desarrollo-web-a-medida-espana-2"
+    ],
+    "lens": [
+      "desarrollo-web-a-medida-espana-3:15862",
+      "desarrollo-web-a-medida-espana-2:15862",
+      "desarrollo-web-a-medida-espana:15862"
+    ]
+  },
+  "como-elegir-agencia-de-marketing-digital": {
+    "canon": "como-elegir-agencia-de-marketing-digital",
+    "redirects": [
+      "como-elegir-agencia-de-marketing-digital-4",
+      "como-elegir-agencia-de-marketing-digital-3",
+      "como-elegir-agencia-de-marketing-digital-2"
+    ],
+    "lens": [
+      "como-elegir-agencia-de-marketing-digital-4:13421",
+      "como-elegir-agencia-de-marketing-digital-3:13421",
+      "como-elegir-agencia-de-marketing-digital-2:13421",
+      "como-elegir-agencia-de-marketing-digital:13421"
+    ]
+  },
+  "contratar-agencia-de-marketing-digital": {
+    "canon": "contratar-agencia-de-marketing-digital",
+    "redirects": [
+      "contratar-agencia-de-marketing-digital-2"
+    ],
+    "lens": [
+      "contratar-agencia-de-marketing-digital-2:13890",
+      "contratar-agencia-de-marketing-digital:13890"
+    ]
+  },
+  "auditoria-seo-gratuita-espana": {
+    "canon": "auditoria-seo-gratuita-espana",
+    "redirects": [
+      "auditoria-seo-gratuita-espana-2"
+    ],
+    "lens": [
+      "auditoria-seo-gratuita-espana-2:12485",
+      "auditoria-seo-gratuita-espana:12485"
+    ]
+  },
+  "como-hacer-auditoria-seo-paso-a-paso": {
+    "canon": "como-hacer-auditoria-seo-paso-a-paso",
+    "redirects": [
+      "como-hacer-auditoria-seo-paso-a-paso-2"
+    ],
+    "lens": [
+      "como-hacer-auditoria-seo-paso-a-paso-2:19450",
+      "como-hacer-auditoria-seo-paso-a-paso:19450"
+    ]
+  },
+  "agencia-marketing-digital-espana": {
+    "canon": "agencia-marketing-digital-espana",
+    "redirects": [
+      "agencia-marketing-digital-espana-2"
+    ],
+    "lens": [
+      "agencia-marketing-digital-espana-2:15284",
+      "agencia-marketing-digital-espana:15284"
+    ]
+  },
+  "como-medir-roi-marketing-digital": {
+    "canon": "como-medir-roi-marketing-digital",
+    "redirects": [
+      "como-medir-roi-marketing-digital-2"
+    ],
+    "lens": [
+      "como-medir-roi-marketing-digital-2:16143",
+      "como-medir-roi-marketing-digital:16143"
+    ]
+  },
+  "mejor-agencia-seo-pymes": {
+    "canon": "mejor-agencia-seo-pymes",
+    "redirects": [
+      "mejor-agencia-seo-pymes-2"
+    ],
+    "lens": [
+      "mejor-agencia-seo-pymes-2:13340",
+      "mejor-agencia-seo-pymes:13340"
+    ]
+  }
+}
