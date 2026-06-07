@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Container from "@/components/Container";
+import HeroHome from "@/components/HeroHome";
+import Reveal from "@/components/motion/Reveal";
+import TiltCard from "@/components/motion/TiltCard";
+import Marquee from "@/components/Marquee";
 import { getAllPosts } from "@/lib/wp";
 
 const SERVICES = [
@@ -27,117 +31,141 @@ const OTHER_SERVICES = [
   "Creación de marca",
 ];
 
+const CLIENTS = [
+  "Silence Spa",
+  "Tienda Filtro",
+  "Acero Social",
+  "Cerámica Granada",
+  "Factoría",
+  "CCCO",
+];
+
 export default async function Home() {
   const posts = await getAllPosts();
   const latest = posts.slice(0, 3);
 
   return (
     <main>
-      {/* Hero */}
-      <section className="bg-ink text-white">
-        <Container className="py-24 sm:py-32">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand">
-            Agencia de marketing digital 360
+      <HeroHome />
+
+      {/* Marquee de clientes */}
+      <section className="border-y border-white/10 bg-ink py-7">
+        <Container>
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-widest text-white/40">
+            Empresas que han confiado en nosotros
           </p>
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-6xl">
-            Páginas web que <span className="text-brand">venden</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/75">
-            Soluciones a medida para lo que TU negocio necesita: diseño web,
-            ecommerce, paid media, SEO y software propio.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link
-              href="/hablemos/"
-              className="rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-colors hover:bg-brand-dark"
-            >
-              Hablemos
-            </Link>
-            <Link
-              href="/proyectos-web/"
-              className="rounded-full border border-white/25 px-7 py-3 font-semibold text-white transition-colors hover:border-brand hover:text-brand"
-            >
-              Ver proyectos
-            </Link>
-          </div>
+          <Marquee items={CLIENTS} />
         </Container>
       </section>
 
       {/* Servicios */}
       <section className="py-20 sm:py-28">
         <Container>
-          <h2 className="text-3xl font-extrabold text-ink">Nuestros servicios</h2>
+          <Reveal>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
+              Nuestros servicios
+            </h2>
+          </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {SERVICES.map((s) => (
-              <Link
-                key={s.title}
-                href={s.href}
-                className="group rounded-2xl border border-gray-200 p-7 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-lg"
-              >
-                <h3 className="text-xl font-bold text-ink group-hover:text-brand-dark">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-gray-600">{s.desc}</p>
-                <span className="mt-5 inline-block text-sm font-semibold text-brand-dark">
-                  Saber más →
-                </span>
-              </Link>
+            {SERVICES.map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.1}>
+                <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
+                  <Link href={s.href} className="group block">
+                    <h3 className="text-xl font-bold text-ink transition-colors group-hover:text-brand-dark">
+                      {s.title}
+                    </h3>
+                    <p className="mt-3 text-gray-600">{s.desc}</p>
+                    <span className="mt-5 inline-block text-sm font-semibold text-brand-dark">
+                      Saber más
+                      <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </span>
+                  </Link>
+                </TiltCard>
+              </Reveal>
             ))}
           </div>
 
-          <h3 className="mt-16 text-lg font-semibold text-ink">Otros servicios</h3>
-          <div className="mt-5 flex flex-wrap gap-3">
-            {OTHER_SERVICES.map((o) => (
-              <span
-                key={o}
-                className="rounded-full bg-brand/10 px-4 py-2 text-sm font-medium text-ink"
-              >
-                {o}
-              </span>
-            ))}
-          </div>
+          <Reveal delay={0.15}>
+            <h3 className="mt-16 text-lg font-semibold text-ink">Otros servicios</h3>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {OTHER_SERVICES.map((o) => (
+                <span
+                  key={o}
+                  className="rounded-full bg-brand/10 px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-brand/20"
+                >
+                  {o}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       </section>
 
       {/* CTA */}
-      <section className="bg-brand">
-        <Container className="py-16 text-center">
-          <h2 className="text-3xl font-extrabold text-ink">
-            Soluciones a medida para lo que TU negocio necesita
-          </h2>
-          <Link
-            href="/hablemos/"
-            className="mt-8 inline-block rounded-full bg-ink px-8 py-3 font-semibold text-white transition-colors hover:bg-ink-soft"
-          >
-            Empezar proyecto
-          </Link>
+      <section className="relative overflow-hidden bg-brand">
+        <Container className="relative py-20 text-center">
+          <Reveal>
+            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold text-ink sm:text-4xl">
+              Soluciones a medida para lo que TU negocio necesita
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link
+              href="/hablemos/"
+              className="mt-8 inline-block rounded-full bg-ink px-8 py-3.5 font-semibold text-white shadow-xl transition-transform hover:scale-105"
+            >
+              Empezar proyecto
+            </Link>
+          </Reveal>
         </Container>
       </section>
 
-      {/* Últimos artículos */}
+      {/* Del blog */}
       <section className="py-20">
         <Container>
-          <div className="flex items-end justify-between">
-            <h2 className="text-3xl font-extrabold text-ink">Del blog</h2>
-            <Link href="/blog/" className="text-sm font-semibold text-brand-dark hover:underline">
-              Ver todos →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {latest.map((p) => (
+          <Reveal>
+            <div className="flex items-end justify-between">
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Del blog</h2>
               <Link
-                key={p.id}
-                href={`/${p.slug}/`}
-                className="group rounded-2xl border border-gray-200 p-6 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-lg"
+                href="/blog/"
+                className="text-sm font-semibold text-brand-dark hover:underline"
               >
-                <div className="text-xs font-medium text-gray-400">
-                  {new Date(p.date).toLocaleDateString("es-ES")}
-                </div>
-                <h3
-                  className="mt-2 font-bold text-ink group-hover:text-brand-dark"
-                  dangerouslySetInnerHTML={{ __html: p.title }}
-                />
+                Ver todos →
               </Link>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {latest.map((p, i) => (
+              <Reveal key={p.id} delay={i * 0.1}>
+                <TiltCard className="h-full overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                  <Link href={`/${p.slug}/`} className="group block">
+                    {p.coverUrl ? (
+                      <div className="overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={p.coverUrl}
+                          alt={p.coverAlt ?? ""}
+                          className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="aspect-[16/9] w-full bg-brand/10" />
+                    )}
+                    <div className="p-6">
+                      <div className="text-xs font-medium text-gray-400">
+                        {new Date(p.date).toLocaleDateString("es-ES")}
+                      </div>
+                      <h3
+                        className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-dark"
+                        dangerouslySetInnerHTML={{ __html: p.title }}
+                      />
+                    </div>
+                  </Link>
+                </TiltCard>
+              </Reveal>
             ))}
           </div>
         </Container>

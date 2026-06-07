@@ -29,7 +29,7 @@ export default function Header() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-sm font-medium text-white/80 transition-colors hover:text-brand"
+                className="nav-underline text-sm font-medium text-white/80 transition-colors hover:text-brand"
               >
                 {l.label}
               </Link>
