@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Campero Digital — tokens de marca (idénticos a la web actual)
+   teal #3ECCCB · oscuro #1b1f24 · azul #02bdff · Montserrat
+   ============================================================ */
+@theme {
+  --color-brand: #3ecccb;
+  --color-brand-dark: #2bb3b2;
+  --color-ink: #1b1f24;
+  --color-ink-soft: #2a2f36;
+  --color-accent: #02bdff;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1b1f24;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ============================================================
+   Estilo del cuerpo de artículo (HTML que llega del WP REST)
+   ============================================================ */
+.wp-content {
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  color: #2a2f36;
+}
+.wp-content > * + * {
+  margin-top: 1.15rem;
+}
+.wp-content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  color: var(--color-ink);
+}
+.wp-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  color: var(--color-ink);
+}
+.wp-content a {
+  color: var(--color-brand-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wp-content ul,
+.wp-content ol {
+  padding-left: 1.4rem;
+}
+.wp-content ul { list-style: disc; }
+.wp-content ol { list-style: decimal; }
+.wp-content li + li { margin-top: 0.4rem; }
+.wp-content img {
+  border-radius: 0.75rem;
+  height: auto;
+}
+.wp-content blockquote {
+  border-left: 3px solid var(--color-brand);
+  padding-left: 1rem;
+  color: #555;
+  font-style: italic;
+}
+.wp-content figure { margin: 1.5rem 0; }
+.wp-content table { width: 100%; border-collapse: collapse; }
+.wp-content th,
+.wp-content td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
