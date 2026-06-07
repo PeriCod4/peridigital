@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import Container from "./Container";
 import PageHero from "./PageHero";
 import Reveal from "./motion/Reveal";
@@ -13,8 +14,14 @@ export interface ServiceLayoutProps {
   title: string;
   subtitle: string;
   intro: string[];
+  demo?: ReactNode;
+  demoTitle?: string;
+  stats?: { value: string; label: string }[];
   features: { title: string; desc: string }[];
   featuresTitle?: string;
+  benefits?: string[];
+  benefitsTitle?: string;
+  useCases?: { title: string; desc: string }[];
   process?: { title: string; desc: string }[];
   faqs?: { q: string; a: string }[];
   ctaTitle?: string;
@@ -29,8 +36,14 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     title,
     subtitle,
     intro,
+    demo,
+    demoTitle = "Así se ve en la práctica",
+    stats,
     features,
     featuresTitle = "Qué incluye",
+    benefits,
+    benefitsTitle = "Por qué con nosotros",
+    useCases,
     process,
     faqs,
     ctaTitle = "¿Hablamos de tu proyecto?",
@@ -52,14 +65,46 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
       <PageHero eyebrow={eyebrow} title={title} subtitle={subtitle} />
 
       <Container className="py-16">
-        {/* Intro */}
-        <Reveal>
-          <div className="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-gray-700">
-            {intro.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </Reveal>
+        {/* Intro + demo */}
+        <div className={demo ? "grid items-start gap-12 lg:grid-cols-2" : ""}>
+          <Reveal>
+            <div className="space-y-5 text-lg leading-relaxed text-gray-700">
+              {intro.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+              <Link
+                href="/hablemos/"
+                className="inline-block rounded-full bg-brand px-6 py-2.5 text-base font-semibold text-ink transition-transform hover:scale-105"
+              >
+                {ctaLabel}
+              </Link>
+            </div>
+          </Reveal>
+          {demo && (
+            <Reveal direction="left" delay={0.1}>
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-dark">
+                  {demoTitle}
+                </p>
+                {demo}
+              </div>
+            </Reveal>
+          )}
+        </div>
+
+        {/* Stats */}
+        {stats && stats.length > 0 && (
+          <Reveal>
+            <div className="mt-16 grid gap-6 rounded-3xl bg-ink p-8 text-center text-white sm:grid-cols-3">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-3xl font-extrabold text-brand sm:text-4xl">{s.value}</div>
+                  <div className="mt-1 text-sm text-white/70">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        )}
 
         {/* Qué incluye */}
         <section className="mt-16">
@@ -77,6 +122,44 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
             ))}
           </div>
         </section>
+
+        {/* Beneficios */}
+        {benefits && benefits.length > 0 && (
+          <section className="mt-16 rounded-3xl bg-gray-50 p-8 sm:p-10">
+            <Reveal>
+              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">{benefitsTitle}</h2>
+            </Reveal>
+            <div className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+              {benefits.map((b, i) => (
+                <Reveal key={b} delay={(i % 2) * 0.06}>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-ink">✓</span>
+                    <span className="text-gray-700">{b}</span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Casos de uso */}
+        {useCases && useCases.length > 0 && (
+          <section className="mt-16">
+            <Reveal>
+              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">Casos de uso</h2>
+            </Reveal>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {useCases.map((u, i) => (
+                <Reveal key={u.title} delay={(i % 3) * 0.08}>
+                  <div className="h-full rounded-2xl border-l-4 border-brand bg-white p-6 shadow-sm">
+                    <h3 className="font-bold text-ink">{u.title}</h3>
+                    <p className="mt-2 text-sm text-gray-600">{u.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Cómo trabajamos */}
         {process && process.length > 0 && (
@@ -112,7 +195,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
               {faqs.map((f) => (
                 <Reveal key={f.q}>
                   <details className="group rounded-2xl border border-gray-200 p-6">
-                    <summary className="cursor-pointer list-none font-semibold text-ink marker:hidden">
+                    <summary className="cursor-pointer list-none font-semibold text-ink">
                       <span className="flex items-center justify-between gap-4">
                         {f.q}
                         <span className="text-brand transition-transform group-open:rotate-45">+</span>

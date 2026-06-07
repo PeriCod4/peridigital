@@ -4,6 +4,7 @@ import HeroHome from "@/components/HeroHome";
 import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import Marquee from "@/components/Marquee";
+import EcommerceDemo from "@/components/demos/EcommerceDemo";
 import { getAllPosts } from "@/lib/wp";
 import { PROJECTS } from "@/lib/projects-data";
 
@@ -81,6 +82,37 @@ export default async function Home() {
               ))}
             </div>
           </Reveal>
+        </Container>
+      </section>
+
+      {/* Showcase con demo */}
+      <section className="bg-ink py-20 text-white">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <Reveal>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+                  No solo bonito: que venda
+                </p>
+                <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+                  Webs y tiendas pensadas para convertir
+                </h2>
+                <p className="mt-4 text-lg text-white/75">
+                  Diseñamos cada detalle para guiar al usuario hacia la compra:
+                  rápido, claro y sin fricción. Pruébalo aquí mismo →
+                </p>
+                <Link
+                  href="/diseno-web/"
+                  className="mt-7 inline-block rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-transform hover:scale-105"
+                >
+                  Ver diseño web & ecommerce
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal direction="left" delay={0.1}>
+              <EcommerceDemo />
+            </Reveal>
+          </div>
         </Container>
       </section>
 

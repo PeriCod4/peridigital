@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import JsonLd from "@/components/JsonLd";
+import SeoRankDemo from "@/components/demos/SeoRankDemo";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -73,6 +74,38 @@ export default function Page() {
             >
               Visitar PeriSEO →
             </a>
+          </div>
+        </Reveal>
+
+        {/* Demo posiciones */}
+        <section className="mt-12 grid items-center gap-10 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">
+                De la página 4 a los primeros resultados
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                El 99% de la gente no pasa de la primera página de Google. Trabajamos
+                el SEO técnico, las palabras clave y el contenido para que subas
+                posiciones en las búsquedas que de verdad te traen clientes.
+              </p>
+              <p className="mt-3 text-gray-600">
+                El SEO es una carrera de fondo: los resultados se consolidan con el
+                tiempo, pero bien hecho es el canal más rentable a largo plazo.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal direction="left" delay={0.1}>
+            <SeoRankDemo />
+          </Reveal>
+        </section>
+
+        {/* Stats */}
+        <Reveal>
+          <div className="mt-16 grid gap-6 rounded-3xl bg-ink p-8 text-center text-white sm:grid-cols-3">
+            <div><div className="text-3xl font-extrabold text-brand sm:text-4xl">#1</div><div className="mt-1 text-sm text-white/70">página = donde están los clics</div></div>
+            <div><div className="text-3xl font-extrabold text-brand sm:text-4xl">+IA</div><div className="mt-1 text-sm text-white/70">tecnología propia de PeriSEO</div></div>
+            <div><div className="text-3xl font-extrabold text-brand sm:text-4xl">24/7</div><div className="mt-1 text-sm text-white/70">tu contenido trabajando</div></div>
           </div>
         </Reveal>
 
