@@ -20,27 +20,9 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 14,
-              backgroundColor: "#3ecccb",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#1b1f24",
-              fontSize: 36,
-              fontWeight: 800,
-              marginRight: 16,
-            }}
-          >
-            C
-          </div>
-          <div style={{ display: "flex", color: "white", fontSize: 30, fontWeight: 700 }}>
-            Campero Digital
-          </div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 34, fontWeight: 800 }}>
+          <span style={{ color: "white" }}>Campero&nbsp;</span>
+          <span style={{ color: "#3ecccb" }}>Digital</span>
         </div>
         <div style={{ display: "flex", color: "white", fontSize: 70, fontWeight: 800, marginTop: 44 }}>
           Convertimos lo digital

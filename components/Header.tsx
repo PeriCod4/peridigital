@@ -22,7 +22,7 @@ export default function Header() {
             priority
           />
           <span className="text-lg font-extrabold tracking-tight text-white">
-            Campero<span className="text-brand">Digital</span>
+            Campero <span className="text-brand">Digital</span>
           </span>
         </Link>
 

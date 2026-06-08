@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Image src="/brand/icon_campero_digital_blanco.webp" alt="Campero Digital" width={36} height={26} />
               <span className="text-lg font-extrabold text-white">
-                Campero<span className="text-brand">Digital</span>
+                Campero <span className="text-brand">Digital</span>
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm">
