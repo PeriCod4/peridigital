@@ -1,0 +1,23 @@
+# Campero Digital — sitio estático (Next.js export) sobre LiteSpeed/Apache
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Servir ficheros y carpetas reales (assets, artículos, y subsitios: crm, informes, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+# Imagen Open Graph (fichero sin extensión) servida como PNG
+<Files "opengraph-image">
+  ForceType image/png
+</Files>
+
+# Cache de assets estáticos de Next
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:js|css|woff2|webp|png|jpg|jpeg|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
