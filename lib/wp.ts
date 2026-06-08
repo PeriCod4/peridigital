@@ -43,6 +43,13 @@ const CONTENT_LINK_REMAP: Record<string, string> = {
   "posicionamiento-seo-para-ecommerce": "/seo/",
 };
 
+// Imágenes de wp-content/uploads (de cualquier host WP) -> /wp-uploads local,
+// descargadas por scripts/localize-images.mjs. El estático no depende del WP.
+function localizeUploads(s: string | undefined): string {
+  if (!s) return s ?? "";
+  return s.replace(/https?:\/\/[^"')\s]*?\/wp-content\/uploads/gi, "/wp-uploads");
+}
+
 function rewriteContentLinks(html: string): string {
   if (!html) return html;
   return html.replace(/href="([^"]+)"/g, (full, href: string) => {
@@ -77,8 +84,8 @@ function mapPost(p: any): WPPost {
     modified: p.modified,
     title: p.title?.rendered ?? "",
     excerpt: p.excerpt?.rendered ?? "",
-    contentHtml: rewriteContentLinks(p.content?.rendered ?? ""),
-    coverUrl: media?.source_url,
+    contentHtml: localizeUploads(rewriteContentLinks(p.content?.rendered ?? "")),
+    coverUrl: media?.source_url ? localizeUploads(media.source_url) : undefined,
     coverAlt: media?.alt_text,
     categories: cats,
     tags,

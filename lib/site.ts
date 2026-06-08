@@ -6,7 +6,7 @@ export const SITE = {
     "Agencia digital 360: diseño web y ecommerce, software a medida, CRM y automatización, SEO y mantenimiento. Webs que venden.",
   phone: "+34 609 74 57 29",
   email: "pablo@camperodigital.com",
-  logo: "https://camperodigital.com/wp-content/uploads/2025/09/favicon-campero-digital.png",
+  logo: "https://camperodigital.com/icon.png",
   periseo: "https://periseo.es",
   sameAs: ["https://periseo.es"],
   gaId: "G-V7P5GQ78LJ",
