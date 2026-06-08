@@ -40,6 +40,28 @@ export default function Page() {
         { title: "Soporte", desc: "Estamos para lo que necesites: somos partners, no un número de ticket." },
         { title: "Mejoras continuas", desc: "Packs de horas para pequeños cambios, optimización y nuevo contenido." },
       ]}
+      plans={[
+        {
+          name: "Básico",
+          price: "29 €",
+          period: "/mes",
+          features: ["Actualizaciones mensuales", "Copia de seguridad semanal", "Monitorización de caídas", "SSL y seguridad básica", "Soporte por email"],
+        },
+        {
+          name: "Pro",
+          price: "59 €",
+          period: "/mes",
+          featured: true,
+          features: ["Todo lo del plan Básico", "Actualizaciones quincenales", "Backups diarios", "Hosting gestionado incluido", "1 h/mes de cambios", "Soporte prioritario"],
+        },
+        {
+          name: "Premium",
+          price: "99 €",
+          period: "/mes",
+          features: ["Todo lo del plan Pro", "Monitorización 24/7", "Optimización de velocidad", "3 h/mes de cambios", "Informe mensual", "Soporte preferente"],
+        },
+      ]}
+      plansNote="Precios orientativos sin IVA. Adaptamos el plan a tu web; pídenos una propuesta a medida."
       benefits={[
         "Evitas caídas, hackeos y sustos",
         "Restauras en minutos ante cualquier fallo",

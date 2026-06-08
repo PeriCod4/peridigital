@@ -9,7 +9,7 @@ Estado para dejar la web **perfecta** antes de publicarla. Marcado: ✅ hecho ·
 - ✅ 48 artículos (duplicados consolidados) + 22 categorías
 - ✅ 4 guías cornerstone (/guias/)
 - ⬜ Revisión ortográfica/estilo final de todos los textos
-- 👤 Definir precios/planes (mantenimiento, packs) si se quieren mostrar
+- ✅ Planes de mantenimiento con precios (Básico 29€ / Pro 59€ / Premium 99€)
 - 👤 Enlaces reales "Visitar web" en proyectos (hoy solo logo+descripción)
 
 ## 2. Diseño / UX
@@ -20,19 +20,19 @@ Estado para dejar la web **perfecta** antes de publicarla. Marcado: ✅ hecho ·
 - ⬜ Revisar contraste de textos sobre fondos (nuestra propia web accesible)
 
 ## 3. Funcionalidad
-- 🟡 Formulario de contacto funcional (endpoint `public/contacto.php`) + página `/gracias/`
-- 👤 Email destino del formulario (¿pablo@camperodigital.com?)
-- ⬜ Reservas Cal.com (integrar widget) 👤 enlace/usuario de Cal.com
-- 🟡 Banner de cookies (RGPD) + bloqueo de analítica hasta consentimiento
-- ⬜ Analítica 👤 ID de GA4 / Google Tag Manager
+- ✅ Formulario de contacto funcional (`public/contacto.php` → pablocamperosub@gmail.com) + página `/gracias/`
+- ✅ Reservas con Calendly integradas en `/hablemos/` (calendly.com/camperodigital/30min)
+- ✅ Banner de cookies (RGPD) + analítica bloqueada hasta consentimiento
+- ✅ Analítica GA4 (G-V7P5GQ78LJ, la misma que tu web actual) con carga tras consentimiento
 
 ## 4. SEO técnico
 - ✅ Metadatos (title/description/canonical) en todas las páginas
 - ✅ Schema: Organization, WebSite, Service, Article, Breadcrumb, FAQ
 - ✅ sitemap.xml + robots.txt
 - ✅ Mapa de keywords + enlazado interno servicio↔guía
-- 🟡 Favicon de marca + iconos (hoy favicon por defecto de Next)
-- 🟡 Imagen social por defecto (Open Graph / Twitter) + por página
+- ✅ Favicon de marca (`app/icon.svg`)
+- ✅ Imagen social por defecto (Open Graph / Twitter) generada con la marca
+  - ⬜ Deploy: servir `/opengraph-image` con Content-Type image/png (regla en .htaccess)
 - ⬜ Verificar que ninguna URL importante cambia vs WP (paridad) → redirects listos
 - ⬜ Alt text en todas las imágenes (revisar)
 

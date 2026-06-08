@@ -23,7 +23,9 @@ export default function CookieConsent() {
       /* ignore */
     }
     setShow(false);
-    // Aquí se cargaría la analítica solo si value === "accepted" (cuando se configure GA4).
+    if (value === "accepted") {
+      window.dispatchEvent(new Event("cd-consent-accepted"));
+    }
   }
 
   if (!show) return null;

@@ -9,6 +9,8 @@ export const SITE = {
   logo: "https://camperodigital.com/wp-content/uploads/2025/12/icon_campero_digital_negro.webp",
   periseo: "https://periseo.es",
   sameAs: ["https://periseo.es"],
+  gaId: "G-V7P5GQ78LJ",
+  calendly: "https://calendly.com/camperodigital/30min",
 } as const;
 
 export interface ServiceDef {

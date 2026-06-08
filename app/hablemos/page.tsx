@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -38,13 +39,23 @@ export default function Page() {
                 </a>
               </li>
             </ul>
-            {/* Reservas Cal.com: se integra en Fase 5 */}
           </div>
           <div>
             <h2 className="text-2xl font-bold text-ink">O déjanos un mensaje</h2>
             <div className="mt-6">
               <ContactForm />
             </div>
+          </div>
+        </div>
+
+        {/* Reservas Calendly */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-ink">Agenda una reunión</h2>
+          <p className="mt-2 text-gray-600">
+            Elige el hueco que mejor te venga y hablamos sin compromiso.
+          </p>
+          <div className="mt-6">
+            <CalendlyEmbed />
           </div>
         </div>
       </Container>

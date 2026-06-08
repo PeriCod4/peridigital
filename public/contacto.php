@@ -20,8 +20,7 @@ if ($hp !== '' || $name === '' || $message === '' || !filter_var($email, FILTER_
     exit;
 }
 
-// TODO (antes de lanzar): poner el correo de destino real.
-$to      = 'pablo@camperodigital.com';
+$to      = 'pablocamperosub@gmail.com';
 $subject = 'Contacto web: ' . mb_substr($name, 0, 80);
 $body    = "Nombre: $name\nEmail: $email\n\nMensaje:\n$message\n";
 $headers = 'From: web@camperodigital.com' . "\r\n" .

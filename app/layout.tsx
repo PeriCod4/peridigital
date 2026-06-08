@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
+import Analytics from "@/components/Analytics";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <div className="flex-1">{children}</div>
         <Footer />
         <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );

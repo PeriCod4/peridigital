@@ -23,6 +23,8 @@ export interface ServiceLayoutProps {
   benefitsTitle?: string;
   useCases?: { title: string; desc: string }[];
   process?: { title: string; desc: string }[];
+  plans?: { name: string; price: string; period?: string; features: string[]; featured?: boolean }[];
+  plansNote?: string;
   faqs?: { q: string; a: string }[];
   ctaTitle?: string;
   ctaLabel?: string;
@@ -46,6 +48,8 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     benefitsTitle = "Por qué con nosotros",
     useCases,
     process,
+    plans,
+    plansNote,
     faqs,
     ctaTitle = "¿Hablamos de tu proyecto?",
     ctaLabel = "Pídenos presupuesto",
@@ -170,6 +174,54 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                 </Reveal>
               ))}
             </div>
+          </section>
+        )}
+
+        {/* Planes / precios */}
+        {plans && plans.length > 0 && (
+          <section className="mt-16">
+            <Reveal>
+              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">Planes</h2>
+            </Reveal>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {plans.map((p, i) => (
+                <Reveal key={p.name} delay={(i % 3) * 0.08}>
+                  <div
+                    className={`flex h-full flex-col rounded-2xl border p-7 ${
+                      p.featured ? "border-brand bg-ink text-white shadow-xl" : "border-gray-200 bg-white"
+                    }`}
+                  >
+                    {p.featured && (
+                      <span className="mb-3 inline-block w-fit rounded-full bg-brand px-3 py-1 text-xs font-bold text-ink">
+                        Más popular
+                      </span>
+                    )}
+                    <h3 className={`text-lg font-bold ${p.featured ? "text-white" : "text-ink"}`}>{p.name}</h3>
+                    <div className="mt-3 flex items-end gap-1">
+                      <span className={`text-3xl font-extrabold ${p.featured ? "text-brand" : "text-ink"}`}>{p.price}</span>
+                      {p.period && <span className={`pb-1 text-sm ${p.featured ? "text-white/60" : "text-gray-400"}`}>{p.period}</span>}
+                    </div>
+                    <ul className={`mt-5 flex-1 space-y-2 text-sm ${p.featured ? "text-white/80" : "text-gray-600"}`}>
+                      {p.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <span className="mt-0.5 text-brand">✓</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/hablemos/"
+                      className={`mt-6 rounded-full px-5 py-2.5 text-center text-sm font-semibold transition-transform hover:scale-105 ${
+                        p.featured ? "bg-brand text-ink" : "bg-ink text-white"
+                      }`}
+                    >
+                      Contratar
+                    </Link>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            {plansNote && <p className="mt-4 text-center text-xs text-gray-400">{plansNote}</p>}
           </section>
         )}
 
