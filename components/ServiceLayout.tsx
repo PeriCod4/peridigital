@@ -26,6 +26,7 @@ export interface ServiceLayoutProps {
   faqs?: { q: string; a: string }[];
   ctaTitle?: string;
   ctaLabel?: string;
+  relatedGuide?: { slug: string; title: string };
   metaDescription: string;
 }
 
@@ -48,6 +49,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     faqs,
     ctaTitle = "¿Hablamos de tu proyecto?",
     ctaLabel = "Pídenos presupuesto",
+    relatedGuide,
     metaDescription,
   } = props;
 
@@ -72,12 +74,22 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
               {intro.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
-              <Link
-                href="/hablemos/"
-                className="inline-block rounded-full bg-brand px-6 py-2.5 text-base font-semibold text-ink transition-transform hover:scale-105"
-              >
-                {ctaLabel}
-              </Link>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/hablemos/"
+                  className="inline-block rounded-full bg-brand px-6 py-2.5 text-base font-semibold text-ink transition-transform hover:scale-105"
+                >
+                  {ctaLabel}
+                </Link>
+                {relatedGuide && (
+                  <Link
+                    href={`/guias/${relatedGuide.slug}/`}
+                    className="text-sm font-semibold text-brand-dark hover:underline"
+                  >
+                    📖 Guía: {relatedGuide.title} →
+                  </Link>
+                )}
+              </div>
             </div>
           </Reveal>
           {demo && (

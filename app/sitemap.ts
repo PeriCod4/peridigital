@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getCategoriesWithPosts } from "@/lib/wp";
 import { SERVICES, SITE } from "@/lib/site";
+import { GUIDES } from "@/lib/guides";
 
 export const dynamic = "force-static";
 
@@ -9,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts();
   const cats = await getCategoriesWithPosts();
 
-  const staticPages = ["", "blog", "proyectos-web", "nosotros", "hablemos", "aviso-legal", "politica-de-privacidad", "politica-de-cookies"];
+  const staticPages = ["", "blog", "guias", "proyectos-web", "nosotros", "hablemos", "aviso-legal", "politica-de-privacidad", "politica-de-cookies"];
 
   const entries: MetadataRoute.Sitemap = [
     ...staticPages.map((p) => ({
@@ -21,6 +22,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${base}/${s.slug}/`,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+    })),
+    ...GUIDES.map((g) => ({
+      url: `${base}/guias/${g.slug}/`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     ...cats.map((c) => ({
       url: `${base}/categoria/${c.slug}/`,

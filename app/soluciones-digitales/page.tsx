@@ -59,6 +59,7 @@ export default function Page() {
         { q: "¿Cuánto cuesta un desarrollo a medida?", a: "Varía mucho según el alcance. Hacemos un análisis previo y te damos una estimación realista de inversión y plazos antes de empezar." },
       ]}
       ctaLabel="Cuéntanos tu idea"
+      relatedGuide={{ slug: "software-a-medida-vs-saas", title: "Software a medida vs SaaS" }}
     />
   );
 }

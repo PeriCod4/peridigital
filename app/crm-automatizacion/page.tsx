@@ -59,6 +59,7 @@ export default function Page() {
         { q: "¿Cumple con la normativa de protección de datos?", a: "Sí. Configuramos los flujos respetando RGPD y el consentimiento del usuario." },
       ]}
       ctaLabel="Quiero automatizar"
+      relatedGuide={{ slug: "recuperar-carrito-abandonado", title: "Recuperar carritos abandonados" }}
     />
   );
 }

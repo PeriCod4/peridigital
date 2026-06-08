@@ -67,6 +67,7 @@ export default function Page() {
         { q: "¿Cuánto tarda en estar lista?", a: "Una web corporativa suele estar entre 3 y 6 semanas; una tienda online algo más según catálogo e integraciones. Te damos un calendario en la propuesta." },
       ]}
       ctaLabel="Pide presupuesto"
+      relatedGuide={{ slug: "cuanto-cuesta-una-pagina-web", title: "¿Cuánto cuesta una web?" }}
     />
   );
 }

@@ -59,6 +59,7 @@ export default function Page() {
         { q: "¿Tendré algún documento que acredite el cumplimiento?", a: "Sí: te entregamos el informe de auditoría y te ayudamos con la declaración de accesibilidad." },
       ]}
       ctaLabel="Pide tu auditoría"
+      relatedGuide={{ slug: "accesibilidad-web-2026", title: "Ley de accesibilidad 2026" }}
     />
   );
 }
