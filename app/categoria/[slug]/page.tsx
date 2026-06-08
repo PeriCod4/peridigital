@@ -71,7 +71,7 @@ export default async function CategoryPage({
                   )}
                   <div className="p-5">
                     <div className="text-xs font-medium text-gray-400">{new Date(p.date).toLocaleDateString("es-ES")}</div>
-                    <h2 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-dark" dangerouslySetInnerHTML={{ __html: p.title }} />
+                    <h2 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
                   </div>
                 </Link>
               </TiltCard>

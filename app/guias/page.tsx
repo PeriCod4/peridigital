@@ -26,9 +26,9 @@ export default function Page() {
             <Reveal key={g.slug} delay={(i % 2) * 0.08}>
               <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
                 <Link href={`/guias/${g.slug}/`} className="group block">
-                  <h2 className="text-xl font-bold text-ink group-hover:text-brand-dark">{g.title}</h2>
+                  <h2 className="text-xl font-bold text-ink group-hover:text-brand-text">{g.title}</h2>
                   <p className="mt-3 text-gray-600">{g.excerpt}</p>
-                  <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">
+                  <span className="mt-4 inline-block text-sm font-semibold text-brand-text">
                     Leer guía
                     <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">→</span>
                   </span>

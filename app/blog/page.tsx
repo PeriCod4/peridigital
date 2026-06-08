@@ -49,7 +49,7 @@ export default async function BlogIndex() {
                       {p.categories[0] ? ` · ${p.categories[0].name}` : ""}
                     </div>
                     <h2
-                      className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-dark"
+                      className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-text"
                       dangerouslySetInnerHTML={{ __html: p.title }}
                     />
                   </div>

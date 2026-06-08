@@ -48,7 +48,7 @@ export default function UptimeDemo() {
       </div>
       <div className="mt-4 flex items-center justify-between text-sm">
         <span className="text-gray-500">Disponibilidad</span>
-        <span className="font-bold text-brand-dark">{uptime}%</span>
+        <span className="font-bold text-brand-text">{uptime}%</span>
       </div>
       <p className="mt-2 text-xs text-gray-400">Monitorización 24/7 incluida en mantenimiento.</p>
     </div>

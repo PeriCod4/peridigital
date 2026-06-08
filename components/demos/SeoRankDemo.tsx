@@ -43,7 +43,7 @@ function Row({ kw, from, to, run }: { kw: string; from: number; to: number; run:
           transition={{ duration: 2.8, ease: "easeOut" }}
         />
       </div>
-      <span className={`w-14 text-right text-sm font-bold ${pos <= 3 ? "text-brand-dark" : "text-ink"}`}>
+      <span className={`w-14 text-right text-sm font-bold ${pos <= 3 ? "text-brand-text" : "text-ink"}`}>
         #{pos}
       </span>
     </div>

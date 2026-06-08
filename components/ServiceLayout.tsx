@@ -88,7 +88,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                 {relatedGuide && (
                   <Link
                     href={`/guias/${relatedGuide.slug}/`}
-                    className="text-sm font-semibold text-brand-dark hover:underline"
+                    className="text-sm font-semibold text-brand-text hover:underline"
                   >
                     📖 Guía: {relatedGuide.title} →
                   </Link>
@@ -99,7 +99,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
           {demo && (
             <Reveal direction="left" delay={0.1}>
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-dark">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-text">
                   {demoTitle}
                 </p>
                 {demo}

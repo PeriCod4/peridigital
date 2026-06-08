@@ -10,7 +10,7 @@ export default function AccessibilityDemo() {
       <div className="relative overflow-hidden rounded-xl">
         {/* Después (accesible) - fondo */}
         <div className="bg-white p-6">
-          <span className="inline-block rounded-full bg-brand/15 px-2 py-0.5 text-xs font-semibold text-brand-dark">
+          <span className="inline-block rounded-full bg-brand/15 px-2 py-0.5 text-xs font-semibold text-brand-text">
             Accesible ✓
           </span>
           <h4 className="mt-3 text-xl font-bold text-ink">Reserva tu cita hoy</h4>

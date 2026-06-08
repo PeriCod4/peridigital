@@ -5,8 +5,25 @@ import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import Marquee from "@/components/Marquee";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
+import JsonLd from "@/components/JsonLd";
+import { faqSchema } from "@/lib/jsonld";
 import { getAllPosts } from "@/lib/wp";
 import { PROJECTS } from "@/lib/projects-data";
+
+const PROCESS = [
+  ["Auditoría", "Estudiamos tu negocio, tu competencia y a dónde quieres llegar."],
+  ["Propuesta", "Te presentamos un plan claro y un presupuesto cerrado, sin sorpresas."],
+  ["Desarrollo", "Construimos la solución pensando en convertir y posicionar."],
+  ["Formación", "Te enseñamos a gestionarla con total libertad."],
+  ["Seguimiento", "Seguimos a tu lado como partners para hacerla crecer."],
+];
+
+const HOME_FAQS = [
+  { q: "¿Sois una agencia?", a: "Funcionamos como tu equipo de marketing digital: partners que se implican en tu negocio, sin estructura piramidal ni reuniones eternas." },
+  { q: "¿Cuánto cuesta trabajar con vosotros?", a: "Depende del proyecto. Hacemos una auditoría inicial gratuita y te damos un presupuesto cerrado antes de empezar." },
+  { q: "¿Trabajáis con empresas de toda España?", a: "Sí. Trabajamos en remoto con clientes de toda España, con la misma cercanía que en persona." },
+  { q: "¿Hacéis también el SEO?", a: "Sí, a través de PeriSEO, nuestra división especializada en posicionamiento. Web que convierte + que aparece en Google." },
+];
 
 const MAIN_SERVICES = [
   { title: "Web & Ecommerce", href: "/diseno-web/", desc: "Diseñamos webs y tiendas online seguras, rápidas y enfocadas en la conversión, para que tu negocio venda." },
@@ -29,6 +46,7 @@ export default async function Home() {
 
   return (
     <main>
+      <JsonLd data={faqSchema(HOME_FAQS)} />
       <HeroHome />
 
       {/* Clientes */}
@@ -55,9 +73,9 @@ export default async function Home() {
               <Reveal key={s.title} delay={i * 0.1}>
                 <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
                   <Link href={s.href} className="group block">
-                    <h3 className="text-xl font-bold text-ink transition-colors group-hover:text-brand-dark">{s.title}</h3>
+                    <h3 className="text-xl font-bold text-ink transition-colors group-hover:text-brand-text">{s.title}</h3>
                     <p className="mt-3 text-gray-600">{s.desc}</p>
-                    <span className="mt-5 inline-block text-sm font-semibold text-brand-dark">
+                    <span className="mt-5 inline-block text-sm font-semibold text-brand-text">
                       Saber más
                       <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">→</span>
                     </span>
@@ -76,7 +94,7 @@ export default async function Home() {
                   href={s.href}
                   className="group rounded-2xl bg-brand/5 p-6 transition-colors hover:bg-brand/10"
                 >
-                  <h4 className="font-bold text-ink group-hover:text-brand-dark">{s.title}</h4>
+                  <h4 className="font-bold text-ink group-hover:text-brand-text">{s.title}</h4>
                   <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
                 </Link>
               ))}
@@ -122,7 +140,7 @@ export default async function Home() {
           <Reveal>
             <div className="flex items-end justify-between">
               <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Proyectos</h2>
-              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-dark hover:underline">
+              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">
                 Ver todos →
               </Link>
             </div>
@@ -138,6 +156,29 @@ export default async function Home() {
                   <h3 className="mt-4 font-bold text-ink">{p.title}</h3>
                   <p className="mt-2 text-sm text-gray-600">{p.description.slice(0, 120)}…</p>
                 </TiltCard>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Cómo trabajamos */}
+      <section className="py-20">
+        <Container>
+          <Reveal>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Cómo trabajamos</h2>
+            <p className="mt-3 max-w-2xl text-gray-600">
+              Sin tecnicismos ni mareos. Un proceso claro de principio a fin.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {PROCESS.map(([t, d], i) => (
+              <Reveal key={t} delay={i * 0.08}>
+                <div className="h-full rounded-2xl border border-gray-200 p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand font-bold text-ink">{i + 1}</span>
+                  <h3 className="mt-3 font-bold text-ink">{t}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{d}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -164,13 +205,37 @@ export default async function Home() {
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="bg-gray-50 py-20">
+        <Container>
+          <Reveal>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Preguntas frecuentes</h2>
+          </Reveal>
+          <div className="mx-auto mt-8 max-w-3xl space-y-4">
+            {HOME_FAQS.map((f) => (
+              <Reveal key={f.q}>
+                <details className="group rounded-2xl border border-gray-200 bg-white p-6">
+                  <summary className="cursor-pointer list-none font-semibold text-ink">
+                    <span className="flex items-center justify-between gap-4">
+                      {f.q}
+                      <span className="text-brand transition-transform group-open:rotate-45">+</span>
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-gray-600">{f.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Blog */}
       <section className="py-20">
         <Container>
           <Reveal>
             <div className="flex items-end justify-between">
               <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Del blog</h2>
-              <Link href="/blog/" className="text-sm font-semibold text-brand-dark hover:underline">Ver todos →</Link>
+              <Link href="/blog/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
             </div>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -188,7 +253,7 @@ export default async function Home() {
                     )}
                     <div className="p-6">
                       <div className="text-xs font-medium text-gray-400">{new Date(p.date).toLocaleDateString("es-ES")}</div>
-                      <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-dark" dangerouslySetInnerHTML={{ __html: p.title }} />
+                      <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
                     </div>
                   </Link>
                 </TiltCard>

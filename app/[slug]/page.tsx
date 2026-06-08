@@ -113,7 +113,7 @@ export default async function Article({
                 <Link
                   key={s.slug}
                   href={`/${s.slug}/`}
-                  className="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition-colors hover:text-brand-dark"
+                  className="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition-colors hover:text-brand-text"
                 >
                   {s.nav}
                 </Link>

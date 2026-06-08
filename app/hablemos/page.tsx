@@ -28,13 +28,13 @@ export default function Page() {
             <ul className="mt-6 space-y-4">
               <li>
                 <span className="block text-sm text-gray-400">Teléfono / WhatsApp</span>
-                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="text-lg font-semibold text-ink hover:text-brand-dark">
+                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="text-lg font-semibold text-ink hover:text-brand-text">
                   {SITE.phone}
                 </a>
               </li>
               <li>
                 <span className="block text-sm text-gray-400">Email</span>
-                <a href={`mailto:${SITE.email}`} className="text-lg font-semibold text-ink hover:text-brand-dark">
+                <a href={`mailto:${SITE.email}`} className="text-lg font-semibold text-ink hover:text-brand-text">
                   {SITE.email}
                 </a>
               </li>
