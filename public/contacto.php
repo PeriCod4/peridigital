@@ -21,12 +21,15 @@ if ($hp !== '' || $name === '' || $message === '' || !filter_var($email, FILTER_
 }
 
 $to      = 'pablocamperosub@gmail.com';
+$from    = 'pablo@camperodigital.com'; // remitente: buzón real del dominio (Hostinger lo exige)
 $subject = 'Contacto web: ' . mb_substr($name, 0, 80);
 $body    = "Nombre: $name\nEmail: $email\n\nMensaje:\n$message\n";
-$headers = 'From: web@camperodigital.com' . "\r\n" .
+$headers = 'From: Campero Digital <' . $from . '>' . "\r\n" .
            'Reply-To: ' . $email . "\r\n" .
+           'MIME-Version: 1.0' . "\r\n" .
            'Content-Type: text/plain; charset=utf-8';
 
-$sent = @mail($to, $subject, $body, $headers);
+// 5º parámetro: remitente de sobre (-f), necesario en muchos hostings (Hostinger).
+$sent = @mail($to, $subject, $body, $headers, '-f ' . $from);
 
 echo json_encode(['ok' => (bool) $sent]);

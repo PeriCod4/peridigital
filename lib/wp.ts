@@ -1,9 +1,23 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { REDIRECT_SLUGS, POST_REDIRECTS } from "./dedupe";
 
-const API = process.env.WP_API!;
+// El contenido se construye desde un snapshot local versionado (content/).
+// WordPress está archivado tras el lanzamiento; para actualizar el blog se
+// refresca el snapshot (scripts/refresh-content) y se reconstruye.
+const CONTENT_DIR = join(process.cwd(), "content");
 
-if (!API) {
-  throw new Error("WP_API no definido. Configura .env.local (ver .env.example).");
+function loadJSON<T>(file: string): T {
+  return JSON.parse(readFileSync(join(CONTENT_DIR, file), "utf8")) as T;
+}
+
+let _posts: unknown[] | null = null;
+let _pages: unknown[] | null = null;
+function rawPosts(): unknown[] {
+  return (_posts ??= loadJSON<unknown[]>("posts.json"));
+}
+function rawPages(): unknown[] {
+  return (_pages ??= loadJSON<unknown[]>("pages.json"));
 }
 
 export interface WPTerm {
@@ -25,12 +39,6 @@ export interface WPPost {
   categories: WPTerm[];
   tags: WPTerm[];
   yoast?: Record<string, unknown>;
-}
-
-async function getJSON<T>(url: string): Promise<T> {
-  const res = await fetch(url, { headers: { Accept: "application/json" } });
-  if (!res.ok) throw new Error(`WP fetch ${res.status} ${url}`);
-  return res.json() as Promise<T>;
 }
 
 // Reescribe enlaces internos del contenido WP:
@@ -94,34 +102,27 @@ function mapPost(p: any): WPPost {
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const POST_FIELDS =
-  "id,slug,date,modified,title,excerpt,content,categories,tags,yoast_head_json,_links,_embedded";
-
 export async function getAllPosts(): Promise<WPPost[]> {
-  const data = await getJSON<unknown[]>(
-    `${API}/posts?per_page=100&_embed=wp:featuredmedia,wp:term&_fields=${POST_FIELDS}`,
-  );
   // Excluir duplicados consolidados (variantes -2/-3 redirigidas al canónico).
-  return data.map(mapPost).filter((p) => !REDIRECT_SLUGS.has(p.slug));
+  return rawPosts()
+    .map(mapPost)
+    .filter((p) => !REDIRECT_SLUGS.has(p.slug));
 }
 
 export async function getPostSlugs(): Promise<string[]> {
-  const data = await getJSON<{ slug: string }[]>(`${API}/posts?per_page=100&_fields=slug`);
-  return data.map((p) => p.slug).filter((slug) => !REDIRECT_SLUGS.has(slug));
+  return (rawPosts() as { slug: string }[])
+    .map((p) => p.slug)
+    .filter((slug) => !REDIRECT_SLUGS.has(slug));
 }
 
 export async function getPost(slug: string): Promise<WPPost | null> {
-  const data = await getJSON<unknown[]>(
-    `${API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia,wp:term`,
-  );
-  return data[0] ? mapPost(data[0]) : null;
+  const found = (rawPosts() as { slug: string }[]).find((p) => p.slug === slug);
+  return found ? mapPost(found) : null;
 }
 
 export async function getPage(slug: string): Promise<WPPost | null> {
-  const data = await getJSON<unknown[]>(
-    `${API}/pages?slug=${encodeURIComponent(slug)}&_embed`,
-  );
-  return data[0] ? mapPost(data[0]) : null;
+  const found = (rawPages() as { slug: string }[]).find((p) => p.slug === slug);
+  return found ? mapPost(found) : null;
 }
 
 export interface CategoryWithPosts {
