@@ -1,4 +1,4 @@
-import { REDIRECT_SLUGS } from "./dedupe";
+import { REDIRECT_SLUGS, POST_REDIRECTS } from "./dedupe";
 
 const API = process.env.WP_API!;
 
@@ -33,6 +33,37 @@ async function getJSON<T>(url: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+// Reescribe enlaces internos del contenido WP:
+//  - quita el dominio camperodigital.com (los hace relativos)
+//  - /blog/<slug> -> /<slug>/ (nuestros artículos cuelgan de la raíz)
+//  - duplicados consolidados -> canónico
+// Enlaces del contenido que apuntan a artículos inexistentes (colgantes en el
+// WP original) -> los redirigimos a una página relevante que sí existe.
+const CONTENT_LINK_REMAP: Record<string, string> = {
+  "posicionamiento-seo-para-ecommerce": "/seo/",
+};
+
+function rewriteContentLinks(html: string): string {
+  if (!html) return html;
+  return html.replace(/href="([^"]+)"/g, (full, href: string) => {
+    let h = href.trim();
+    // Absolutos del propio dominio -> relativos
+    h = h.replace(/^https?:\/\/(www\.)?camperodigital\.com/i, "");
+    if (!h.startsWith("/")) return full; // externo o ancla: dejar igual
+    // /blog/slug -> /slug/
+    h = h.replace(/^\/blog\/([^/?#]+)\/?$/, "/$1/");
+    // normaliza /slug -> /slug/
+    const m = h.match(/^\/([^/?#]+)\/?$/);
+    if (m) {
+      const slug = m[1];
+      if (CONTENT_LINK_REMAP[slug]) return `href="${CONTENT_LINK_REMAP[slug]}"`;
+      const canon = POST_REDIRECTS[slug] || slug;
+      h = `/${canon}/`;
+    }
+    return `href="${h}"`;
+  });
+}
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function mapPost(p: any): WPPost {
   const media = p._embedded?.["wp:featuredmedia"]?.[0];
@@ -46,7 +77,7 @@ function mapPost(p: any): WPPost {
     modified: p.modified,
     title: p.title?.rendered ?? "",
     excerpt: p.excerpt?.rendered ?? "",
-    contentHtml: p.content?.rendered ?? "",
+    contentHtml: rewriteContentLinks(p.content?.rendered ?? ""),
     coverUrl: media?.source_url,
     coverAlt: media?.alt_text,
     categories: cats,
