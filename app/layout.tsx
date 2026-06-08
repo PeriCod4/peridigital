@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import CookieConsent from "@/components/CookieConsent";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -20,7 +21,22 @@ export const metadata: Metadata = {
     template: "%s | Campero Digital",
   },
   description:
-    "Diseño web, ecommerce, paid media, SEO y software a medida. Páginas web que venden y soluciones digitales para tu negocio.",
+    "Diseño web, ecommerce, software a medida, CRM y automatización, SEO y mantenimiento. Páginas web que venden y soluciones digitales para tu negocio.",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "Campero Digital",
+    url: "https://camperodigital.com",
+    title: "Campero Digital — Agencia digital 360",
+    description:
+      "Webs que venden, software a medida, CRM y automatización, SEO y mantenimiento.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campero Digital — Agencia digital 360",
+    description:
+      "Webs que venden, software a medida, CRM y automatización, SEO y mantenimiento.",
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +52,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
