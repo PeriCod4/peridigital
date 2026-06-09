@@ -69,47 +69,63 @@ export default async function Article({
           { name: plainTitle, url: `${SITE.url}/${post.slug}/` },
         ])}
       />
-      <section className="bg-ink text-white">
-        <Container className="py-14 sm:py-16">
-          <Link href="/blog/" className="text-sm font-medium text-brand hover:underline">
+
+      <Container className="py-12">
+        <article className="mx-auto max-w-3xl">
+          {/* Cabecera estilo WordPress */}
+          <Link href="/blog/" className="text-sm font-medium text-brand-text hover:underline">
             ← Volver al blog
           </Link>
-          <h1
-            className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl"
-            dangerouslySetInnerHTML={{ __html: post.title }}
-          />
-          <div className="mt-4 text-sm text-white/60">
+          <div className="mt-5 text-sm text-gray-500">
             {new Date(post.date).toLocaleDateString("es-ES", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
-            {post.categories[0] ? ` · ${post.categories[0].name}` : ""}
+            {post.categories[0] ? (
+              <>
+                {" · "}
+                <Link href={`/categoria/${post.categories[0].slug}/`} className="text-brand-text hover:underline">
+                  {post.categories[0].name}
+                </Link>
+              </>
+            ) : null}
           </div>
-        </Container>
-      </section>
+          <h1
+            className="mt-3 text-3xl font-extrabold leading-tight text-ink sm:text-4xl"
+            dangerouslySetInnerHTML={{ __html: post.title }}
+          />
 
-      <Container className="py-12">
-        <article className="mx-auto max-w-3xl">
           {post.coverUrl && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={post.coverUrl}
-              alt={post.coverAlt ?? ""}
-              className="mb-10 w-full rounded-2xl"
+              alt={post.coverAlt ?? plainTitle}
+              className="mt-8 w-full rounded-xl"
             />
           )}
+
           <div
-            className="wp-content"
+            className="wp-content mt-8"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
 
-          <div className="mt-14 rounded-2xl bg-brand/10 p-8">
-            <h2 className="text-center text-xl font-bold text-ink">
-              ¿Hablamos de tu proyecto?
-            </h2>
+          {/* Etiquetas */}
+          {post.tags.length > 0 && (
+            <div className="mt-10 flex flex-wrap gap-2 border-t border-gray-200 pt-6">
+              {post.tags.slice(0, 8).map((t) => (
+                <span key={t.id} className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">
+                  #{t.name}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* CTA discreto a servicios */}
+          <div className="mt-12 rounded-2xl bg-brand/10 p-8 text-center">
+            <h2 className="text-xl font-bold text-ink">¿Hablamos de tu proyecto?</h2>
             <div className="mt-5 flex flex-wrap justify-center gap-2">
-              {SERVICES.map((s) => (
+              {SERVICES.slice(0, 6).map((s) => (
                 <Link
                   key={s.slug}
                   href={`/${s.slug}/`}
@@ -119,7 +135,7 @@ export default async function Article({
                 </Link>
               ))}
             </div>
-            <div className="mt-6 text-center">
+            <div className="mt-6">
               <Link
                 href="/hablemos/"
                 className="inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white hover:bg-ink-soft"
