@@ -32,7 +32,10 @@ const MAIN_SERVICES = [
 ];
 
 const OTHER_SERVICES = [
+  { title: "Paid Media", href: "/paid-media/", desc: "Campañas en Meta y Google Ads + optimización de conversión (CRO)." },
   { title: "SEO", href: "/seo/", desc: "Hacemos que te encuentren en Google con PeriSEO, nuestra división SEO." },
+  { title: "Analítica & Data", href: "/analitica-datos/", desc: "Medición avanzada (GA4) y decisiones basadas en datos." },
+  { title: "Creación de marca", href: "/creacion-de-marca/", desc: "Branding, logo e identidad visual desde cero." },
   { title: "Mantenimiento web", href: "/mantenimiento-web/", desc: "Tu web siempre activa, segura y al día, con hosting gestionado." },
   { title: "Accesibilidad web", href: "/accesibilidad-web/", desc: "Cumple la normativa 2026 (WCAG) y llega a más clientes." },
 ];
