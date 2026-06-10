@@ -42,15 +42,11 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
   const [tag, setTag] = useState<string | null>(null);
   const [showAllTags, setShowAllTags] = useState(false);
 
-  // Filtros iniciales desde la URL (?tag= / ?cat= / ?q=)
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
-    const t = sp.get("tag");
-    const c = sp.get("cat");
-    const q = sp.get("q");
-    if (t) setTag(t);
-    if (c) setCat(c);
-    if (q) setQuery(q);
+    if (sp.get("tag")) setTag(sp.get("tag"));
+    if (sp.get("cat")) setCat(sp.get("cat"));
+    if (sp.get("q")) setQuery(sp.get("q") || "");
   }, []);
 
   const categories = useMemo(() => uniqueTerms(items, "categories"), [items]);
@@ -69,126 +65,124 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
     });
   }, [items, query, cat, tag]);
 
-  const visibleTags = showAllTags ? tags : tags.slice(0, 16);
+  const visibleTags = showAllTags ? tags : tags.slice(0, 14);
   const hasFilters = cat || tag || query;
 
   return (
-    <div className="lg:grid lg:grid-cols-[1fr_18rem] lg:gap-12">
-      {/* Resultados */}
-      <div className="order-2 lg:order-1">
-        <div className="mb-6 text-sm text-gray-500">
-          {filtered.length} de {items.length} artículos
-          {hasFilters && (
-            <button
-              onClick={() => { setQuery(""); setCat(null); setTag(null); }}
-              className="ml-3 font-semibold text-brand-text hover:underline"
-            >
-              Limpiar filtros
-            </button>
-          )}
-        </div>
-
-        {filtered.length === 0 ? (
-          <p className="rounded-xl bg-gray-50 p-8 text-center text-gray-500">
-            No hay artículos que coincidan. Prueba con otra búsqueda.
-          </p>
-        ) : (
-          <div className="space-y-10">
-            {filtered.map((p) => (
-              <article key={p.id} className="border-b border-gray-200 pb-10 last:border-0">
-                {p.coverUrl && (
-                  <Link href={`/${p.slug}/`} className="group block overflow-hidden rounded-xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={p.coverUrl}
-                      alt={p.coverAlt ?? strip(p.title)}
-                      className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </Link>
-                )}
-                <div className="mt-4 text-sm text-gray-500">
-                  {new Date(p.date).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
-                  {p.categories[0] ? (
-                    <>
-                      {" · "}
-                      <button onClick={() => setCat(p.categories[0].slug)} className="text-brand-text hover:underline">
-                        {p.categories[0].name}
-                      </button>
-                    </>
-                  ) : null}
-                </div>
-                <h2 className="mt-2 text-2xl font-bold leading-snug text-ink sm:text-3xl">
-                  <Link href={`/${p.slug}/`} className="hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
-                </h2>
-                <p className="mt-3 leading-relaxed text-gray-600">
-                  {strip(p.excerpt).slice(0, 200)}
-                  {strip(p.excerpt).length > 200 ? "…" : ""}
-                </p>
-                <Link href={`/${p.slug}/`} className="mt-3 inline-block font-semibold text-brand-text hover:underline">
-                  Leer más →
-                </Link>
-              </article>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Barra lateral: buscador + filtros */}
-      <aside className="order-1 mb-10 lg:order-2 lg:mb-0">
-        <div className="lg:sticky lg:top-24 space-y-8">
-          <div>
-            <label htmlFor="blog-search" className="mb-2 block text-sm font-semibold text-ink">Buscar</label>
-            <input
-              id="blog-search"
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar artículos…"
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
-            />
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold text-ink">Categorías</h3>
-            <div className="flex flex-wrap gap-2">
-              {categories.map(({ term, count }) => (
-                <button
-                  key={term.slug}
-                  onClick={() => setCat(cat === term.slug ? null : term.slug)}
-                  className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                    cat === term.slug ? "bg-ink text-white" : "bg-gray-100 text-ink hover:bg-brand/15"
-                  }`}
-                >
-                  {term.name} <span className="opacity-60">{count}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold text-ink">Etiquetas</h3>
-            <div className="flex flex-wrap gap-2">
-              {visibleTags.map(({ term }) => (
-                <button
-                  key={term.slug}
-                  onClick={() => setTag(tag === term.slug ? null : term.slug)}
-                  className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                    tag === term.slug ? "bg-brand text-ink" : "bg-gray-50 text-gray-600 hover:bg-brand/10"
-                  }`}
-                >
-                  #{term.name}
-                </button>
-              ))}
-            </div>
-            {tags.length > 16 && (
-              <button onClick={() => setShowAllTags((v) => !v)} className="mt-3 text-xs font-semibold text-brand-text hover:underline">
-                {showAllTags ? "Ver menos" : `Ver todas (${tags.length})`}
+    <div>
+      {/* Barra de filtros compacta a todo el ancho */}
+      <div className="rounded-2xl border border-gray-200 bg-gray-50/60 p-4 sm:p-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Buscar artículos…"
+            aria-label="Buscar artículos"
+            className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 sm:max-w-xs"
+          />
+          <div className="shrink-0 text-sm text-gray-500">
+            {filtered.length} de {items.length}
+            {hasFilters && (
+              <button
+                onClick={() => { setQuery(""); setCat(null); setTag(null); }}
+                className="ml-3 font-semibold text-brand-text hover:underline"
+              >
+                Limpiar
               </button>
             )}
           </div>
         </div>
-      </aside>
+
+        {/* Categorías */}
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Categorías</span>
+          <button
+            onClick={() => setCat(null)}
+            className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
+              !cat ? "bg-ink text-white" : "bg-white text-ink ring-1 ring-gray-200 hover:bg-brand/10"
+            }`}
+          >
+            Todas
+          </button>
+          {categories.map(({ term, count }) => (
+            <button
+              key={term.slug}
+              onClick={() => setCat(cat === term.slug ? null : term.slug)}
+              className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
+                cat === term.slug ? "bg-ink text-white" : "bg-white text-ink ring-1 ring-gray-200 hover:bg-brand/10"
+              }`}
+            >
+              {term.name}
+              <span className="ml-1 opacity-50">{count}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Etiquetas (plegadas) */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Etiquetas</span>
+          {visibleTags.map(({ term }) => (
+            <button
+              key={term.slug}
+              onClick={() => setTag(tag === term.slug ? null : term.slug)}
+              className={`rounded-full px-2.5 py-0.5 text-xs transition-colors ${
+                tag === term.slug ? "bg-brand text-ink" : "bg-white text-gray-500 ring-1 ring-gray-200 hover:bg-brand/10"
+              }`}
+            >
+              #{term.name}
+            </button>
+          ))}
+          {tags.length > 14 && (
+            <button onClick={() => setShowAllTags((v) => !v)} className="text-xs font-semibold text-brand-text hover:underline">
+              {showAllTags ? "ver menos" : `+${tags.length - 14} más`}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Grid de artículos */}
+      {filtered.length === 0 ? (
+        <p className="mt-10 rounded-xl bg-gray-50 p-8 text-center text-gray-500">
+          No hay artículos que coincidan. Prueba con otra búsqueda.
+        </p>
+      ) : (
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((p) => (
+            <article
+              key={p.id}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
+            >
+              <Link href={`/${p.slug}/`} className="block overflow-hidden">
+                {p.coverUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.coverUrl}
+                    alt={p.coverAlt ?? strip(p.title)}
+                    className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="aspect-[16/9] w-full bg-brand/10" />
+                )}
+              </Link>
+              <div className="flex flex-1 flex-col p-5">
+                <div className="text-xs text-gray-400">
+                  {new Date(p.date).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}
+                  {p.categories[0] ? ` · ${p.categories[0].name}` : ""}
+                </div>
+                <h2 className="mt-2 line-clamp-2 font-bold leading-snug text-ink">
+                  <Link href={`/${p.slug}/`} className="hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
+                </h2>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm text-gray-600">{strip(p.excerpt)}</p>
+                <Link href={`/${p.slug}/`} className="mt-3 inline-block text-sm font-semibold text-brand-text hover:underline">
+                  Leer más →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
