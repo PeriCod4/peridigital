@@ -131,6 +131,14 @@ export default function Page() {
                   <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Fixes y mejoras aplicadas</li>
                   <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Acceso 24/7 con PeriSEO</li>
                 </ul>
+                <a
+                  href={SITE.periseo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-accent px-7 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
+                >
+                  Entrar en PeriSEO →
+                </a>
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.1}>
