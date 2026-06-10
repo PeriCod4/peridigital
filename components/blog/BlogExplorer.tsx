@@ -40,7 +40,8 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<string | null>(null);
   const [tag, setTag] = useState<string | null>(null);
-  const [showAllTags, setShowAllTags] = useState(false);
+  const [showAllCats, setShowAllCats] = useState(false);
+  const [showTags, setShowTags] = useState(false);
 
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
@@ -65,8 +66,11 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
     });
   }, [items, query, cat, tag]);
 
-  const visibleTags = showAllTags ? tags : tags.slice(0, 14);
+  const TOP_CATS = 8;
+  const visibleCats = showAllCats ? categories : categories.slice(0, TOP_CATS);
+  const visibleTags = showTags ? tags.slice(0, 40) : [];
   const hasFilters = cat || tag || query;
+  const activeTagName = tag ? tags.find((t) => t.term.slug === tag)?.term.name : null;
 
   return (
     <div>
@@ -94,22 +98,21 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
           </div>
         </div>
 
-        {/* Categorías */}
+        {/* Categorías: top + plegable */}
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Categorías</span>
           <button
             onClick={() => setCat(null)}
-            className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
+            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
               !cat ? "bg-ink text-white" : "bg-white text-ink ring-1 ring-gray-200 hover:bg-brand/10"
             }`}
           >
             Todas
           </button>
-          {categories.map(({ term, count }) => (
+          {visibleCats.map(({ term, count }) => (
             <button
               key={term.slug}
               onClick={() => setCat(cat === term.slug ? null : term.slug)}
-              className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                 cat === term.slug ? "bg-ink text-white" : "bg-white text-ink ring-1 ring-gray-200 hover:bg-brand/10"
               }`}
             >
@@ -117,28 +120,40 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
               <span className="ml-1 opacity-50">{count}</span>
             </button>
           ))}
-        </div>
-
-        {/* Etiquetas (plegadas) */}
-        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Etiquetas</span>
-          {visibleTags.map(({ term }) => (
+          {categories.length > TOP_CATS && (
             <button
-              key={term.slug}
-              onClick={() => setTag(tag === term.slug ? null : term.slug)}
-              className={`rounded-full px-2.5 py-0.5 text-xs transition-colors ${
-                tag === term.slug ? "bg-brand text-ink" : "bg-white text-gray-500 ring-1 ring-gray-200 hover:bg-brand/10"
-              }`}
+              onClick={() => setShowAllCats((v) => !v)}
+              className="rounded-full px-3 py-1 text-xs font-semibold text-brand-text hover:underline"
             >
-              #{term.name}
-            </button>
-          ))}
-          {tags.length > 14 && (
-            <button onClick={() => setShowAllTags((v) => !v)} className="text-xs font-semibold text-brand-text hover:underline">
-              {showAllTags ? "ver menos" : `+${tags.length - 14} más`}
+              {showAllCats ? "ver menos" : `+${categories.length - TOP_CATS} categorías`}
             </button>
           )}
+          {/* Toggle etiquetas */}
+          <button
+            onClick={() => (activeTagName ? setTag(null) : setShowTags((v) => !v))}
+            className="ml-auto rounded-full px-3 py-1 text-xs font-medium text-gray-500 ring-1 ring-gray-200 transition-colors hover:bg-brand/10"
+          >
+            {activeTagName ? `#${activeTagName} ✕` : showTags ? "Ocultar etiquetas" : "Etiquetas ▾"}
+          </button>
         </div>
+
+        {/* Etiquetas (sólo si se abren) */}
+        {showTags && (
+          <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-gray-200 pt-3">
+            {visibleTags.map(({ term }) => (
+              <button
+                key={term.slug}
+                onClick={() => setTag(tag === term.slug ? null : term.slug)}
+                className={`rounded-full px-2.5 py-0.5 text-xs transition-colors ${
+                  tag === term.slug ? "bg-brand text-ink" : "bg-white text-gray-500 ring-1 ring-gray-200 hover:bg-brand/10"
+                }`}
+              >
+                #{term.name}
+              </button>
+            ))}
+            {tags.length > 40 && <span className="text-xs text-gray-400">y {tags.length - 40} más…</span>}
+          </div>
+        )}
       </div>
 
       {/* Grid de artículos */}

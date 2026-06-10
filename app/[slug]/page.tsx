@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import Toc from "@/components/blog/Toc";
 import RelatedCarousel, { type RelatedItem } from "@/components/blog/RelatedCarousel";
+import ContactModal from "@/components/ContactModal";
 import { getPostSlugs, getPost, getRelatedPosts } from "@/lib/wp";
 import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -145,9 +146,9 @@ export default async function Article({
 
             <div className="mt-12 rounded-2xl bg-brand/10 p-8 text-center">
               <h2 className="text-xl font-bold text-ink">¿Hablamos de tu proyecto?</h2>
-              <Link href="/hablemos/" className="mt-5 inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white hover:bg-ink-soft">
-                Contactar
-              </Link>
+              <div className="mt-5">
+                <ContactModal label="Contactar" />
+              </div>
             </div>
           </article>
 
