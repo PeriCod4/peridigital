@@ -26,6 +26,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Selección de texto en el color de marca (teal) en lugar del azul del sistema.
+   Nota: ::selection no admite degradados (los navegadores solo respetan color,
+   background-color y text-shadow), por eso usamos el teal sólido de la marca. */
+::selection {
+  background-color: #3ecccb;
+  color: #1b1f24;
+}
+::-moz-selection {
+  background-color: #3ecccb;
+  color: #1b1f24;
+}
+
 /* ============================================================
    Estilo del cuerpo de artículo (HTML que llega del WP REST)
    ============================================================ */
