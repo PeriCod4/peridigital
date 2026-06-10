@@ -4,7 +4,7 @@ import Container from "./Container";
 import PageHero from "./PageHero";
 import Reveal from "./motion/Reveal";
 import TiltCard from "./motion/TiltCard";
-import Magnetic from "./fx/Magnetic";
+import Button from "./Button";
 import ServiceDashboard, { type DashboardData } from "./ServiceDashboard";
 import LeadCta from "./LeadCta";
 import JsonLd from "./JsonLd";
@@ -90,14 +90,9 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                 <p key={i}>{p}</p>
               ))}
               <div className="flex flex-wrap items-center gap-4">
-                <Magnetic>
-                  <Link
-                    href="/hablemos/"
-                    className="inline-block rounded-xl bg-gradient-to-r from-brand to-accent px-6 py-3 text-base font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
-                  >
-                    {ctaLabel}
-                  </Link>
-                </Magnetic>
+                <Button href="/hablemos/" withArrow>
+                  {ctaLabel}
+                </Button>
                 {relatedGuide && (
                   <Link
                     href={`/guias/${relatedGuide.slug}/`}
@@ -254,14 +249,16 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                         </li>
                       ))}
                     </ul>
-                    <Link
+                    <Button
                       href="/hablemos/"
-                      className={`mt-6 rounded-full px-5 py-2.5 text-center text-sm font-semibold transition-transform hover:scale-105 ${
-                        p.featured ? "bg-brand text-ink" : "bg-ink text-white"
-                      }`}
+                      size="sm"
+                      variant={p.featured ? "primary" : "outline"}
+                      magnetic={false}
+                      fullWidth
+                      className="mt-6"
                     >
                       Contratar
-                    </Link>
+                    </Button>
                   </div>
                 </Reveal>
               ))}

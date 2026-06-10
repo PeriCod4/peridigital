@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Container from "./Container";
+import Button, { buttonClasses } from "./Button";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
@@ -78,23 +78,15 @@ export default function LeadCta({
               <p className="mt-4 max-w-md text-lg text-gray-600">{subtitle}</p>
               {secondary && (
                 <div className="mt-7">
-                  {secondary.external ? (
-                    <a
-                      href={secondary.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3 font-semibold text-ink transition-colors hover:border-brand"
-                    >
-                      {secondary.label} →
-                    </a>
-                  ) : (
-                    <Link
-                      href={secondary.href}
-                      className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3 font-semibold text-ink transition-colors hover:border-brand"
-                    >
-                      {secondary.label} →
-                    </Link>
-                  )}
+                  <Button
+                    href={secondary.href}
+                    external={secondary.external}
+                    variant="outline"
+                    magnetic={false}
+                    withArrow
+                  >
+                    {secondary.label}
+                  </Button>
                 </div>
               )}
             </div>
@@ -137,11 +129,7 @@ export default function LeadCta({
                   {status === "error" && (
                     <p className="text-sm text-red-600">No se pudo enviar. Escríbenos a pablo@camperodigital.com.</p>
                   )}
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="w-full rounded-full bg-gradient-to-r from-brand to-accent px-7 py-3 font-bold text-ink shadow-sm transition-transform hover:scale-[1.02] disabled:opacity-60"
-                  >
+                  <button type="submit" disabled={status === "sending"} className={buttonClasses("primary", "md", true)}>
                     {status === "sending" ? "Enviando…" : submitLabel}
                   </button>
                 </form>

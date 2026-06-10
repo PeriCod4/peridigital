@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { buttonClasses } from "./Button";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
@@ -70,7 +71,7 @@ export default function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-red-600">No se pudo enviar. Inténtalo de nuevo o escríbenos a pablo@camperodigital.com.</p>
       )}
-      <button type="submit" disabled={status === "sending"} className="rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-colors hover:bg-brand-dark disabled:opacity-60">
+      <button type="submit" disabled={status === "sending"} className={buttonClasses("primary", "md", true)}>
         {status === "sending" ? "Enviando…" : "Enviar"}
       </button>
     </form>

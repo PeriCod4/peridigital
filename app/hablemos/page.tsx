@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import CalendlyButton from "@/components/CalendlyButton";
+import { buttonClasses } from "@/components/Button";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -65,7 +66,7 @@ export default function Page() {
                 <li className="flex items-center gap-2"><span className="text-brand">✓</span> Sin compromiso ni venta agresiva</li>
                 <li className="flex items-center gap-2"><span className="text-brand">✓</span> Confirmación y recordatorio automáticos</li>
               </ul>
-              <CalendlyButton className="mt-8 inline-block rounded-full bg-brand px-8 py-3.5 font-semibold text-ink shadow-lg shadow-brand/30 transition-transform hover:scale-105" />
+              <CalendlyButton className={`mt-8 ${buttonClasses("primary", "md")}`} />
             </div>
             <div className="hidden justify-center lg:flex">
               <div className="flex h-44 w-44 items-center justify-center rounded-full bg-brand/15">

@@ -5,6 +5,7 @@ import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import ServiceDashboard from "@/components/ServiceDashboard";
 import LeadCta from "@/components/LeadCta";
+import Button from "@/components/Button";
 import JsonLd from "@/components/JsonLd";
 import SeoRankDemo from "@/components/demos/SeoRankDemo";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
@@ -67,14 +68,11 @@ export default function Page() {
               SEO técnico, contenidos y link building, potenciados con tecnología de
               IA propia. Si tu objetivo es posicionar, son quienes lo hacen.
             </p>
-            <a
-              href={SITE.periseo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-block rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-transform hover:scale-105"
-            >
-              Visitar PeriSEO →
-            </a>
+            <div className="mt-7">
+              <Button href={SITE.periseo} external withArrow>
+                Visitar PeriSEO
+              </Button>
+            </div>
           </div>
         </Reveal>
 
@@ -131,14 +129,11 @@ export default function Page() {
                   <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Fixes y mejoras aplicadas</li>
                   <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Acceso 24/7 con PeriSEO</li>
                 </ul>
-                <a
-                  href={SITE.periseo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-accent px-7 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
-                >
-                  Entrar en PeriSEO →
-                </a>
+                <div className="mt-6">
+                  <Button href={SITE.periseo} external withArrow>
+                    Entrar en PeriSEO
+                  </Button>
+                </div>
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.1}>

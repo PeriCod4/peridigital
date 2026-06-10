@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Container from "@/components/Container";
+import Button from "@/components/Button";
 
 export const metadata = {
   title: "Gracias",
@@ -16,9 +16,11 @@ export default function Page() {
         <p className="mt-3 max-w-md text-white/70">
           Hemos recibido tu mensaje. Te responderemos lo antes posible.
         </p>
-        <Link href="/" className="mt-8 rounded-full bg-brand px-6 py-3 font-semibold text-ink transition-transform hover:scale-105">
-          Volver al inicio
-        </Link>
+        <div className="mt-8">
+          <Button href="/" withArrow>
+            Volver al inicio
+          </Button>
+        </div>
       </Container>
     </main>
   );
