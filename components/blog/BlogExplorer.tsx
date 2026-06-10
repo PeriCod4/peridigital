@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import CategoryCover from "./CategoryCover";
 
 export interface BlogTerm {
   name: string;
@@ -178,7 +179,7 @@ export default function BlogExplorer({ items }: { items: BlogListItem[] }) {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="aspect-[16/9] w-full bg-brand/10" />
+                  <CategoryCover category={p.categories[0]?.name} seed={p.slug} />
                 )}
               </Link>
               <div className="flex flex-1 flex-col p-5">
