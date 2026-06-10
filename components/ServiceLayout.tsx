@@ -236,7 +236,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
             <ol className="mt-8 space-y-5">
               {process.map((s, i) => (
                 <Reveal key={s.title} delay={(i % 4) * 0.06}>
-                  <li className="flex gap-5 rounded-2xl border border-gray-200 p-6">
+                  <li className="spotlight flex gap-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand font-bold text-ink">
                       {i + 1}
                     </span>
@@ -260,7 +260,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
             <div className="mt-8 space-y-4">
               {faqs.map((f) => (
                 <Reveal key={f.q}>
-                  <details className="group rounded-2xl border border-gray-200 p-6">
+                  <details className="spotlight group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                     <summary className="cursor-pointer list-none font-semibold text-ink">
                       <span className="flex items-center justify-between gap-4">
                         {f.q}

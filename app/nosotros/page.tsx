@@ -49,7 +49,7 @@ export default function Page() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
           {HOW.map(([t, d], i) => (
             <Reveal key={t} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-gray-200 p-7">
+              <div className="spotlight h-full rounded-2xl border border-gray-200 bg-white p-7 shadow-sm">
                 <h2 className="text-xl font-bold text-ink">{t}</h2>
                 <p className="mt-3 text-gray-600">{d}</p>
               </div>

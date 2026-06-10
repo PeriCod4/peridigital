@@ -117,7 +117,7 @@ export default function Page() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {FEATURES.map((f, i) => (
               <Reveal key={f.title} delay={(i % 3) * 0.08}>
-                <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
+                <TiltCard className="spotlight h-full rounded-2xl border border-gray-200 bg-white p-7 shadow-sm">
                   <h3 className="text-lg font-bold text-ink">{f.title}</h3>
                   <p className="mt-3 text-gray-600">{f.desc}</p>
                 </TiltCard>
@@ -134,7 +134,7 @@ export default function Page() {
           <div className="mt-8 space-y-4">
             {FAQS.map((f) => (
               <Reveal key={f.q}>
-                <details className="group rounded-2xl border border-gray-200 p-6">
+                <details className="spotlight group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                   <summary className="cursor-pointer list-none font-semibold text-ink">
                     <span className="flex items-center justify-between gap-4">
                       {f.q}

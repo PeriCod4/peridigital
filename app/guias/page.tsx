@@ -24,7 +24,7 @@ export default function Page() {
         <div className="grid gap-6 sm:grid-cols-2">
           {GUIDES.map((g, i) => (
             <Reveal key={g.slug} delay={(i % 2) * 0.08}>
-              <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
+              <TiltCard className="spotlight h-full rounded-2xl border border-gray-200 bg-white p-7 shadow-sm">
                 <Link href={`/guias/${g.slug}/`} className="group block">
                   <h2 className="text-xl font-bold text-ink group-hover:text-brand-text">{g.title}</h2>
                   <p className="mt-3 text-gray-600">{g.excerpt}</p>
