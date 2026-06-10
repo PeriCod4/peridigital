@@ -4,18 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import Container from "./Container";
-import Aurora from "./Aurora";
+import Magnetic from "./fx/Magnetic";
 
 const WORDS = ["clientes", "ventas", "resultados", "crecimiento"];
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
-};
 
 export default function HeroHome() {
   const [i, setI] = useState(0);
@@ -25,66 +16,70 @@ export default function HeroHome() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <Aurora />
-      <Container className="relative py-28 sm:py-36">
-        <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p variants={item} className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand">
-            Agencia digital 360
-          </motion.p>
-          <motion.h1 variants={item} className="max-w-4xl text-4xl font-extrabold leading-[1.1] sm:text-6xl">
-            Convertimos lo digital en
-            <br />
-            <span className="relative inline-block min-h-[1.2em]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={WORDS[i]}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="text-gradient inline-block"
-                >
-                  {WORDS[i]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </motion.h1>
-          <motion.p variants={item} className="mt-6 max-w-xl text-lg text-white/75">
-            Diseño web y ecommerce, software a medida, CRM y automatización. Somos
-            tu equipo de marketing digital, no una agencia más.
-          </motion.p>
-          <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/hablemos/"
-                className="inline-block rounded-full bg-brand px-8 py-3.5 font-semibold text-ink shadow-lg shadow-brand/30 transition-colors hover:bg-brand-dark"
-              >
-                Agenda una reunión
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/proyectos-web/"
-                className="inline-block rounded-full border border-white/25 px-8 py-3.5 font-semibold text-white transition-colors hover:border-brand hover:text-brand"
-              >
-                Ver proyectos
-              </Link>
-            </motion.div>
-          </motion.div>
+    <section className="relative z-10 px-6 pt-32 pb-20 text-center sm:pt-40">
+      <Container className="max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          <span className="text-xs font-medium text-white/70">Agencia digital 360</span>
         </motion.div>
-      </Container>
 
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 5v14M19 12l-7 7-7-7" />
-        </svg>
-      </motion.div>
+        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
+          Convertimos lo digital en
+          <br />
+          <span className="relative inline-block min-h-[1.15em]">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={WORDS[i]}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -18 }}
+                transition={{ duration: 0.4 }}
+                className="text-gradient inline-block"
+              >
+                {WORDS[i]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </h1>
+
+        <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+          Diseño web y ecommerce, software a medida, paid media, CRM y automatización.
+          Somos tu equipo de marketing digital, no una agencia más.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Magnetic>
+            <Link
+              href="/hablemos/"
+              className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand to-accent px-7 py-3.5 font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
+            >
+              Agenda una reunión
+              <span className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              href="/proyectos-web/"
+              className="rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 font-bold text-white transition-all hover:border-brand/60"
+            >
+              Ver proyectos
+            </Link>
+          </Magnetic>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-white/40">
+          {["Sin permanencias", "Partners, no agencia", "Resultados medibles"].map((b) => (
+            <span key={b} className="flex items-center gap-2">
+              <span className="text-brand">✓</span> {b}
+            </span>
+          ))}
+        </div>
+      </Container>
     </section>
   );
 }

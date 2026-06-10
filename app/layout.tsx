@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
+import Spotlight from "@/components/fx/Spotlight";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -55,6 +56,7 @@ export default function RootLayout({
         <Footer />
         <CookieConsent />
         <Analytics />
+        <Spotlight />
       </body>
     </html>
   );

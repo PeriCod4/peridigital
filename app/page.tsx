@@ -5,39 +5,39 @@ import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import Marquee from "@/components/Marquee";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
+import AuroraBackground from "@/components/fx/AuroraBackground";
+import Magnetic from "@/components/fx/Magnetic";
+import Counter from "@/components/fx/Counter";
 import JsonLd from "@/components/JsonLd";
 import { faqSchema } from "@/lib/jsonld";
+import { SERVICES } from "@/lib/site";
 import { getAllPosts } from "@/lib/wp";
 import { PROJECTS } from "@/lib/projects-data";
 
+const ICONS: Record<string, string> = {
+  "diseno-web": "🌐",
+  "soluciones-digitales": "🧩",
+  "crm-automatizacion": "🔁",
+  "paid-media": "📣",
+  seo: "🔍",
+  "analitica-datos": "📊",
+  "creacion-de-marca": "✨",
+  "mantenimiento-web": "🛠️",
+  "accesibilidad-web": "♿",
+};
+
 const PROCESS = [
   ["Auditoría", "Estudiamos tu negocio, tu competencia y a dónde quieres llegar."],
-  ["Propuesta", "Te presentamos un plan claro y un presupuesto cerrado, sin sorpresas."],
-  ["Desarrollo", "Construimos la solución pensando en convertir y posicionar."],
-  ["Formación", "Te enseñamos a gestionarla con total libertad."],
-  ["Seguimiento", "Seguimos a tu lado como partners para hacerla crecer."],
+  ["Propuesta", "Plan claro y presupuesto cerrado, sin sorpresas."],
+  ["Desarrollo", "Construimos pensando en convertir y posicionar."],
+  ["Seguimiento", "Seguimos a tu lado como partners para crecer."],
 ];
 
 const HOME_FAQS = [
   { q: "¿Sois una agencia?", a: "Funcionamos como tu equipo de marketing digital: partners que se implican en tu negocio, sin estructura piramidal ni reuniones eternas." },
   { q: "¿Cuánto cuesta trabajar con vosotros?", a: "Depende del proyecto. Hacemos una auditoría inicial gratuita y te damos un presupuesto cerrado antes de empezar." },
   { q: "¿Trabajáis con empresas de toda España?", a: "Sí. Trabajamos en remoto con clientes de toda España, con la misma cercanía que en persona." },
-  { q: "¿Hacéis también el SEO?", a: "Sí, a través de PeriSEO, nuestra división especializada en posicionamiento. Web que convierte + que aparece en Google." },
-];
-
-const MAIN_SERVICES = [
-  { title: "Web & Ecommerce", href: "/diseno-web/", desc: "Diseñamos webs y tiendas online seguras, rápidas y enfocadas en la conversión, para que tu negocio venda." },
-  { title: "Soluciones digitales", href: "/soluciones-digitales/", desc: "Plugins, aplicaciones y sistemas personalizados para digitalizar y agilizar los procesos de tu empresa." },
-  { title: "CRM & Automatización", href: "/crm-automatizacion/", desc: "Centralizamos clientes y automatizamos procesos clave: mejor comunicación, más tiempo y más fidelización." },
-];
-
-const OTHER_SERVICES = [
-  { title: "Paid Media", href: "/paid-media/", desc: "Campañas en Meta y Google Ads + optimización de conversión (CRO)." },
-  { title: "SEO", href: "/seo/", desc: "Hacemos que te encuentren en Google con PeriSEO, nuestra división SEO." },
-  { title: "Analítica & Data", href: "/analitica-datos/", desc: "Medición avanzada (GA4) y decisiones basadas en datos." },
-  { title: "Creación de marca", href: "/creacion-de-marca/", desc: "Branding, logo e identidad visual desde cero." },
-  { title: "Mantenimiento web", href: "/mantenimiento-web/", desc: "Tu web siempre activa, segura y al día, con hosting gestionado." },
-  { title: "Accesibilidad web", href: "/accesibilidad-web/", desc: "Cumple la normativa 2026 (WCAG) y llega a más clientes." },
+  { q: "¿Hacéis también el SEO?", a: "Sí, a través de PeriSEO, nuestra división especializada en posicionamiento." },
 ];
 
 const CLIENTS = ["Silence SPA", "Kelindas", "Oliver Bam", "La Fundició", "Factoría Creativa", "Gaela Tulum", "Varullo", "Alpha Link"];
@@ -45,142 +45,157 @@ const CLIENTS = ["Silence SPA", "Kelindas", "Oliver Bam", "La Fundició", "Facto
 export default async function Home() {
   const posts = await getAllPosts();
   const latest = posts.slice(0, 3);
-  const featuredProjects = PROJECTS.slice(0, 6);
+  const featured = PROJECTS.slice(0, 6);
 
   return (
-    <main>
+    <main className="relative overflow-x-hidden bg-[#0a0f14] text-white">
       <JsonLd data={faqSchema(HOME_FAQS)} />
+      <AuroraBackground />
+
       <HeroHome />
 
       {/* Clientes */}
-      <section className="border-y border-white/10 bg-ink py-7">
+      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] py-8 backdrop-blur-sm">
         <Container>
-          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-widest text-white/40">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-widest text-white/30">
             Empresas que han confiado en nosotros
           </p>
           <Marquee items={CLIENTS} />
         </Container>
       </section>
 
-      {/* Servicios principales */}
-      <section className="py-20 sm:py-28">
+      {/* Stats */}
+      <section className="relative z-10 py-16">
         <Container>
-          <Reveal>
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Nuestros servicios</h2>
-            <p className="mt-3 max-w-2xl text-gray-600">
-              Un servicio 360 para facilitarte la vida: lo que tu negocio necesita, sin mareos.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {MAIN_SERVICES.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.1}>
-                <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
-                  <Link href={s.href} className="group block">
-                    <h3 className="text-xl font-bold text-ink transition-colors group-hover:text-brand-text">{s.title}</h3>
-                    <p className="mt-3 text-gray-600">{s.desc}</p>
-                    <span className="mt-5 inline-block text-sm font-semibold text-brand-text">
-                      Saber más
-                      <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">→</span>
-                    </span>
-                  </Link>
-                </TiltCard>
+          <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            {[
+              { v: 9, s: "", label: "servicios 360" },
+              { v: 9, s: "", label: "proyectos reales" },
+              { v: posts.length, s: "", label: "artículos en el blog" },
+              { v: 100, s: "%", label: "a tu medida" },
+            ].map((st, i) => (
+              <Reveal key={st.label} delay={i * 0.08}>
+                <div>
+                  <div className="text-gradient text-4xl font-extrabold md:text-5xl">
+                    <Counter end={st.v} suffix={st.s} />
+                  </div>
+                  <p className="mt-2 text-sm text-white/50">{st.label}</p>
+                </div>
               </Reveal>
             ))}
           </div>
+        </Container>
+      </section>
 
-          <Reveal delay={0.15}>
-            <h3 className="mt-14 text-lg font-semibold text-ink">Otros servicios</h3>
-            <div className="mt-5 grid gap-6 md:grid-cols-3">
-              {OTHER_SERVICES.map((s) => (
-                <Link
-                  key={s.title}
-                  href={s.href}
-                  className="group rounded-2xl bg-brand/5 p-6 transition-colors hover:bg-brand/10"
-                >
-                  <h4 className="font-bold text-ink group-hover:text-brand-text">{s.title}</h4>
-                  <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
-                </Link>
-              ))}
+      {/* Servicios */}
+      <section className="relative z-10 py-20 sm:py-24">
+        <Container>
+          <Reveal>
+            <div className="mb-14 text-center">
+              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">Servicios</p>
+              <h2 className="text-3xl font-extrabold sm:text-5xl">Todo lo que tu negocio necesita</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-white/50">
+                Un servicio 360 para facilitarte la vida, sin mareos.
+              </p>
             </div>
           </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={(i % 3) * 0.06}>
+                <Link
+                  href={`/${s.slug}/`}
+                  className="spotlight group block h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40"
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-accent text-xl shadow-lg shadow-brand/20">
+                    {ICONS[s.slug] || "•"}
+                  </div>
+                  <h3 className="flex items-center gap-2 text-lg font-bold">
+                    {s.nav}
+                    <span className="text-brand opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">→</span>
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/50">{s.short}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 
       {/* Showcase con demo */}
-      <section className="bg-ink py-20 text-white">
+      <section className="relative z-10 py-20">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-                  No solo bonito: que venda
+                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">No solo bonito: que venda</p>
+                <h2 className="text-3xl font-extrabold sm:text-4xl">Webs y tiendas pensadas para convertir</h2>
+                <p className="mt-4 text-lg text-white/60">
+                  Diseñamos cada detalle para guiar al usuario hacia la compra. Pruébalo aquí mismo →
                 </p>
-                <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-                  Webs y tiendas pensadas para convertir
-                </h2>
-                <p className="mt-4 text-lg text-white/75">
-                  Diseñamos cada detalle para guiar al usuario hacia la compra:
-                  rápido, claro y sin fricción. Pruébalo aquí mismo →
-                </p>
-                <Link
-                  href="/diseno-web/"
-                  className="mt-7 inline-block rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-transform hover:scale-105"
-                >
-                  Ver diseño web & ecommerce
-                </Link>
+                <Magnetic>
+                  <Link
+                    href="/diseno-web/"
+                    className="mt-7 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand to-accent px-7 py-3.5 font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
+                  >
+                    Ver diseño web & ecommerce →
+                  </Link>
+                </Magnetic>
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.1}>
-              <EcommerceDemo />
+              <div className="relative">
+                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-brand to-accent opacity-20 blur-2xl" />
+                <div className="relative animate-float">
+                  <EcommerceDemo />
+                </div>
+              </div>
             </Reveal>
-          </div>
-        </Container>
-      </section>
-
-      {/* Proyectos */}
-      <section className="bg-gray-50 py-20">
-        <Container>
-          <Reveal>
-            <div className="flex items-end justify-between">
-              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Proyectos</h2>
-              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">
-                Ver todos →
-              </Link>
-            </div>
-          </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((p, i) => (
-              <Reveal key={p.slug} delay={(i % 3) * 0.08}>
-                <TiltCard className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6">
-                  <div className="flex h-16 items-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.title} className="max-h-14 w-auto object-contain" loading="lazy" />
-                  </div>
-                  <h3 className="mt-4 font-bold text-ink">{p.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{p.description.slice(0, 120)}…</p>
-                </TiltCard>
-              </Reveal>
-            ))}
           </div>
         </Container>
       </section>
 
       {/* Cómo trabajamos */}
-      <section className="py-20">
+      <section className="relative z-10 py-20">
         <Container>
           <Reveal>
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Cómo trabajamos</h2>
-            <p className="mt-3 max-w-2xl text-gray-600">
-              Sin tecnicismos ni mareos. Un proceso claro de principio a fin.
-            </p>
+            <div className="mb-12 text-center">
+              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">Cómo trabajamos</p>
+              <h2 className="text-3xl font-extrabold sm:text-4xl">Un proceso claro, sin tecnicismos</h2>
+            </div>
           </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map(([t, d], i) => (
               <Reveal key={t} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-gray-200 p-5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand font-bold text-ink">{i + 1}</span>
-                  <h3 className="mt-3 font-bold text-ink">{t}</h3>
-                  <p className="mt-1 text-sm text-gray-600">{d}</p>
+                <div className="spotlight h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-accent font-bold text-ink">{i + 1}</span>
+                  <h3 className="mt-3 font-bold">{t}</h3>
+                  <p className="mt-1 text-sm text-white/50">{d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Proyectos */}
+      <section className="relative z-10 py-20">
+        <Container>
+          <Reveal>
+            <div className="flex items-end justify-between">
+              <h2 className="text-3xl font-extrabold sm:text-4xl">Proyectos</h2>
+              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand hover:underline">Ver todos →</Link>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+                <div className="spotlight flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40">
+                  <div className="flex h-14 items-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.image} alt={p.title} className="max-h-12 w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                  <h3 className="mt-4 font-bold">{p.title}</h3>
+                  <p className="mt-2 text-sm text-white/50">{p.description.slice(0, 110)}…</p>
                 </div>
               </Reveal>
             ))}
@@ -189,42 +204,43 @@ export default async function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand">
-        <Container className="py-20 text-center">
+      <section className="relative z-10 py-20">
+        <Container>
           <Reveal>
-            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold text-ink sm:text-4xl">
-              No trabajamos para ti, trabajamos contigo
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-ink/80">
-              Somos partners. Hacemos crecer tu negocio implicándonos como si fuera nuestro.
-            </p>
-            <Link
-              href="/hablemos/"
-              className="mt-8 inline-block rounded-full bg-ink px-8 py-3.5 font-semibold text-white shadow-xl transition-transform hover:scale-105"
-            >
-              Empezar proyecto
-            </Link>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand/15 to-accent/10 p-10 text-center backdrop-blur-sm sm:p-16">
+              <h2 className="mx-auto max-w-2xl text-3xl font-extrabold sm:text-4xl">
+                No trabajamos para ti, trabajamos contigo
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-white/60">
+                Somos partners. Hacemos crecer tu negocio implicándonos como si fuera nuestro.
+              </p>
+              <Magnetic>
+                <Link href="/hablemos/" className="mt-8 inline-block rounded-xl bg-gradient-to-r from-brand to-accent px-8 py-3.5 font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50">
+                  Empezar proyecto
+                </Link>
+              </Magnetic>
+            </div>
           </Reveal>
         </Container>
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 py-20">
+      <section className="relative z-10 py-20">
         <Container>
           <Reveal>
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Preguntas frecuentes</h2>
+            <h2 className="mb-8 text-center text-3xl font-extrabold sm:text-4xl">Preguntas frecuentes</h2>
           </Reveal>
-          <div className="mx-auto mt-8 max-w-3xl space-y-4">
+          <div className="mx-auto max-w-3xl space-y-4">
             {HOME_FAQS.map((f) => (
               <Reveal key={f.q}>
-                <details className="group rounded-2xl border border-gray-200 bg-white p-6">
-                  <summary className="cursor-pointer list-none font-semibold text-ink">
+                <details className="spotlight group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+                  <summary className="cursor-pointer list-none font-semibold">
                     <span className="flex items-center justify-between gap-4">
                       {f.q}
                       <span className="text-brand transition-transform group-open:rotate-45">+</span>
                     </span>
                   </summary>
-                  <p className="mt-3 text-gray-600">{f.a}</p>
+                  <p className="mt-3 text-white/60">{f.a}</p>
                 </details>
               </Reveal>
             ))}
@@ -233,33 +249,31 @@ export default async function Home() {
       </section>
 
       {/* Blog */}
-      <section className="py-20">
+      <section className="relative z-10 py-20">
         <Container>
           <Reveal>
             <div className="flex items-end justify-between">
-              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Del blog</h2>
-              <Link href="/blog/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
+              <h2 className="text-3xl font-extrabold sm:text-4xl">Del blog</h2>
+              <Link href="/blog/" className="text-sm font-semibold text-brand hover:underline">Ver todos →</Link>
             </div>
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {latest.map((p, i) => (
-              <Reveal key={p.id} delay={i * 0.1}>
-                <TiltCard className="h-full overflow-hidden rounded-2xl border border-gray-200 bg-white">
-                  <Link href={`/${p.slug}/`} className="group block">
-                    {p.coverUrl ? (
-                      <div className="overflow-hidden">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={p.coverUrl} alt={p.coverAlt ?? ""} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                      </div>
-                    ) : (
-                      <div className="aspect-[16/9] w-full bg-brand/10" />
-                    )}
-                    <div className="p-6">
-                      <div className="text-xs font-medium text-gray-400">{new Date(p.date).toLocaleDateString("es-ES")}</div>
-                      <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
+              <Reveal key={p.id} delay={i * 0.08}>
+                <Link href={`/${p.slug}/`} className="spotlight group block h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40">
+                  {p.coverUrl ? (
+                    <div className="overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={p.coverUrl} alt={p.coverAlt ?? ""} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     </div>
-                  </Link>
-                </TiltCard>
+                  ) : (
+                    <div className="aspect-[16/9] w-full bg-gradient-to-br from-brand/30 to-accent/20" />
+                  )}
+                  <div className="p-5">
+                    <div className="text-xs text-white/40">{new Date(p.date).toLocaleDateString("es-ES")}</div>
+                    <h3 className="mt-2 font-bold leading-snug group-hover:text-brand" dangerouslySetInnerHTML={{ __html: p.title }} />
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
