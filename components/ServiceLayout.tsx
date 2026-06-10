@@ -52,7 +52,6 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     plans,
     plansNote,
     faqs,
-    ctaTitle = "¿Hablamos de tu proyecto?",
     ctaLabel = "Pídenos presupuesto",
     relatedGuide,
     metaDescription,
@@ -276,20 +275,6 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
           </section>
         )}
 
-        {/* CTA */}
-        <div className="mt-16 rounded-3xl border border-brand/20 bg-gradient-to-br from-brand/10 to-accent/10 p-10 text-center">
-          <h2 className="text-2xl font-extrabold text-ink">{ctaTitle}</h2>
-          <div className="mt-6">
-            <Magnetic>
-              <Link
-                href="/hablemos/"
-                className="inline-block rounded-xl bg-gradient-to-r from-brand to-accent px-7 py-3.5 font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
-              >
-                {ctaLabel}
-              </Link>
-            </Magnetic>
-          </div>
-        </div>
       </Container>
     </main>
   );

@@ -1,7 +1,7 @@
 import Container from "./Container";
 import Reveal from "./motion/Reveal";
 
-// Hero claro: el fondo aurora es global (layout), aquí solo el contenido.
+// Hero claro centrado, estilo home (badge + título grande). Aurora global de fondo.
 export default function PageHero({
   eyebrow,
   title,
@@ -13,18 +13,19 @@ export default function PageHero({
 }) {
   return (
     <section className="relative text-ink">
-      <Container className="py-20 sm:py-24">
+      <Container className="py-20 text-center sm:py-28">
         <Reveal>
           {eyebrow && (
-            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-text">
-              {eyebrow}
-            </p>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-1.5 shadow-sm backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-600">{eyebrow}</span>
+            </div>
           )}
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl">
+          <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-5 max-w-2xl text-lg text-gray-600">{subtitle}</p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 md:text-xl">{subtitle}</p>
           )}
         </Reveal>
       </Container>

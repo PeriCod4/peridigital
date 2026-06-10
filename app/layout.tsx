@@ -8,6 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
 import Spotlight from "@/components/fx/Spotlight";
 import AuroraBackground from "@/components/fx/AuroraBackground";
+import FinalCta from "@/components/FinalCta";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -55,6 +56,7 @@ export default function RootLayout({
         <AuroraBackground />
         <Header />
         <div className="relative z-10 flex-1">{children}</div>
+        <FinalCta />
         <Footer />
         <CookieConsent />
         <Analytics />

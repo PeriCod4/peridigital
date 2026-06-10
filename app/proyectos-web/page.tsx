@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ProjectsGrid from "@/components/ProjectsGrid";
@@ -19,16 +18,6 @@ export default function Page() {
       />
       <Container className="py-16">
         <ProjectsGrid />
-
-        <div className="mt-14 rounded-2xl bg-brand/10 p-10 text-center">
-          <h2 className="text-2xl font-extrabold text-ink">¿Empezamos el tuyo?</h2>
-          <Link
-            href="/hablemos/"
-            className="mt-6 inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white transition-transform hover:scale-105"
-          >
-            Hablemos de tu proyecto
-          </Link>
-        </div>
       </Container>
     </main>
   );

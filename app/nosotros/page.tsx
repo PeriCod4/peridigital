@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
@@ -58,13 +57,8 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <Link
-            href="/hablemos/"
-            className="inline-block rounded-full bg-brand px-7 py-3 font-semibold text-ink transition-transform hover:scale-105"
-          >
-            Trabajemos juntos
-          </Link>
+        <div className="mt-10 spotlight rounded-2xl border border-gray-200 bg-white p-6 text-center text-gray-600 shadow-sm">
+          También potenciamos nuestras propias marcas, así que dominamos de verdad lo que ofrecemos.
         </div>
       </Container>
     </main>
