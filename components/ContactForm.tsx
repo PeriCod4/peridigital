@@ -7,7 +7,8 @@ type Status = "idle" | "sending" | "ok" | "error";
 
 // Destino del formulario (FormSubmit, sin backend). Requiere una confirmación
 // inicial por email la primera vez (se envía al activar).
-const ENDPOINT = "https://formsubmit.co/ajax/pablocamperosub@gmail.com";
+// Token de FormSubmit (sustituye al email para no exponerlo en el bundle JS).
+const ENDPOINT = "https://formsubmit.co/ajax/53662869bb388eefe7a867ce31097783";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");

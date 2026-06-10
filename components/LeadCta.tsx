@@ -6,7 +6,8 @@ import Button, { buttonClasses } from "./Button";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
-const ENDPOINT = "https://formsubmit.co/ajax/pablocamperosub@gmail.com";
+// Token de FormSubmit (sustituye al email para no exponerlo en el bundle JS).
+const ENDPOINT = "https://formsubmit.co/ajax/53662869bb388eefe7a867ce31097783";
 
 export interface LeadCtaProps {
   /** Título adaptado al contenido de la página */
