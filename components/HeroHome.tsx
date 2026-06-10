@@ -22,13 +22,13 @@ export default function HeroHome() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-1.5 shadow-sm backdrop-blur-sm"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          <span className="text-xs font-medium text-white/70">Agencia digital 360</span>
+          <span className="text-xs font-medium text-gray-600">Agencia digital 360</span>
         </motion.div>
 
-        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
+        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight text-ink md:text-6xl lg:text-7xl">
           Convertimos lo digital en
           <br />
           <span className="relative inline-block min-h-[1.15em]">
@@ -47,7 +47,7 @@ export default function HeroHome() {
           </span>
         </h1>
 
-        <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+        <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
           Diseño web y ecommerce, software a medida, paid media, CRM y automatización.
           Somos tu equipo de marketing digital, no una agencia más.
         </p>
@@ -65,17 +65,17 @@ export default function HeroHome() {
           <Magnetic>
             <Link
               href="/proyectos-web/"
-              className="rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 font-bold text-white transition-all hover:border-brand/60"
+              className="rounded-xl border border-gray-300 bg-white px-7 py-3.5 font-bold text-ink shadow-sm transition-all hover:border-brand"
             >
               Ver proyectos
             </Link>
           </Magnetic>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-white/40">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-gray-500">
           {["Sin permanencias", "Partners, no agencia", "Resultados medibles"].map((b) => (
             <span key={b} className="flex items-center gap-2">
-              <span className="text-brand">✓</span> {b}
+              <span className="text-brand-text">✓</span> {b}
             </span>
           ))}
         </div>

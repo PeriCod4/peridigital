@@ -2,7 +2,6 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import HeroHome from "@/components/HeroHome";
 import Reveal from "@/components/motion/Reveal";
-import TiltCard from "@/components/motion/TiltCard";
 import Marquee from "@/components/Marquee";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
 import AuroraBackground from "@/components/fx/AuroraBackground";
@@ -48,16 +47,16 @@ export default async function Home() {
   const featured = PROJECTS.slice(0, 6);
 
   return (
-    <main className="relative overflow-x-hidden bg-[#0a0f14] text-white">
+    <main className="relative overflow-x-hidden bg-white text-ink">
       <JsonLd data={faqSchema(HOME_FAQS)} />
       <AuroraBackground />
 
       <HeroHome />
 
       {/* Clientes */}
-      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] py-8 backdrop-blur-sm">
+      <section className="relative z-10 border-y border-gray-100 bg-gray-50/70 py-8 backdrop-blur-sm">
         <Container>
-          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-widest text-white/30">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-widest text-gray-400">
             Empresas que han confiado en nosotros
           </p>
           <Marquee items={CLIENTS} />
@@ -79,7 +78,7 @@ export default async function Home() {
                   <div className="text-gradient text-4xl font-extrabold md:text-5xl">
                     <Counter end={st.v} suffix={st.s} />
                   </div>
-                  <p className="mt-2 text-sm text-white/50">{st.label}</p>
+                  <p className="mt-2 text-sm text-gray-500">{st.label}</p>
                 </div>
               </Reveal>
             ))}
@@ -92,9 +91,9 @@ export default async function Home() {
         <Container>
           <Reveal>
             <div className="mb-14 text-center">
-              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">Servicios</p>
-              <h2 className="text-3xl font-extrabold sm:text-5xl">Todo lo que tu negocio necesita</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-white/50">
+              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-text">Servicios</p>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-5xl">Todo lo que tu negocio necesita</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-gray-600">
                 Un servicio 360 para facilitarte la vida, sin mareos.
               </p>
             </div>
@@ -104,16 +103,16 @@ export default async function Home() {
               <Reveal key={s.slug} delay={(i % 3) * 0.06}>
                 <Link
                   href={`/${s.slug}/`}
-                  className="spotlight group block h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40"
+                  className="spotlight group block h-full rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg"
                 >
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-accent text-xl shadow-lg shadow-brand/20">
                     {ICONS[s.slug] || "•"}
                   </div>
-                  <h3 className="flex items-center gap-2 text-lg font-bold">
+                  <h3 className="flex items-center gap-2 text-lg font-bold text-ink">
                     {s.nav}
-                    <span className="text-brand opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">→</span>
+                    <span className="text-brand-text opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">→</span>
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/50">{s.short}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{s.short}</p>
                 </Link>
               </Reveal>
             ))}
@@ -127,9 +126,9 @@ export default async function Home() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
               <div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">No solo bonito: que venda</p>
-                <h2 className="text-3xl font-extrabold sm:text-4xl">Webs y tiendas pensadas para convertir</h2>
-                <p className="mt-4 text-lg text-white/60">
+                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-text">No solo bonito: que venda</p>
+                <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Webs y tiendas pensadas para convertir</h2>
+                <p className="mt-4 text-lg text-gray-600">
                   Diseñamos cada detalle para guiar al usuario hacia la compra. Pruébalo aquí mismo →
                 </p>
                 <Magnetic>
@@ -159,17 +158,17 @@ export default async function Home() {
         <Container>
           <Reveal>
             <div className="mb-12 text-center">
-              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand">Cómo trabajamos</p>
-              <h2 className="text-3xl font-extrabold sm:text-4xl">Un proceso claro, sin tecnicismos</h2>
+              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-text">Cómo trabajamos</p>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Un proceso claro, sin tecnicismos</h2>
             </div>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map(([t, d], i) => (
               <Reveal key={t} delay={i * 0.08}>
-                <div className="spotlight h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+                <div className="spotlight h-full rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-accent font-bold text-ink">{i + 1}</span>
-                  <h3 className="mt-3 font-bold">{t}</h3>
-                  <p className="mt-1 text-sm text-white/50">{d}</p>
+                  <h3 className="mt-3 font-bold text-ink">{t}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{d}</p>
                 </div>
               </Reveal>
             ))}
@@ -182,20 +181,20 @@ export default async function Home() {
         <Container>
           <Reveal>
             <div className="flex items-end justify-between">
-              <h2 className="text-3xl font-extrabold sm:text-4xl">Proyectos</h2>
-              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand hover:underline">Ver todos →</Link>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Proyectos</h2>
+              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
             </div>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p, i) => (
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
-                <div className="spotlight flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40">
+                <div className="spotlight flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg">
                   <div className="flex h-14 items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.title} className="max-h-12 w-auto object-contain brightness-0 invert" loading="lazy" />
+                    <img src={p.image} alt={p.title} className="max-h-12 w-auto object-contain" loading="lazy" />
                   </div>
-                  <h3 className="mt-4 font-bold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-white/50">{p.description.slice(0, 110)}…</p>
+                  <h3 className="mt-4 font-bold text-ink">{p.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{p.description.slice(0, 110)}…</p>
                 </div>
               </Reveal>
             ))}
@@ -207,11 +206,11 @@ export default async function Home() {
       <section className="relative z-10 py-20">
         <Container>
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand/15 to-accent/10 p-10 text-center backdrop-blur-sm sm:p-16">
-              <h2 className="mx-auto max-w-2xl text-3xl font-extrabold sm:text-4xl">
+            <div className="relative overflow-hidden rounded-3xl border border-brand/20 bg-gradient-to-br from-brand/10 to-accent/10 p-10 text-center sm:p-16">
+              <h2 className="mx-auto max-w-2xl text-3xl font-extrabold text-ink sm:text-4xl">
                 No trabajamos para ti, trabajamos contigo
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-white/60">
+              <p className="mx-auto mt-4 max-w-xl text-gray-600">
                 Somos partners. Hacemos crecer tu negocio implicándonos como si fuera nuestro.
               </p>
               <Magnetic>
@@ -228,19 +227,19 @@ export default async function Home() {
       <section className="relative z-10 py-20">
         <Container>
           <Reveal>
-            <h2 className="mb-8 text-center text-3xl font-extrabold sm:text-4xl">Preguntas frecuentes</h2>
+            <h2 className="mb-8 text-center text-3xl font-extrabold text-ink sm:text-4xl">Preguntas frecuentes</h2>
           </Reveal>
           <div className="mx-auto max-w-3xl space-y-4">
             {HOME_FAQS.map((f) => (
               <Reveal key={f.q}>
-                <details className="spotlight group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
-                  <summary className="cursor-pointer list-none font-semibold">
+                <details className="spotlight group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <summary className="cursor-pointer list-none font-semibold text-ink">
                     <span className="flex items-center justify-between gap-4">
                       {f.q}
-                      <span className="text-brand transition-transform group-open:rotate-45">+</span>
+                      <span className="text-brand-text transition-transform group-open:rotate-45">+</span>
                     </span>
                   </summary>
-                  <p className="mt-3 text-white/60">{f.a}</p>
+                  <p className="mt-3 text-gray-600">{f.a}</p>
                 </details>
               </Reveal>
             ))}
@@ -253,14 +252,14 @@ export default async function Home() {
         <Container>
           <Reveal>
             <div className="flex items-end justify-between">
-              <h2 className="text-3xl font-extrabold sm:text-4xl">Del blog</h2>
-              <Link href="/blog/" className="text-sm font-semibold text-brand hover:underline">Ver todos →</Link>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Del blog</h2>
+              <Link href="/blog/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
             </div>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {latest.map((p, i) => (
               <Reveal key={p.id} delay={i * 0.08}>
-                <Link href={`/${p.slug}/`} className="spotlight group block h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-brand/40">
+                <Link href={`/${p.slug}/`} className="spotlight group block h-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg">
                   {p.coverUrl ? (
                     <div className="overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -270,8 +269,8 @@ export default async function Home() {
                     <div className="aspect-[16/9] w-full bg-gradient-to-br from-brand/30 to-accent/20" />
                   )}
                   <div className="p-5">
-                    <div className="text-xs text-white/40">{new Date(p.date).toLocaleDateString("es-ES")}</div>
-                    <h3 className="mt-2 font-bold leading-snug group-hover:text-brand" dangerouslySetInnerHTML={{ __html: p.title }} />
+                    <div className="text-xs text-gray-400">{new Date(p.date).toLocaleDateString("es-ES")}</div>
+                    <h3 className="mt-2 font-bold leading-snug text-ink group-hover:text-brand-text" dangerouslySetInnerHTML={{ __html: p.title }} />
                   </div>
                 </Link>
               </Reveal>

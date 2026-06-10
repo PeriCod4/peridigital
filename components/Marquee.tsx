@@ -4,7 +4,7 @@ export default function Marquee({ items }: { items: string[] }) {
       {items.map((item, i) => (
         <span
           key={i}
-          className="text-lg font-semibold whitespace-nowrap text-white/40"
+          className="text-lg font-semibold whitespace-nowrap text-gray-400"
         >
           {item}
         </span>

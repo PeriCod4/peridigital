@@ -269,15 +269,14 @@ summary:focus-visible {
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    260px circle at var(--mx, -200px) var(--my, -200px),
-    rgba(62, 204, 203, 0.22),
-    rgba(2, 189, 255, 0.10) 35%,
-    transparent 60%
+    240px circle at var(--mx, -200px) var(--my, -200px),
+    rgba(62, 204, 203, 0.16),
+    rgba(2, 189, 255, 0.08) 38%,
+    transparent 62%
   );
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
-  mix-blend-mode: screen;
   z-index: 1;
 }
 .spotlight:hover::after { opacity: 1; }
