@@ -1,7 +1,7 @@
 import Container from "./Container";
-import Aurora from "./Aurora";
 import Reveal from "./motion/Reveal";
 
+// Hero claro: el fondo aurora es global (layout), aquí solo el contenido.
 export default function PageHero({
   eyebrow,
   title,
@@ -12,12 +12,11 @@ export default function PageHero({
   subtitle?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <Aurora />
-      <Container className="relative py-20 sm:py-24">
+    <section className="relative text-ink">
+      <Container className="py-20 sm:py-24">
         <Reveal>
           {eyebrow && (
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand">
+            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-text">
               {eyebrow}
             </p>
           )}
@@ -25,7 +24,7 @@ export default function PageHero({
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-5 max-w-2xl text-lg text-white/75">{subtitle}</p>
+            <p className="mt-5 max-w-2xl text-lg text-gray-600">{subtitle}</p>
           )}
         </Reveal>
       </Container>

@@ -45,7 +45,7 @@ export default function ProjectsGrid() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
-              <TiltCard className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6">
+              <TiltCard className="spotlight flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="flex h-20 items-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image} alt={`Proyecto ${p.title}`} className="max-h-16 w-auto object-contain" loading="lazy" />

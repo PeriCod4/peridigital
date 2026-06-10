@@ -4,6 +4,7 @@ import Container from "./Container";
 import PageHero from "./PageHero";
 import Reveal from "./motion/Reveal";
 import TiltCard from "./motion/TiltCard";
+import Magnetic from "./fx/Magnetic";
 import JsonLd from "./JsonLd";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -79,12 +80,14 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                 <p key={i}>{p}</p>
               ))}
               <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/hablemos/"
-                  className="inline-block rounded-full bg-brand px-6 py-2.5 text-base font-semibold text-ink transition-transform hover:scale-105"
-                >
-                  {ctaLabel}
-                </Link>
+                <Magnetic>
+                  <Link
+                    href="/hablemos/"
+                    className="inline-block rounded-xl bg-gradient-to-r from-brand to-accent px-6 py-3 text-base font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
+                  >
+                    {ctaLabel}
+                  </Link>
+                </Magnetic>
                 {relatedGuide && (
                   <Link
                     href={`/guias/${relatedGuide.slug}/`}
@@ -130,7 +133,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {features.map((f, i) => (
               <Reveal key={f.title} delay={(i % 3) * 0.08}>
-                <TiltCard className="h-full rounded-2xl border border-gray-200 bg-white p-7">
+                <TiltCard className="spotlight h-full rounded-2xl border border-gray-200 bg-white p-7 shadow-sm">
                   <h3 className="text-lg font-bold text-ink">{f.title}</h3>
                   <p className="mt-3 text-gray-600">{f.desc}</p>
                 </TiltCard>
@@ -167,7 +170,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {useCases.map((u, i) => (
                 <Reveal key={u.title} delay={(i % 3) * 0.08}>
-                  <div className="h-full rounded-2xl border-l-4 border-brand bg-white p-6 shadow-sm">
+                  <div className="spotlight h-full rounded-2xl border-l-4 border-brand bg-white p-6 shadow-sm">
                     <h3 className="font-bold text-ink">{u.title}</h3>
                     <p className="mt-2 text-sm text-gray-600">{u.desc}</p>
                   </div>
@@ -187,8 +190,8 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
               {plans.map((p, i) => (
                 <Reveal key={p.name} delay={(i % 3) * 0.08}>
                   <div
-                    className={`flex h-full flex-col rounded-2xl border p-7 ${
-                      p.featured ? "border-brand bg-ink text-white shadow-xl" : "border-gray-200 bg-white"
+                    className={`spotlight flex h-full flex-col rounded-2xl border p-7 ${
+                      p.featured ? "border-brand bg-ink text-white shadow-xl" : "border-gray-200 bg-white shadow-sm"
                     }`}
                   >
                     {p.featured && (
@@ -274,14 +277,18 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
         )}
 
         {/* CTA */}
-        <div className="mt-16 rounded-2xl bg-brand/10 p-10 text-center">
+        <div className="mt-16 rounded-3xl border border-brand/20 bg-gradient-to-br from-brand/10 to-accent/10 p-10 text-center">
           <h2 className="text-2xl font-extrabold text-ink">{ctaTitle}</h2>
-          <Link
-            href="/hablemos/"
-            className="mt-6 inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white transition-transform hover:scale-105"
-          >
-            {ctaLabel}
-          </Link>
+          <div className="mt-6">
+            <Magnetic>
+              <Link
+                href="/hablemos/"
+                className="inline-block rounded-xl bg-gradient-to-r from-brand to-accent px-7 py-3.5 font-bold text-ink shadow-xl shadow-brand/30 transition-all hover:shadow-brand/50"
+              >
+                {ctaLabel}
+              </Link>
+            </Magnetic>
+          </div>
         </div>
       </Container>
     </main>

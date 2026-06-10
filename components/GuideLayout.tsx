@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Container from "./Container";
-import Aurora from "./Aurora";
 import Reveal from "./motion/Reveal";
 import JsonLd from "./JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
@@ -40,11 +39,10 @@ export default function GuideLayout(props: GuideLayoutProps) {
       />
       {faqs && faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
 
-      <section className="relative overflow-hidden bg-ink text-white">
-        <Aurora />
-        <Container className="relative py-16 sm:py-20">
+      <section className="relative text-ink">
+        <Container className="py-16 sm:py-20">
           <Reveal>
-            <Link href="/guias/" className="text-sm font-medium text-brand hover:underline">
+            <Link href="/guias/" className="text-sm font-semibold text-brand-text hover:underline">
               ← Guías
             </Link>
             <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl">

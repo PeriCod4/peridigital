@@ -18,7 +18,7 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-ink text-white/70">
+    <footer className="relative z-10 mt-24 bg-ink text-white/70">
       <Container className="py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>

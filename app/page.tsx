@@ -4,7 +4,6 @@ import HeroHome from "@/components/HeroHome";
 import Reveal from "@/components/motion/Reveal";
 import Marquee from "@/components/Marquee";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
-import AuroraBackground from "@/components/fx/AuroraBackground";
 import Magnetic from "@/components/fx/Magnetic";
 import Counter from "@/components/fx/Counter";
 import JsonLd from "@/components/JsonLd";
@@ -47,10 +46,8 @@ export default async function Home() {
   const featured = PROJECTS.slice(0, 6);
 
   return (
-    <main className="relative overflow-x-hidden bg-white text-ink">
+    <main className="relative overflow-x-hidden text-ink">
       <JsonLd data={faqSchema(HOME_FAQS)} />
-      <AuroraBackground />
-
       <HeroHome />
 
       {/* Clientes */}

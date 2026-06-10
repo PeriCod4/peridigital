@@ -43,7 +43,7 @@ export default function RelatedCarousel({ posts }: { posts: RelatedItem[] }) {
           <Link
             key={p.id}
             href={`/${p.slug}/`}
-            className="group w-64 shrink-0 snap-start overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
+            className="spotlight group w-64 shrink-0 snap-start overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
           >
             {p.coverUrl ? (
               <div className="overflow-hidden">
