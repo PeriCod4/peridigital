@@ -38,7 +38,52 @@ export interface WPPost {
   coverAlt?: string;
   categories: WPTerm[];
   tags: WPTerm[];
+  headings: TocHeading[];
   yoast?: Record<string, unknown>;
+}
+
+export interface TocHeading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+function slugifyHeading(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&[a-z#0-9]+;/g, " ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 60);
+}
+
+// Inyecta id en los h2/h3 del contenido y devuelve el índice (TOC).
+function addHeadingIds(html: string): { html: string; headings: TocHeading[] } {
+  const headings: TocHeading[] = [];
+  const used = new Set<string>();
+  const out = html.replace(
+    /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi,
+    (full, lvl: string, attrs: string, inner: string) => {
+      const level = Number(lvl) as 2 | 3;
+      const text = inner.replace(/<[^>]+>/g, "").replace(/&[a-z#0-9]+;/g, " ").trim();
+      if (!text) return full;
+      // respetar id existente
+      const existing = attrs.match(/\bid="([^"]+)"/);
+      let id = existing ? existing[1] : slugifyHeading(text);
+      if (!id) id = `sec-${headings.length + 1}`;
+      let unique = id;
+      let n = 2;
+      while (used.has(unique)) unique = `${id}-${n++}`;
+      used.add(unique);
+      headings.push({ id: unique, text, level });
+      const newAttrs = existing ? attrs : `${attrs} id="${unique}"`;
+      return `<h${lvl}${newAttrs}>${inner}</h${lvl}>`;
+    },
+  );
+  return { html: out, headings };
 }
 
 // Reescribe enlaces internos del contenido WP:
@@ -85,6 +130,8 @@ function mapPost(p: any): WPPost {
   const terms: any[][] = p._embedded?.["wp:term"] ?? [];
   const cats: WPTerm[] = (terms[0] ?? []).map((t: any) => ({ id: t.id, name: t.name, slug: t.slug }));
   const tags: WPTerm[] = (terms[1] ?? []).map((t: any) => ({ id: t.id, name: t.name, slug: t.slug }));
+  const rawHtml = localizeUploads(rewriteContentLinks(p.content?.rendered ?? ""));
+  const { html, headings } = addHeadingIds(rawHtml);
   return {
     id: p.id,
     slug: p.slug,
@@ -92,11 +139,12 @@ function mapPost(p: any): WPPost {
     modified: p.modified,
     title: p.title?.rendered ?? "",
     excerpt: p.excerpt?.rendered ?? "",
-    contentHtml: localizeUploads(rewriteContentLinks(p.content?.rendered ?? "")),
+    contentHtml: html,
     coverUrl: media?.source_url ? localizeUploads(media.source_url) : undefined,
     coverAlt: media?.alt_text,
     categories: cats,
     tags,
+    headings,
     yoast: p.yoast_head_json,
   };
 }
@@ -146,4 +194,23 @@ export async function getCategoriesWithPosts(minPosts = 2): Promise<CategoryWith
   return [...map.values()]
     .filter((c) => c.posts.length >= minPosts)
     .sort((a, b) => b.posts.length - a.posts.length);
+}
+
+// Artículos relacionados: prioriza misma categoría/etiqueta, rellena con recientes.
+export async function getRelatedPosts(slug: string, limit = 8): Promise<WPPost[]> {
+  const all = await getAllPosts();
+  const current = all.find((p) => p.slug === slug);
+  if (!current) return all.slice(0, limit);
+  const catIds = new Set(current.categories.map((c) => c.id));
+  const tagIds = new Set(current.tags.map((t) => t.id));
+  const others = all.filter((p) => p.slug !== slug);
+  const scored = others
+    .map((p) => {
+      let score = 0;
+      for (const c of p.categories) if (catIds.has(c.id)) score += 2;
+      for (const t of p.tags) if (tagIds.has(t.id)) score += 1;
+      return { p, score };
+    })
+    .sort((a, b) => b.score - a.score || new Date(b.p.date).getTime() - new Date(a.p.date).getTime());
+  return scored.slice(0, limit).map((s) => s.p);
 }
