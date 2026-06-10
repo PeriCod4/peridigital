@@ -5,6 +5,7 @@ import PageHero from "./PageHero";
 import Reveal from "./motion/Reveal";
 import TiltCard from "./motion/TiltCard";
 import Magnetic from "./fx/Magnetic";
+import ServiceDashboard, { type DashboardData } from "./ServiceDashboard";
 import JsonLd from "./JsonLd";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -17,6 +18,7 @@ export interface ServiceLayoutProps {
   intro: string[];
   demo?: ReactNode;
   demoTitle?: string;
+  dashboard?: DashboardData;
   stats?: { value: string; label: string }[];
   features: { title: string; desc: string }[];
   featuresTitle?: string;
@@ -42,6 +44,7 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     intro,
     demo,
     demoTitle = "Así se ve en la práctica",
+    dashboard,
     stats,
     features,
     featuresTitle = "Qué incluye",
@@ -122,6 +125,38 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
               ))}
             </div>
           </Reveal>
+        )}
+
+        {/* Panel de seguimiento en tiempo real */}
+        {dashboard && (
+          <section className="mt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <Reveal>
+                <div>
+                  <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-text">
+                    Tu proyecto, en tiempo real
+                  </p>
+                  <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">
+                    Un panel para ver el avance, sin perseguirnos
+                  </h2>
+                  <p className="mt-4 text-lg text-gray-600">
+                    Con este servicio tienes acceso a un panel donde ves en qué punto
+                    está tu proyecto en cada momento: la fase actual, lo que ya se ha
+                    hecho y los resultados. Transparencia total, sin tener que pedir
+                    informes.
+                  </p>
+                  <ul className="mt-5 space-y-2 text-sm text-gray-700">
+                    <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Avance y fase actual en tiempo real</li>
+                    <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Métricas y resultados del servicio</li>
+                    <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Acceso 24/7, sin esperar reuniones</li>
+                  </ul>
+                </div>
+              </Reveal>
+              <Reveal direction="left" delay={0.1}>
+                <ServiceDashboard data={dashboard} />
+              </Reveal>
+            </div>
+          </section>
         )}
 
         {/* Qué incluye */}

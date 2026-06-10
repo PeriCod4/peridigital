@@ -15,6 +15,23 @@ export default function Page() {
     <ServiceLayout
       slug="analitica-datos"
       metaDescription={DESC}
+      dashboard={{
+        project: "Medición & GA4",
+        progress: 60,
+        metrics: [
+          { label: "Eventos", value: "24", tone: "brand" },
+          { label: "Conversiones", value: "100%", tone: "green" },
+          { label: "Dashboards", value: "3", tone: "accent" },
+          { label: "Cobertura", value: "OK", tone: "green" },
+        ],
+        phases: [
+          { name: "Auditoría de medición", status: "done" },
+          { name: "Implantación GA4", status: "done" },
+          { name: "Eventos y conversiones", status: "current" },
+          { name: "Dashboards", status: "todo" },
+          { name: "Formación", status: "todo" },
+        ],
+      }}
       eyebrow="Analítica & Data"
       title="Decisiones basadas en datos, no en intuición"
       subtitle="Creamos ecosistemas de medición avanzados, modelos de atribución precisos y análisis que impulsan tu crecimiento."

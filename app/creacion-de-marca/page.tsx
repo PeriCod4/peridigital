@@ -15,6 +15,23 @@ export default function Page() {
     <ServiceLayout
       slug="creacion-de-marca"
       metaDescription={DESC}
+      dashboard={{
+        project: "Identidad de marca",
+        progress: 50,
+        metrics: [
+          { label: "Conceptos", value: "3", tone: "brand" },
+          { label: "Logo", value: "v2", tone: "accent" },
+          { label: "Paleta", value: "OK", tone: "green" },
+          { label: "Manual", value: "—" },
+        ],
+        phases: [
+          { name: "Brief y estrategia", status: "done" },
+          { name: "Concepto", status: "done" },
+          { name: "Diseño de identidad", status: "current" },
+          { name: "Manual de marca", status: "todo" },
+          { name: "Entrega", status: "todo" },
+        ],
+      }}
       eyebrow="Creación de marca"
       title="Una marca con la que empezar con fuerza"
       subtitle="Definimos y construimos tu marca desde cero —logo, estilo visual y mensaje— para que tu negocio transmita confianza desde el primer día."

@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="mantenimiento-web"
       metaDescription={DESC}
+      dashboard={{
+        project: "Mantenimiento web",
+        progress: 100,
+        metrics: [
+          { label: "Uptime", value: "99,9%", tone: "green" },
+          { label: "Actualizaciones", value: "al día", tone: "brand" },
+          { label: "Backups", value: "diarios", tone: "accent" },
+          { label: "Incidencias", value: "0", tone: "green" },
+        ],
+        phases: [
+          { name: "Configuración", status: "done" },
+          { name: "Seguridad y SSL", status: "done" },
+          { name: "Backups automáticos", status: "done" },
+          { name: "Monitorización 24/7", status: "current" },
+          { name: "Soporte continuo", status: "current" },
+        ],
+      }}
       eyebrow="Mantenimiento web"
       title="Tu web siempre activa, segura y al día"
       subtitle="Nos ocupamos del mantenimiento y el hospedaje de tu web para que tú no tengas que preocuparte de nada."

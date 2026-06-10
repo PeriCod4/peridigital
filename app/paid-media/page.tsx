@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="paid-media"
       metaDescription={DESC}
+      dashboard={{
+        project: "Campañas Meta & Google",
+        progress: 80,
+        metrics: [
+          { label: "ROAS", value: "4,2x", tone: "brand" },
+          { label: "Conversiones", value: "134", tone: "green" },
+          { label: "Coste/lead", value: "−38%", tone: "accent" },
+          { label: "Inversión", value: "óptima" },
+        ],
+        phases: [
+          { name: "Estrategia", status: "done" },
+          { name: "Creatividades", status: "done" },
+          { name: "Lanzamiento", status: "current" },
+          { name: "Optimización (CRO)", status: "todo" },
+          { name: "Escalado", status: "todo" },
+        ],
+      }}
       eyebrow="Paid Media & CRO"
       title="Publicidad que convierte en Meta y Google"
       subtitle="Maximizamos tu inversión combinando campañas efectivas y optimización de la conversión: atraemos tráfico cualificado y lo convertimos en resultados."

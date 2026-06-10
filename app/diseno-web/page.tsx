@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="diseno-web"
       metaDescription={DESC}
+      dashboard={{
+        project: "Rediseño web",
+        progress: 68,
+        metrics: [
+          { label: "Avance diseño", value: "68%", tone: "brand" },
+          { label: "Páginas", value: "7/10" },
+          { label: "Velocidad", value: "95", tone: "green" },
+          { label: "Revisiones", value: "2", tone: "accent" },
+        ],
+        phases: [
+          { name: "Auditoría", status: "done" },
+          { name: "Propuesta de diseño", status: "done" },
+          { name: "Desarrollo", status: "current" },
+          { name: "Formación", status: "todo" },
+          { name: "Entrega", status: "todo" },
+        ],
+      }}
       eyebrow="Diseño web & Ecommerce"
       title="Páginas web que venden"
       subtitle="Creamos webs y tiendas online únicas, adaptadas a tu marca y a tus objetivos, para captar al usuario y guiarlo hacia la conversión."

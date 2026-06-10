@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="crm-automatizacion"
       metaDescription={DESC}
+      dashboard={{
+        project: "CRM & automatización",
+        progress: 72,
+        metrics: [
+          { label: "Flujos activos", value: "5", tone: "brand" },
+          { label: "Leads", value: "312" },
+          { label: "Aperturas", value: "41%", tone: "green" },
+          { label: "Recuperados", value: "+23", tone: "accent" },
+        ],
+        phases: [
+          { name: "Auditoría", status: "done" },
+          { name: "Configuración CRM", status: "done" },
+          { name: "Flujos de automatización", status: "current" },
+          { name: "Integraciones", status: "todo" },
+          { name: "Optimización", status: "todo" },
+        ],
+      }}
       eyebrow="CRM & Automatización"
       title="CRM y automatización que conectan"
       subtitle="Centralizamos la gestión de clientes y automatizamos los procesos clave: mejor comunicación, menos tiempo perdido y más fidelización."

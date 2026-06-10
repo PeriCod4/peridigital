@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
+import ServiceDashboard from "@/components/ServiceDashboard";
 import JsonLd from "@/components/JsonLd";
 import SeoRankDemo from "@/components/demos/SeoRankDemo";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
@@ -108,6 +109,53 @@ export default function Page() {
             <div><div className="text-3xl font-extrabold text-brand sm:text-4xl">24/7</div><div className="mt-1 text-sm text-white/70">tu contenido trabajando</div></div>
           </div>
         </Reveal>
+
+        {/* Panel de seguimiento en tiempo real */}
+        <section className="mt-16">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <Reveal>
+              <div>
+                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-brand-text">
+                  Tu proyecto, en tiempo real
+                </p>
+                <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">
+                  Ves tu SEO avanzar, sin perseguirnos
+                </h2>
+                <p className="mt-4 text-lg text-gray-600">
+                  Tendrás un panel donde ves cómo evoluciona tu posicionamiento en
+                  cada momento: posiciones, tráfico, fixes aplicados y la fase en la
+                  que está tu proyecto. Transparencia total.
+                </p>
+                <ul className="mt-5 space-y-2 text-sm text-gray-700">
+                  <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Posiciones y tráfico en tiempo real</li>
+                  <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Fixes y mejoras aplicadas</li>
+                  <li className="flex items-center gap-2"><span className="text-brand-text">✓</span> Acceso 24/7 con PeriSEO</li>
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal direction="left" delay={0.1}>
+              <ServiceDashboard
+                data={{
+                  project: "Posicionamiento SEO",
+                  progress: 70,
+                  metrics: [
+                    { label: "Posición media", value: "#7", tone: "brand" },
+                    { label: "Keywords top 10", value: "23", tone: "green" },
+                    { label: "Tráfico", value: "+34%", tone: "accent" },
+                    { label: "Fixes", value: "58", tone: "green" },
+                  ],
+                  phases: [
+                    { name: "Auditoría SEO", status: "done" },
+                    { name: "SEO técnico", status: "done" },
+                    { name: "Contenidos", status: "current" },
+                    { name: "Link building", status: "todo" },
+                    { name: "Seguimiento", status: "todo" },
+                  ],
+                }}
+              />
+            </Reveal>
+          </div>
+        </section>
 
         {/* Qué hacemos */}
         <section className="mt-16">

@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="accesibilidad-web"
       metaDescription={DESC}
+      dashboard={{
+        project: "Adaptación WCAG",
+        progress: 65,
+        metrics: [
+          { label: "Cumplimiento", value: "AA 78%", tone: "brand" },
+          { label: "Corregidos", value: "42", tone: "green" },
+          { label: "Contraste", value: "OK", tone: "green" },
+          { label: "Pendientes", value: "9", tone: "accent" },
+        ],
+        phases: [
+          { name: "Auditoría WCAG", status: "done" },
+          { name: "Priorización", status: "done" },
+          { name: "Correcciones", status: "current" },
+          { name: "Validación", status: "todo" },
+          { name: "Declaración", status: "todo" },
+        ],
+      }}
       eyebrow="Accesibilidad web"
       title="Web accesible que cumple la ley y vende más"
       subtitle="Auditamos y adaptamos tu web a los estándares WCAG para que cumpla la normativa de accesibilidad y la pueda usar todo el mundo."

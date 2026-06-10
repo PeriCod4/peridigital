@@ -16,6 +16,23 @@ export default function Page() {
     <ServiceLayout
       slug="soluciones-digitales"
       metaDescription={DESC}
+      dashboard={{
+        project: "Software a medida",
+        progress: 55,
+        metrics: [
+          { label: "Sprint", value: "3/6", tone: "brand" },
+          { label: "Funciones", value: "18" },
+          { label: "Tests OK", value: "96%", tone: "green" },
+          { label: "Versión", value: "v0.4", tone: "accent" },
+        ],
+        phases: [
+          { name: "Análisis", status: "done" },
+          { name: "Diseño técnico", status: "done" },
+          { name: "Desarrollo", status: "current" },
+          { name: "Pruebas", status: "todo" },
+          { name: "Entrega", status: "todo" },
+        ],
+      }}
       eyebrow="Soluciones digitales"
       title="Soluciones digitales que ahorran tiempo"
       subtitle="Automatiza tu trabajo, gana tiempo y ahorra dinero con software y aplicaciones hechos a tu medida."
