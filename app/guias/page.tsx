@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
+import LeadCta from "@/components/LeadCta";
 import { GUIDES } from "@/lib/guides";
 
 export const metadata = {
@@ -38,6 +39,14 @@ export default function Page() {
           ))}
         </div>
       </Container>
+
+      <LeadCta
+        title="¿Dudas con tu proyecto?"
+        subtitle="Las guías ayudan, pero cada caso es distinto. Cuéntanos el tuyo y te asesoramos sin compromiso."
+        context="Guías"
+        submitLabel="Pedir asesoramiento"
+        messagePlaceholder="¿Qué estás valorando? Cuéntanos…"
+      />
     </main>
   );
 }

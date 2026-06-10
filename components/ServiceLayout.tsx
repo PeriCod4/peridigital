@@ -6,6 +6,7 @@ import Reveal from "./motion/Reveal";
 import TiltCard from "./motion/TiltCard";
 import Magnetic from "./fx/Magnetic";
 import ServiceDashboard, { type DashboardData } from "./ServiceDashboard";
+import LeadCta from "./LeadCta";
 import JsonLd from "./JsonLd";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -30,6 +31,9 @@ export interface ServiceLayoutProps {
   plansNote?: string;
   faqs?: { q: string; a: string }[];
   ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaSubmitLabel?: string;
+  ctaMessagePlaceholder?: string;
   ctaLabel?: string;
   relatedGuide?: { slug: string; title: string };
   metaDescription: string;
@@ -55,6 +59,10 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     plans,
     plansNote,
     faqs,
+    ctaTitle,
+    ctaSubtitle,
+    ctaSubmitLabel,
+    ctaMessagePlaceholder,
     ctaLabel = "Pídenos presupuesto",
     relatedGuide,
     metaDescription,
@@ -311,6 +319,15 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
         )}
 
       </Container>
+
+      {/* CTA único, adaptado al servicio, con formulario */}
+      <LeadCta
+        title={ctaTitle ?? `¿Hablamos de tu proyecto de ${eyebrow.toLowerCase()}?`}
+        subtitle={ctaSubtitle ?? subtitle}
+        context={`Servicio: ${title}`}
+        submitLabel={ctaSubmitLabel ?? ctaLabel}
+        messagePlaceholder={ctaMessagePlaceholder ?? `Cuéntanos sobre tu proyecto de ${eyebrow.toLowerCase()}…`}
+      />
     </main>
   );
 }

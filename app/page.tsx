@@ -6,6 +6,7 @@ import Marquee from "@/components/Marquee";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
 import Magnetic from "@/components/fx/Magnetic";
 import Counter from "@/components/fx/Counter";
+import LeadCta from "@/components/LeadCta";
 import JsonLd from "@/components/JsonLd";
 import { faqSchema } from "@/lib/jsonld";
 import { SERVICES } from "@/lib/site";
@@ -275,6 +276,14 @@ export default async function Home() {
           </div>
         </Container>
       </section>
+
+      <LeadCta
+        title="¿Hablamos de tu proyecto?"
+        subtitle="Web, ecommerce, software, CRM, SEO o paid: cuéntanos qué necesitas y te decimos cómo te ayudamos. Somos partners, no una agencia más."
+        context="Home"
+        submitLabel="Agenda tu reunión"
+        messagePlaceholder="Cuéntanos tu proyecto o qué necesitas mejorar…"
+      />
     </main>
   );
 }

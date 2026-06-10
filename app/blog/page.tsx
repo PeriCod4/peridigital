@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import BlogExplorer, { type BlogListItem } from "@/components/blog/BlogExplorer";
+import LeadCta from "@/components/LeadCta";
 import { getAllPosts } from "@/lib/wp";
 
 export const metadata = {
@@ -33,6 +34,14 @@ export default async function BlogIndex() {
         </header>
         <BlogExplorer items={items} />
       </Container>
+
+      <LeadCta
+        title="¿Te ayudamos a aplicarlo?"
+        subtitle="Una cosa es leerlo y otra hacerlo. Cuéntanos tu caso y lo llevamos a tu web o tu negocio."
+        context="Blog"
+        submitLabel="Quiero que me ayudéis"
+        messagePlaceholder="¿Sobre qué tema necesitas ayuda?"
+      />
     </main>
   );
 }

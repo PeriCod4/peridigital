@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import Reveal from "./motion/Reveal";
+import LeadCta from "./LeadCta";
 import JsonLd from "./JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -100,18 +101,18 @@ export default function GuideLayout(props: GuideLayoutProps) {
             )}
           </div>
 
-          {/* CTA a servicio */}
-          <div className="mt-12 rounded-2xl bg-brand/10 p-8 text-center">
-            <p className="text-lg text-ink">{cta.text}</p>
-            <Link
-              href={cta.href}
-              className="mt-5 inline-block rounded-full bg-ink px-7 py-3 font-semibold text-white transition-transform hover:scale-105"
-            >
-              {cta.label}
-            </Link>
-          </div>
         </article>
       </Container>
+
+      {/* CTA único con formulario + enlace al servicio relacionado */}
+      <LeadCta
+        title="¿Te ayudamos con esto?"
+        subtitle={cta.text}
+        context={`Guía: ${title}`}
+        submitLabel="Quiero que me ayudéis"
+        messagePlaceholder="Cuéntanos tu caso…"
+        secondary={{ label: cta.label, href: cta.href }}
+      />
     </main>
   );
 }

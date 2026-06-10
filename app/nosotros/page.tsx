@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
+import LeadCta from "@/components/LeadCta";
 
 export const metadata = {
   title: "Nosotros",
@@ -61,6 +62,14 @@ export default function Page() {
           También potenciamos nuestras propias marcas, así que dominamos de verdad lo que ofrecemos.
         </div>
       </Container>
+
+      <LeadCta
+        title="¿Trabajamos juntos?"
+        subtitle="Si buscas un partner que se implique como si tu negocio fuera suyo, hablemos. Sin tecnicismos ni mareos."
+        context="Nosotros"
+        submitLabel="Quiero conoceros"
+        messagePlaceholder="Cuéntanos sobre ti y tu negocio…"
+      />
     </main>
   );
 }

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import TiltCard from "@/components/motion/TiltCard";
 import ServiceDashboard from "@/components/ServiceDashboard";
+import LeadCta from "@/components/LeadCta";
 import JsonLd from "@/components/JsonLd";
 import SeoRankDemo from "@/components/demos/SeoRankDemo";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
@@ -204,18 +204,16 @@ export default function Page() {
           </div>
         </section>
 
-        <div className="mt-16 rounded-2xl bg-brand/10 p-10 text-center">
-          <h2 className="text-2xl font-extrabold text-ink">¿Quieres posicionar tu web?</h2>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Link href="/hablemos/" className="rounded-full bg-ink px-7 py-3 font-semibold text-white transition-transform hover:scale-105">
-              Hablemos
-            </Link>
-            <a href={SITE.periseo} target="_blank" rel="noopener noreferrer" className="rounded-full border border-ink/20 px-7 py-3 font-semibold text-ink transition-colors hover:border-brand">
-              Ir a PeriSEO
-            </a>
-          </div>
-        </div>
       </Container>
+
+      <LeadCta
+        title="¿Listo para subir en Google?"
+        subtitle="Cuéntanos tu web y tu sector. Te decimos qué te frena y cómo posicionarte con PeriSEO."
+        context="Servicio: SEO (PeriSEO)"
+        submitLabel="Quiero posicionar mi web"
+        messagePlaceholder="Tu web y las búsquedas en las que quieres aparecer…"
+        secondary={{ label: "Ir a PeriSEO", href: SITE.periseo, external: true }}
+      />
     </main>
   );
 }

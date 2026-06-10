@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ProjectsGrid from "@/components/ProjectsGrid";
+import LeadCta from "@/components/LeadCta";
 
 export const metadata = {
   title: "Proyectos web y ecommerce",
@@ -19,6 +20,14 @@ export default function Page() {
       <Container className="py-16">
         <ProjectsGrid />
       </Container>
+
+      <LeadCta
+        title="¿Tu proyecto es el siguiente?"
+        subtitle="Cuéntanos qué quieres construir —web, tienda online o sistema a medida— y te proponemos cómo hacerlo realidad."
+        context="Proyectos"
+        submitLabel="Quiero mi proyecto"
+        messagePlaceholder="Describe la web o el sistema que tienes en mente…"
+      />
     </main>
   );
 }

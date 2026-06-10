@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import Toc from "@/components/blog/Toc";
 import RelatedCarousel, { type RelatedItem } from "@/components/blog/RelatedCarousel";
-import ContactModal from "@/components/ContactModal";
+import LeadCta from "@/components/LeadCta";
 import { getPostSlugs, getPost, getRelatedPosts } from "@/lib/wp";
 import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -144,12 +144,6 @@ export default async function Article({
               </div>
             )}
 
-            <div className="mt-12 rounded-2xl bg-brand/10 p-8 text-center">
-              <h2 className="text-xl font-bold text-ink">¿Hablamos de tu proyecto?</h2>
-              <div className="mt-5">
-                <ContactModal label="Contactar" />
-              </div>
-            </div>
           </article>
 
           {/* TOC lateral fijo (desktop) */}
@@ -163,6 +157,14 @@ export default async function Article({
         {/* Relacionados */}
         <RelatedCarousel posts={relatedItems} />
       </Container>
+
+      <LeadCta
+        title="¿Te ayudamos con esto?"
+        subtitle="Si lo de este artículo es justo lo que necesitas en tu web o negocio, cuéntanoslo y lo hacemos realidad."
+        context={`Artículo: ${plainTitle}`}
+        submitLabel="Quiero que me ayudéis"
+        messagePlaceholder="Cuéntanos tu caso…"
+      />
     </main>
   );
 }

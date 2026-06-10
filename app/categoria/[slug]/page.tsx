@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import PostList from "@/components/PostList";
+import LeadCta from "@/components/LeadCta";
 import { getCategoriesWithPosts } from "@/lib/wp";
 
 export async function generateStaticParams() {
@@ -50,6 +51,14 @@ export default async function CategoryPage({
         </header>
         <PostList posts={cat.posts} />
       </Container>
+
+      <LeadCta
+        title={`¿Necesitas ayuda con ${cat.name.toLowerCase()}?`}
+        subtitle="Leer está bien, pero podemos hacerlo por ti. Cuéntanos tu caso y te decimos cómo."
+        context={`Categoría: ${cat.name}`}
+        submitLabel="Quiero que me ayudéis"
+        messagePlaceholder="Cuéntanos qué necesitas…"
+      />
     </main>
   );
 }
