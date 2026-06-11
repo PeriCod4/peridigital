@@ -12,7 +12,7 @@ function start_session(): void {
   session_name('pdadmin');
   session_set_cookie_params([
     'lifetime' => 0,
-    'path' => '/admin',
+    'path' => '/periklogin',
     'secure' => !empty($_SERVER['HTTPS']),
     'httponly' => true,
     'samesite' => 'Lax',

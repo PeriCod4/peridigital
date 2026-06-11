@@ -30,9 +30,9 @@ try {
   console.log("Conectado a", env.FTP_HOST);
 
   // 1) Panel admin (merge: NO borra config.local.php del servidor)
-  console.log("Subiendo /admin …");
-  await client.ensureDir(`${remoteRoot}/admin`);
-  await client.uploadFromDir("server/admin", `${remoteRoot}/admin`);
+  console.log("Subiendo /periklogin …");
+  await client.ensureDir(`${remoteRoot}/periklogin`);
+  await client.uploadFromDir("server/periklogin", `${remoteRoot}/periklogin`);
 
   // 2) Carpetas de subidas
   await client.ensureDir(`${remoteRoot}/uploads/proyectos`);

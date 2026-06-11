@@ -25,15 +25,15 @@ node scripts/ftp-rmfile.mjs   # si hace falta gestionar ficheros sueltos
 ```
 
 ## Panel admin PHP (proyectos + imágenes de artículos)
-El panel vive en `/admin/` del docroot de peri (Hostinger ejecuta PHP). NO forma
+El panel vive en `/periklogin/` del docroot de peri (Hostinger ejecuta PHP). NO forma
 parte del export de Next, así que un redeploy del estático **no lo toca**.
 
 ```
-node scripts/deploy-admin.mjs            # sube server/admin/, crea /uploads, siembra /data/projects.json si falta
+node scripts/deploy-admin.mjs            # sube server/periklogin/, crea /uploads, siembra /data/projects.json si falta
 ```
-Primer uso: visitar `https://peridigital.es/admin/setup.php` para crear usuario y
-contraseña (se guardan en `/admin/config.local.php`, generado en el servidor, NO en el repo).
-Luego entrar por `/admin/`. Por seguridad, borrar `setup.php` del servidor tras configurar.
+Primer uso: visitar `https://peridigital.es/periklogin/setup.php` para crear usuario y
+contraseña (se guardan en `/periklogin/config.local.php`, generado en el servidor, NO en el repo).
+Luego entrar por `/periklogin/`. Por seguridad, borrar `setup.php` del servidor tras configurar.
 
 **Cómo encaja con el estático (regla anti-clobber):**
 - El sitio lee en runtime `/data/projects.json` y `/data/article-images.json` (los edita el

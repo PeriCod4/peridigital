@@ -1,8 +1,8 @@
 <?php
 // EJEMPLO. El panel NO usa este fichero para credenciales.
-// Las credenciales se crean visitando /admin/setup.php la primera vez y se
+// Las credenciales se crean visitando /periklogin/setup.php la primera vez y se
 // guardan en config.local.php (gitignored). Si quieres regenerarlas, borra
-// config.local.php del servidor y vuelve a entrar en /admin/setup.php.
+// config.local.php del servidor y vuelve a entrar en /periklogin/setup.php.
 //
 // config.php (versionado) solo define rutas. No hay secretos en el repo.
 return [

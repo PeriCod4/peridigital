@@ -20,7 +20,7 @@ if (!$creds && $_SERVER['REQUEST_METHOD'] === 'POST') {
     if (@file_put_contents(cfg()['creds_file'], $php, LOCK_EX) !== false) {
       $done = true;
     } else {
-      $err = 'No se pudo escribir config.local.php. Da permisos de escritura a la carpeta /admin.';
+      $err = 'No se pudo escribir config.local.php. Da permisos de escritura a la carpeta /periklogin.';
     }
   }
 }
