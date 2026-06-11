@@ -87,7 +87,7 @@ function addHeadingIds(html: string): { html: string; headings: TocHeading[] } {
 }
 
 // Reescribe enlaces internos del contenido WP:
-//  - quita el dominio camperodigital.com (los hace relativos)
+//  - quita el dominio peridigital.es (los hace relativos)
 //  - /blog/<slug> -> /<slug>/ (nuestros artículos cuelgan de la raíz)
 //  - duplicados consolidados -> canónico
 // Enlaces del contenido que apuntan a artículos inexistentes (colgantes en el
@@ -108,7 +108,7 @@ function rewriteContentLinks(html: string): string {
   return html.replace(/href="([^"]+)"/g, (full, href: string) => {
     let h = href.trim();
     // Absolutos del propio dominio -> relativos
-    h = h.replace(/^https?:\/\/(www\.)?camperodigital\.com/i, "");
+    h = h.replace(/^https?:\/\/(www\.)?(peridigital\.es|camperodigital\.com)/i, "");
     if (!h.startsWith("/")) return full; // externo o ancla: dejar igual
     // /blog/slug -> /slug/
     h = h.replace(/^\/blog\/([^/?#]+)\/?$/, "/$1/");

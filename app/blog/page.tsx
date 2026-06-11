@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import { pageMeta } from "@/lib/seo";
 import BlogExplorer, { type BlogListItem } from "@/components/blog/BlogExplorer";
 import LeadCta from "@/components/LeadCta";
 import { getAllPosts } from "@/lib/wp";
@@ -6,7 +7,7 @@ import { getAllPosts } from "@/lib/wp";
 export const metadata = {
   title: "Blog",
   description: "Artículos sobre diseño web, marketing digital, SEO y desarrollo.",
-  alternates: { canonical: "/blog/" },
+  ...pageMeta("/blog/"),
 };
 
 export default async function BlogIndex() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import GuideLayout from "@/components/GuideLayout";
 
 const TITLE = "¿Cuánto cuesta una página web en 2026? Precios reales";
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "¿Cuánto cuesta una página web? Precios 2026",
   description: DESC,
-  alternates: { canonical: "/guias/cuanto-cuesta-una-pagina-web/" },
+  ...pageMeta("/guias/cuanto-cuesta-una-pagina-web/"),
 };
 
 export default function Page() {

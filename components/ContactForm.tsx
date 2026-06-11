@@ -22,7 +22,7 @@ export default function ContactForm() {
       name: String(data.get("name") || ""),
       email: String(data.get("email") || ""),
       message: String(data.get("message") || ""),
-      _subject: "Nuevo contacto desde camperodigital.com",
+      _subject: "Nuevo contacto desde peridigital.es",
       _template: "table",
       _captcha: "false",
       _honey: String(data.get("_honey") || ""),
@@ -70,7 +70,7 @@ export default function ContactForm() {
         <textarea id="message" name="message" rows={5} required className="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30" />
       </div>
       {status === "error" && (
-        <p className="text-sm text-red-600">No se pudo enviar. Inténtalo de nuevo o escríbenos a pablo@camperodigital.com.</p>
+        <p className="text-sm text-red-600">No se pudo enviar. Inténtalo de nuevo o escríbenos a hola@peridigital.es.</p>
       )}
       <button type="submit" disabled={status === "sending"} className={buttonClasses("primary", "md", true)}>
         {status === "sending" ? "Enviando…" : "Enviar"}

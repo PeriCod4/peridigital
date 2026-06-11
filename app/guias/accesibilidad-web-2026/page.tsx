@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import GuideLayout from "@/components/GuideLayout";
 
 const TITLE = "Ley de accesibilidad web 2026: qué necesitas saber";
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Ley de accesibilidad web 2026: guía para cumplir",
   description: DESC,
-  alternates: { canonical: "/guias/accesibilidad-web-2026/" },
+  ...pageMeta("/guias/accesibilidad-web-2026/"),
 };
 
 export default function Page() {

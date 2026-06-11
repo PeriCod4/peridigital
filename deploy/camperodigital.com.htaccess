@@ -1,0 +1,23 @@
+# Campero Digital -> PeriDigital | 301 migracion (sitio principal). Subapps/subdominios intactos.
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 301 path-preserving a peridigital.es, EXCEPTO subapps y verificacion
+  RewriteCond %{REQUEST_URI} !^/(crm|joseluis|informes|silencespa|tiendafiltro)(/|$) [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+  RewriteCond %{REQUEST_URI} !^/google[0-9a-z]+\.html$ [NC]
+  RewriteRule ^(.*)$ https://peridigital.es/$1 [R=301,L]
+
+  # subapps / verificacion: servir ficheros y carpetas reales
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+# Imagen Open Graph (fichero sin extension) servida como PNG
+<Files "opengraph-image">
+  ForceType image/png
+</Files>

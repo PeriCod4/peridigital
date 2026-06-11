@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts, getCategoriesWithPosts } from "@/lib/wp";
+import { getAllPosts } from "@/lib/wp";
 import { SERVICES, SITE } from "@/lib/site";
 import { GUIDES } from "@/lib/guides";
 
@@ -8,7 +8,6 @@ export const dynamic = "force-static";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = SITE.url;
   const posts = await getAllPosts();
-  const cats = await getCategoriesWithPosts();
 
   const staticPages = ["", "blog", "guias", "proyectos-web", "nosotros", "hablemos", "aviso-legal", "politica-de-privacidad", "politica-de-cookies"];
 
@@ -28,11 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    ...cats.map((c) => ({
-      url: `${base}/categoria/${c.slug}/`,
-      changeFrequency: "weekly" as const,
-      priority: 0.4,
-    })),
+    // Categorías excluidas del sitemap (noindex) — ver app/categoria/[slug]/page.tsx
     ...posts.map((p) => ({
       url: `${base}/${p.slug}/`,
       lastModified: p.modified,

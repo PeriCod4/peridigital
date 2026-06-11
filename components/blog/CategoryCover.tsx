@@ -1,5 +1,5 @@
 // Portada generada para artículos sin imagen destacada (solo en el grid).
-// Color en consonancia con la marca (teal/azul Campero Digital + PeriSEO),
+// Color en consonancia con la marca (teal/azul PeriDigital + PeriSEO),
 // elegido de forma determinista según la categoría/tema.
 
 const PALETTE: [string, string][] = [
@@ -24,7 +24,7 @@ export default function CategoryCover({
   category?: string;
   seed: string;
 }) {
-  const label = category || "Campero Digital";
+  const label = category || "PeriDigital";
   const [a, b] = pickGradient(category || seed);
   return (
     <div
@@ -42,7 +42,7 @@ export default function CategoryCover({
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/icon_campero_digital_blanco.webp"
+        src="/brand/icon_peridigital_blanco.webp"
         alt=""
         className="absolute left-3 top-3 h-5 w-auto opacity-80"
       />

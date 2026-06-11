@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
@@ -10,7 +11,7 @@ export const metadata = {
   title: "Guías",
   description:
     "Guías prácticas sobre diseño web, ecommerce, software a medida, CRM, automatización y accesibilidad web.",
-  alternates: { canonical: "/guias/" },
+  ...pageMeta("/guias/"),
 };
 
 export default function Page() {

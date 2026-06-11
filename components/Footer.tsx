@@ -23,9 +23,9 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2">
-              <Image src="/brand/icon_campero_digital_blanco.webp" alt="Campero Digital" width={36} height={26} />
+              <Image src="/brand/icon_peridigital_blanco.webp" alt="PeriDigital" width={36} height={26} />
               <span className="text-lg font-extrabold text-white">
-                Campero <span className="text-brand">Digital</span>
+                Peri<span className="text-brand">Digital</span>
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm">
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold text-white">Campero Digital</h3>
+            <h3 className="mb-3 text-sm font-semibold text-white">PeriDigital</h3>
             <ul className="space-y-2 text-sm">
               {COMPANY_LINKS.map((l) => (
                 <li key={l.href}>
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/50">
-          © {new Date().getFullYear()} Campero Digital. Todos los derechos reservados.
+          © {new Date().getFullYear()} PeriDigital. Todos los derechos reservados.
         </div>
       </Container>
     </footer>

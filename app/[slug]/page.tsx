@@ -9,6 +9,7 @@ import LeadCta from "@/components/LeadCta";
 import { getPostSlugs, getPost, getRelatedPosts } from "@/lib/wp";
 import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -31,13 +32,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/${post.slug}/` },
-    openGraph: {
+    ...pageMeta(`/${post.slug}/`, {
+      type: "article",
       title,
       description,
-      type: "article",
       images: post.coverUrl ? [{ url: post.coverUrl }] : undefined,
-    },
+    }),
   };
 }
 

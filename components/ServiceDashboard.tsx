@@ -28,7 +28,7 @@ const TONE: Record<string, string> = {
 
 export default function ServiceDashboard({ data }: { data: DashboardData }) {
   return (
-    <BrowserFrame url="panel.camperodigital.com">
+    <BrowserFrame url="panel.peridigital.es">
       <div className="bg-white p-5">
         {/* Cabecera */}
         <div className="flex items-center justify-between">

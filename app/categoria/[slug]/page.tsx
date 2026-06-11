@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import PostList from "@/components/PostList";
 import LeadCta from "@/components/LeadCta";
 import { getCategoriesWithPosts } from "@/lib/wp";
+import { pageMeta } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const cats = await getCategoriesWithPosts();
@@ -24,8 +25,9 @@ export async function generateMetadata({
   if (!cat) return {};
   return {
     title: `${cat.name} — artículos`,
-    description: `Artículos sobre ${cat.name.toLowerCase()} de Campero Digital.`,
-    alternates: { canonical: `/categoria/${cat.slug}/` },
+    description: `Artículos sobre ${cat.name.toLowerCase()} de PeriDigital.`,
+    robots: { index: false, follow: true },
+    ...pageMeta(`/categoria/${cat.slug}/`),
   };
 }
 

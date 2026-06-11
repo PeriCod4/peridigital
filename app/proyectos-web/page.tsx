@@ -1,12 +1,14 @@
 import Container from "@/components/Container";
+import { pageMeta } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import LeadCta from "@/components/LeadCta";
 
 export const metadata = {
+  ...pageMeta("/proyectos-web/"),
   title: "Proyectos web y ecommerce",
   description:
-    "Portfolio de Campero Digital: webs corporativas, tiendas online y sistemas a medida construidos para generar resultados.",
+    "Portfolio de PeriDigital: webs corporativas, tiendas online y sistemas a medida construidos para generar resultados.",
 };
 
 export default function Page() {

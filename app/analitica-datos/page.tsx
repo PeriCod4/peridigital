@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Analítica web y datos (GA4)",
   description: DESC,
-  alternates: { canonical: "/analitica-datos/" },
+  ...pageMeta("/analitica-datos/"),
 };
 
 export default function Page() {

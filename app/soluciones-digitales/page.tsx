@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import AppDemo from "@/components/demos/AppDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Soluciones digitales y software a medida",
   description: DESC,
-  alternates: { canonical: "/soluciones-digitales/" },
+  ...pageMeta("/soluciones-digitales/"),
 };
 
 export default function Page() {

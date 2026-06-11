@@ -1,9 +1,14 @@
-# Campero Digital — sitio estático (Next.js export) sobre LiteSpeed/Apache
+# PeriDigital — sitio estático (Next.js export) sobre LiteSpeed/Apache
 DirectoryIndex index.html index.php
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Forzar non-www (canonical)
+  RewriteCond %{HTTP_HOST} ^www\.peridigital\.es [NC]
+  RewriteRule ^(.*)$ https://peridigital.es/$1 [R=301,L]
+
   # Servir ficheros y carpetas reales (assets, artículos, y subsitios: crm, informes, etc.)
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

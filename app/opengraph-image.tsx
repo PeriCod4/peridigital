@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Campero Digital — Agencia digital 360";
+export const alt = "PeriDigital — Agencia digital 360";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -21,7 +21,7 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 34, fontWeight: 800 }}>
-          <span style={{ color: "white" }}>Campero&nbsp;</span>
+          <span style={{ color: "white" }}>Peri</span>
           <span style={{ color: "#3ecccb" }}>Digital</span>
         </div>
         <div style={{ display: "flex", color: "white", fontSize: 70, fontWeight: 800, marginTop: 44 }}>

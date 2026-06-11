@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export default function BrowserFrame({
-  url = "camperodigital.com",
+  url = "peridigital.es",
   children,
   className = "",
 }: {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import AutomationDemo from "@/components/demos/AutomationDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "CRM y automatización de marketing y ventas",
   description: DESC,
-  alternates: { canonical: "/crm-automatizacion/" },
+  ...pageMeta("/crm-automatizacion/"),
 };
 
 export default function Page() {

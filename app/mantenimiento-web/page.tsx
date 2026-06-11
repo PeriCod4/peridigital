@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import UptimeDemo from "@/components/demos/UptimeDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Mantenimiento web y hosting gestionado",
   description: DESC,
-  alternates: { canonical: "/mantenimiento-web/" },
+  ...pageMeta("/mantenimiento-web/"),
 };
 
 export default function Page() {

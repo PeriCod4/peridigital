@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import AccessibilityDemo from "@/components/demos/AccessibilityDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Accesibilidad web (WCAG) y cumplimiento 2026",
   description: DESC,
-  alternates: { canonical: "/accesibilidad-web/" },
+  ...pageMeta("/accesibilidad-web/"),
 };
 
 export default function Page() {

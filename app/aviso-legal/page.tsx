@@ -1,9 +1,10 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata = {
   title: "Aviso Legal",
-  description: "Aviso legal de Campero Digital.",
-  alternates: { canonical: "/aviso-legal/" },
+  description: "Aviso legal de PeriDigital.",
+  ...pageMeta("/aviso-legal/"),
   robots: { index: false },
 };
 

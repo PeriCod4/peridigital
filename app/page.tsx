@@ -12,6 +12,10 @@ import { faqSchema } from "@/lib/jsonld";
 import { SERVICES } from "@/lib/site";
 import { getAllPosts } from "@/lib/wp";
 import { PROJECTS } from "@/lib/projects-data";
+import { pageMeta } from "@/lib/seo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = pageMeta("/");
 
 const ICONS: Record<string, string> = {
   "diseno-web": "🌐",

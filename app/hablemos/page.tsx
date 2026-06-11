@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import { pageMeta } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import CalendlyButton from "@/components/CalendlyButton";
@@ -6,6 +7,7 @@ import { buttonClasses } from "@/components/Button";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
+  ...pageMeta("/hablemos/"),
   title: "Hablemos",
   description:
     "Cuéntanos tu proyecto: diseño web, ecommerce, software a medida, CRM o automatización. Te respondemos rápido y sin compromiso.",

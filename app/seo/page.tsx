@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
@@ -12,12 +13,12 @@ import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 const DESC =
-  "SEO profesional con PeriSEO, la división SEO de Campero Digital: auditoría, SEO técnico, contenidos y posicionamiento para que te encuentren en Google.";
+  "SEO profesional con PeriSEO, la división SEO de PeriDigital: auditoría, SEO técnico, contenidos y posicionamiento para que te encuentren en Google.";
 
 export const metadata: Metadata = {
   title: "Posicionamiento SEO con PeriSEO",
   description: DESC,
-  alternates: { canonical: "/seo/" },
+  ...pageMeta("/seo/"),
 };
 
 const FEATURES = [
@@ -30,9 +31,9 @@ const FEATURES = [
 ];
 
 const FAQS = [
-  { q: "¿Qué es PeriSEO?", a: "PeriSEO es la división de SEO de Campero Digital: una agencia + plataforma especializada solo en posicionamiento, con tecnología de IA propia." },
+  { q: "¿Qué es PeriSEO?", a: "PeriSEO es la división de SEO de PeriDigital: una agencia + plataforma especializada solo en posicionamiento, con tecnología de IA propia." },
   { q: "¿En cuánto tiempo se ven resultados?", a: "El SEO es medio-largo plazo. Los primeros avances técnicos se ven pronto; el crecimiento de tráfico orgánico se consolida en meses." },
-  { q: "¿Hacéis la web y el SEO juntos?", a: "Sí. Diseñamos tu web en Campero Digital y la posicionamos con PeriSEO: web que convierte + que aparece en Google." },
+  { q: "¿Hacéis la web y el SEO juntos?", a: "Sí. Diseñamos tu web en PeriDigital y la posicionamos con PeriSEO: web que convierte + que aparece en Google." },
 ];
 
 export default function Page() {
@@ -58,7 +59,7 @@ export default function Page() {
         <Reveal>
           <div className="rounded-3xl bg-ink p-8 text-white sm:p-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-              La división SEO de Campero Digital
+              La división SEO de PeriDigital
             </p>
             <h2 className="mt-3 text-3xl font-extrabold">
               Peri<span className="text-brand">SEO</span>

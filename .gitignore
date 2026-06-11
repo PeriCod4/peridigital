@@ -45,3 +45,6 @@ next-env.d.ts
 !.env.example
 
 .deploytest/
+
+# Referencia de export en vivo (descargado, no es fuente)
+/_ref-live/

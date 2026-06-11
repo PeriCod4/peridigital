@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Creación de marca y branding",
   description: DESC,
-  alternates: { canonical: "/creacion-de-marca/" },
+  ...pageMeta("/creacion-de-marca/"),
 };
 
 export default function Page() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import EcommerceDemo from "@/components/demos/EcommerceDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Diseño web y ecommerce a medida",
   description: DESC,
-  alternates: { canonical: "/diseno-web/" },
+  ...pageMeta("/diseno-web/"),
 };
 
 export default function Page() {

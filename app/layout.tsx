@@ -18,25 +18,25 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://camperodigital.com"),
+  metadataBase: new URL("https://peridigital.es"),
   title: {
-    default: "Campero Digital — Agencia de marketing digital 360",
-    template: "%s | Campero Digital",
+    default: "PeriDigital — Agencia de marketing digital 360",
+    template: "%s | PeriDigital",
   },
   description:
     "Diseño web, ecommerce, software a medida, CRM y automatización, SEO y mantenimiento. Páginas web que venden y soluciones digitales para tu negocio.",
   openGraph: {
     type: "website",
     locale: "es_ES",
-    siteName: "Campero Digital",
-    url: "https://camperodigital.com",
-    title: "Campero Digital — Agencia digital 360",
+    siteName: "PeriDigital",
+    url: "https://peridigital.es",
+    title: "PeriDigital — Agencia digital 360",
     description:
       "Webs que venden, software a medida, CRM y automatización, SEO y mantenimiento.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Campero Digital — Agencia digital 360",
+    title: "PeriDigital — Agencia digital 360",
     description:
       "Webs que venden, software a medida, CRM y automatización, SEO y mantenimiento.",
   },

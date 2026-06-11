@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
       "Moda",
       "SEO"
     ],
-    "description": "Tienda online de gafas y complementos, diseñada y programada por Campero Digital . Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo."
+    "description": "Tienda online de gafas y complementos, diseñada y programada por PeriDigital . Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo."
   },
   {
     "slug": "la-fundicio",

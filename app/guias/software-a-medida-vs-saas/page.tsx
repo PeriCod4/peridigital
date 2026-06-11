@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import GuideLayout from "@/components/GuideLayout";
 
 const TITLE = "Software a medida vs SaaS: cuál elegir en 2026";
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Software a medida vs SaaS: cuál elegir",
   description: DESC,
-  alternates: { canonical: "/guias/software-a-medida-vs-saas/" },
+  ...pageMeta("/guias/software-a-medida-vs-saas/"),
 };
 
 export default function Page() {

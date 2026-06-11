@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ServiceLayout from "@/components/ServiceLayout";
 import AdsDemo from "@/components/demos/AdsDemo";
 
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Paid Media: campañas en Meta y Google Ads",
   description: DESC,
-  alternates: { canonical: "/paid-media/" },
+  ...pageMeta("/paid-media/"),
 };
 
 export default function Page() {

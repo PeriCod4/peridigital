@@ -1,12 +1,12 @@
-// Constantes del sitio (datos reales de Campero Digital)
+// Constantes del sitio (datos reales de PeriDigital)
 export const SITE = {
-  name: "Campero Digital",
-  url: "https://camperodigital.com",
+  name: "PeriDigital",
+  url: "https://peridigital.es",
   description:
     "Agencia digital 360: diseño web y ecommerce, software a medida, CRM y automatización, SEO y mantenimiento. Webs que venden.",
   phone: "+34 609 74 57 29",
-  email: "pablo@camperodigital.com",
-  logo: "https://camperodigital.com/icon.png",
+  email: "hola@peridigital.es",
+  logo: "https://peridigital.es/icon.png",
   periseo: "https://periseo.es",
   sameAs: ["https://periseo.es"],
   gaId: "G-V7P5GQ78LJ",

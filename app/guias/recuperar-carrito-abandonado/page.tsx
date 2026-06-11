@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import GuideLayout from "@/components/GuideLayout";
 
 const TITLE = "Cómo recuperar carritos abandonados (y vender más)";
@@ -8,7 +9,7 @@ const DESC =
 export const metadata: Metadata = {
   title: "Recuperar carritos abandonados: guía práctica",
   description: DESC,
-  alternates: { canonical: "/guias/recuperar-carrito-abandonado/" },
+  ...pageMeta("/guias/recuperar-carrito-abandonado/"),
 };
 
 export default function Page() {

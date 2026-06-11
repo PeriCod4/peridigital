@@ -25,16 +25,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2" aria-label="Campero Digital — inicio">
+        <Link href="/" className="flex items-center gap-2" aria-label="PeriDigital — inicio">
           <Image
-            src="/brand/icon_campero_digital_blanco.webp"
-            alt="Campero Digital"
+            src="/brand/icon_peridigital_blanco.webp"
+            alt="PeriDigital"
             width={40}
             height={29}
             priority
           />
           <span className="text-lg font-extrabold tracking-tight text-white">
-            Campero <span className="text-brand">Digital</span>
+            Peri<span className="text-brand">Digital</span>
           </span>
         </Link>
 
@@ -116,7 +116,7 @@ export default function Header() {
       >
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <span className="text-base font-extrabold tracking-tight text-white">
-            Campero <span className="text-brand">Digital</span>
+            Peri<span className="text-brand">Digital</span>
           </span>
           <button
             type="button"

@@ -1,9 +1,11 @@
 import Container from "@/components/Container";
+import { pageMeta } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import LeadCta from "@/components/LeadCta";
 
 export const metadata = {
+  ...pageMeta("/nosotros/"),
   title: "Nosotros",
   description:
     "No somos una agencia más: somos tu equipo de marketing digital. Cercanía, claridad y resultados, sin tecnicismos ni mareos.",
