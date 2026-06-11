@@ -63,6 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $order = $max + 1;
     }
 
+    $url = trim($_POST['url'] ?? '');
+    if ($url !== '' && !preg_match('#^https?://#i', $url)) $url = 'https://' . $url;
+    if ($url !== '' && !filter_var($url, FILTER_VALIDATE_URL)) throw new RuntimeException('La URL de la web no es válida.');
+
     $record = [
       'slug' => $slug,
       'title' => $title,
@@ -70,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'servicios' => $servicios,
       'tags' => $tags,
       'description' => trim($_POST['description'] ?? ''),
+      'url' => $url,
       'body' => trim($_POST['body'] ?? ''),
       'gallery' => $gallery,
       'published' => isset($_POST['published']),
@@ -96,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'slug' => $_POST['slug'] ?? '', 'title' => $_POST['title'] ?? '',
       'image' => $_POST['current_image'] ?? '', 'servicios' => $_POST['servicios'] ?? [],
       'tags' => array_filter(array_map('trim', explode(',', $_POST['tags'] ?? ''))),
-      'description' => $_POST['description'] ?? '', 'body' => $_POST['body'] ?? '',
+      'description' => $_POST['description'] ?? '', 'url' => $_POST['url'] ?? '', 'body' => $_POST['body'] ?? '',
       'published' => isset($_POST['published']), 'order' => $_POST['order'] ?? 0,
       'gallery' => $_POST['keep_gallery'] ?? [],
     ];
@@ -104,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $isNew = $current === null;
-$v = $current ?? ['slug'=>'','title'=>'','image'=>'','servicios'=>[],'tags'=>[],'description'=>'','body'=>'','published'=>true,'order'=>0,'gallery'=>[]];
+$v = $current ?? ['slug'=>'','title'=>'','image'=>'','servicios'=>[],'tags'=>[],'description'=>'','url'=>'','body'=>'','published'=>true,'order'=>0,'gallery'=>[]];
 
 layout_head($isNew ? 'Nuevo proyecto' : 'Editar proyecto');
 layout_shell_open('index.php');
@@ -125,6 +130,9 @@ $svc = (array) ($v['servicios'] ?? []);
 
   <label>Descripción<textarea name="description" rows="4"><?= e($v['description']) ?></textarea></label>
 
+  <label>Enlace a la web del proyecto <small>opcional (ej. https://cliente.com)</small>
+    <input type="url" name="url" value="<?= e($v['url'] ?? '') ?>" placeholder="https://…"></label>
+
   <fieldset><legend>Servicios (filtro de la página)</legend>
     <div class="checks">
     <?php foreach (SERVICES as $s => $label): ?>
@@ -137,13 +145,23 @@ $svc = (array) ($v['servicios'] ?? []);
     <input name="tags" value="<?= e(implode(', ', (array) ($v['tags'] ?? []))) ?>"></label>
 
   <label>Imagen / logo principal
-    <?php if (!empty($v['image'])): ?><div class="preview"><img src="<?= e($v['image']) ?>" alt=""></div><?php endif; ?>
-    <input type="file" name="image_file" accept="image/*"></label>
+    <div class="imgrow">
+      <div class="curimg"><?php if (!empty($v['image'])): ?><img src="<?= e($v['image']) ?>" alt=""><span>actual</span><?php else: ?><span class="muted small">sin imagen</span><?php endif; ?></div>
+      <input type="file" name="image_file" accept="image/*">
+    </div>
+    <small class="muted">Sube una imagen para reemplazar la actual.</small>
+  </label>
 
   <fieldset><legend>Galería (opcional)</legend>
-    <?php foreach ((array) ($v['gallery'] ?? []) as $g): if (!$g) continue; ?>
-      <label class="check"><input type="checkbox" name="keep_gallery[]" value="<?= e($g) ?>" checked> conservar <?= e(basename($g)) ?></label>
-    <?php endforeach; ?>
+    <?php $gal = array_values(array_filter((array) ($v['gallery'] ?? []))); ?>
+    <?php if ($gal): ?>
+      <div class="gallerythumbs">
+      <?php foreach ($gal as $g): ?>
+        <label class="gthumb"><img src="<?= e($g) ?>" alt=""><span><input type="checkbox" name="keep_gallery[]" value="<?= e($g) ?>" checked> conservar</span></label>
+      <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+    <small class="muted">Añadir imágenes nuevas:</small>
     <div class="grid2">
       <input type="file" name="gallery_0" accept="image/*">
       <input type="file" name="gallery_1" accept="image/*">
@@ -152,7 +170,7 @@ $svc = (array) ($v['servicios'] ?? []);
     </div>
   </fieldset>
 
-  <label>Cuerpo / caso de estudio (HTML opcional)<textarea name="body" rows="6"><?= e($v['body'] ?? '') ?></textarea></label>
+  <label>Contenido dinámico / caso de estudio <small>HTML opcional: párrafos, subtítulos, etc.</small><textarea name="body" rows="8"><?= e($v['body'] ?? '') ?></textarea></label>
 
   <div class="grid2">
     <label>Orden<input type="number" name="order" value="<?= e((string) ($v['order'] ?? 0)) ?>"></label>

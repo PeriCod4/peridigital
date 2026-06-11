@@ -8,13 +8,21 @@ const posts = JSON.parse(readFileSync("content/posts.json", "utf8"));
 const dedupe = readFileSync("lib/dedupe.ts", "utf8");
 const redirect = new Set([...dedupe.matchAll(/"([^"]+)":\s*"[^"]+"/g)].map((m) => m[1]));
 
+// Mismo localizado que lib/wp.ts: wp-content/uploads (de cualquier host) -> /wp-uploads
+const localize = (u) =>
+  typeof u === "string" ? u.replace(/https?:\/\/[^"')\s]*?\/wp-content\/uploads/gi, "/wp-uploads") : "";
+
 const index = posts
   .filter((p) => !redirect.has(p.slug))
-  .map((p) => ({
-    slug: p.slug,
-    title: (p.title?.rendered || "").replace(/<[^>]+>/g, "").replace(/&[a-z#0-9]+;/g, " ").trim(),
-    hasCover: !!p._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-  }))
+  .map((p) => {
+    const src = p._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+    return {
+      slug: p.slug,
+      title: (p.title?.rendered || "").replace(/<[^>]+>/g, "").replace(/&[a-z#0-9]+;/g, " ").trim(),
+      hasCover: !!src,
+      coverUrl: src ? localize(src) : "",
+    };
+  })
   .sort((a, b) => a.title.localeCompare(b.title, "es"));
 
 mkdirSync("out/data", { recursive: true });

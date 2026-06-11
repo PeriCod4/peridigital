@@ -93,6 +93,17 @@ export default function ProjectDetail({
                 ))}
               </div>
             )}
+
+            {p.url && (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-block rounded-full bg-gradient-to-r from-brand to-accent px-6 py-3 font-semibold text-ink transition-transform hover:scale-105"
+              >
+                Visitar web →
+              </a>
+            )}
           </div>
         </div>
 

@@ -55,11 +55,13 @@ echo '<div class="list" id="rows">';
 foreach ($articles as $a) {
   $slug = (string) ($a['slug'] ?? '');
   $title = (string) ($a['title'] ?? $slug);
-  $hasCover = !empty($a['hasCover']);
   $over = $overrides[$slug] ?? '';
+  $build = (string) ($a['coverUrl'] ?? '');
+  $currentUrl = $over !== '' ? $over : $build;
+  $srcLabel = $over !== '' ? 'editada' : ($build !== '' ? 'del build' : 'sin imagen');
   echo '<div class="row" id="' . e($slug) . '" data-t="' . e(mb_strtolower($title)) . '">';
-  echo '<div class="thumb">' . ($over ? '<img src="' . e($over) . '" alt="">' : ($hasCover ? '<span class="muted small">del build</span>' : '<span class="muted small">sin imagen</span>')) . '</div>';
-  echo '<div class="rowmain"><strong>' . e($title) . '</strong><div class="muted small">/' . e($slug) . '/</div></div>';
+  echo '<div class="thumb">' . ($currentUrl ? '<img src="' . e($currentUrl) . '" alt="" loading="lazy">' : '<span class="muted small">sin imagen</span>') . '</div>';
+  echo '<div class="rowmain"><strong>' . e($title) . '</strong><div class="muted small">/' . e($slug) . '/ · <span class="chip">' . e($srcLabel) . '</span></div></div>';
   echo '<form class="rowact" method="post" enctype="multipart/form-data">';
   echo '<input type="hidden" name="csrf" value="' . e(csrf_token()) . '">';
   echo '<input type="hidden" name="slug" value="' . e($slug) . '">';

@@ -78,6 +78,19 @@ legend{font-weight:700;font-size:.85rem;padding:0 .4rem}
 .auth .btn{width:100%;text-align:center}
 .auth form .btn{margin-top:.4rem}
 
+/* image fields with current preview */
+.imgrow{display:flex;align-items:center;gap:1rem;margin:.3rem 0}
+.curimg{position:relative;width:120px;height:80px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:.6rem;overflow:hidden}
+.curimg img{max-width:100%;max-height:100%;object-fit:contain}
+.curimg span{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);color:#fff;font-size:.65rem;text-align:center;padding:.1rem}
+.curimg span.muted{position:static;background:none;color:var(--muted)}
+.imgrow input[type=file]{flex:1}
+.gallerythumbs{display:flex;flex-wrap:wrap;gap:.6rem;margin:.5rem 0}
+.gthumb{display:flex;flex-direction:column;align-items:center;gap:.2rem;font-size:.7rem;font-weight:500}
+.gthumb img{width:88px;height:64px;object-fit:cover;border-radius:.5rem;border:1px solid var(--line)}
+.gthumb span{display:flex;align-items:center;gap:.25rem}
+.gthumb input{width:auto}
+
 @media(max-width:720px){
   .layout{flex-direction:column}
   .sidebar{width:auto;height:auto;position:static;flex-direction:row;flex-wrap:wrap;align-items:center}

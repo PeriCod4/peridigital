@@ -12,7 +12,8 @@ export interface Project {
   servicios: string[];
   tags: string[];
   description: string;
-  body?: string;
+  url?: string; // enlace a la web del proyecto (opcional)
+  body?: string; // contenido dinámico / caso de estudio (HTML, opcional)
   gallery?: string[];
   published?: boolean;
   order?: number;
