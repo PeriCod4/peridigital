@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
+import { getPostsForService } from "@/lib/wp";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/motion/Reveal";
@@ -36,7 +38,8 @@ const FAQS = [
   { q: "¿Hacéis la web y el SEO juntos?", a: "Sí. Diseñamos tu web en PeriDigital y la posicionamos con PeriSEO: web que convierte + que aparece en Google." },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const relatedPosts = await getPostsForService("seo", 4);
   return (
     <main>
       <JsonLd data={serviceSchema({ name: "SEO con PeriSEO", description: DESC, slug: "seo" })} />
@@ -199,6 +202,37 @@ export default function Page() {
             ))}
           </div>
         </section>
+
+        {/* Hub&spoke: artículos del blog relacionados con SEO */}
+        {relatedPosts.length > 0 && (
+          <section className="mt-16">
+            <Reveal>
+              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">Artículos relacionados</h2>
+              <p className="mt-2 text-gray-600">Aprende más sobre SEO y posicionamiento en nuestro blog.</p>
+            </Reveal>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {relatedPosts.map((p) => (
+                <Reveal key={p.id}>
+                  <Link
+                    href={`/${p.slug}/`}
+                    className="spotlight group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    {p.categories[0] && (
+                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-text">
+                        {p.categories[0].name}
+                      </span>
+                    )}
+                    <h3
+                      className="mt-2 font-bold leading-snug text-ink transition-colors group-hover:text-brand-text"
+                      dangerouslySetInnerHTML={{ __html: p.title }}
+                    />
+                    <span className="mt-3 inline-block text-sm font-semibold text-brand-text">Leer más →</span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
       </Container>
 

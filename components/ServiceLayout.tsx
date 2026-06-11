@@ -10,6 +10,7 @@ import LeadCta from "./LeadCta";
 import JsonLd from "./JsonLd";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
+import { getPostsForService } from "@/lib/wp";
 
 export interface ServiceLayoutProps {
   slug: string;
@@ -39,7 +40,7 @@ export interface ServiceLayoutProps {
   metaDescription: string;
 }
 
-export default function ServiceLayout(props: ServiceLayoutProps) {
+export default async function ServiceLayout(props: ServiceLayoutProps) {
   const {
     slug,
     eyebrow,
@@ -67,6 +68,9 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
     relatedGuide,
     metaDescription,
   } = props;
+
+  // Hub&spoke: artículos del blog asociados a este servicio.
+  const relatedPosts = await getPostsForService(slug, 4);
 
   return (
     <main>
@@ -309,6 +313,36 @@ export default function ServiceLayout(props: ServiceLayoutProps) {
                     </summary>
                     <p className="mt-3 text-gray-600">{f.a}</p>
                   </details>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {relatedPosts.length > 0 && (
+          <section className="mt-20">
+            <Reveal>
+              <h2 className="text-2xl font-bold text-ink sm:text-3xl">Artículos relacionados</h2>
+              <p className="mt-2 text-gray-600">Aprende más sobre {eyebrow.toLowerCase()} en nuestro blog.</p>
+            </Reveal>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {relatedPosts.map((p) => (
+                <Reveal key={p.id}>
+                  <Link
+                    href={`/${p.slug}/`}
+                    className="spotlight group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    {p.categories[0] && (
+                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-text">
+                        {p.categories[0].name}
+                      </span>
+                    )}
+                    <h3
+                      className="mt-2 font-bold leading-snug text-ink transition-colors group-hover:text-brand-text"
+                      dangerouslySetInnerHTML={{ __html: p.title }}
+                    />
+                    <span className="mt-3 inline-block text-sm font-semibold text-brand-text">Leer más →</span>
+                  </Link>
                 </Reveal>
               ))}
             </div>

@@ -1,5 +1,9 @@
 import { SITE } from "./site";
 
+// Convierte una URL relativa en absoluta contra SITE.url.
+const abs = (u: string) =>
+  u.startsWith("http") ? u : `${SITE.url}${u.startsWith("/") ? "" : "/"}${u}`;
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -54,9 +58,11 @@ export function articleSchema(opts: {
     "@type": "Article",
     headline: opts.title,
     description: opts.description,
+    inLanguage: "es-ES",
     datePublished: opts.date,
     dateModified: opts.modified,
-    image: opts.image ? [opts.image] : undefined,
+    // Imagen obligatoria-recomendada por Google: fallback al OG del sitio.
+    image: [opts.image ? abs(opts.image) : `${SITE.url}/opengraph-image`],
     mainEntityOfPage: `${SITE.url}/${opts.slug}/`,
     author: { "@type": "Organization", name: SITE.name },
     publisher: {

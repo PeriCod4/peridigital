@@ -8,7 +8,7 @@ import RelatedCarousel, { type RelatedItem } from "@/components/blog/RelatedCaro
 import LeadCta from "@/components/LeadCta";
 import { getPostSlugs, getPost, getRelatedPosts } from "@/lib/wp";
 import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
-import { SITE } from "@/lib/site";
+import { SITE, serviceForCategories } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
@@ -53,6 +53,8 @@ export default async function Article({
   const plainTitle = post.title.replace(/<[^>]+>/g, "");
   const plainDesc = post.excerpt.replace(/<[^>]+>/g, "").trim().slice(0, 160);
   const cat = post.categories[0];
+  // Hub&spoke: servicio relevante según las categorías del artículo (spoke→hub).
+  const service = serviceForCategories(post.categories.map((c) => c.slug));
 
   const related = await getRelatedPosts(post.slug, 8);
   const relatedItems: RelatedItem[] = related.map((p) => ({
@@ -142,6 +144,18 @@ export default async function Article({
                   </Link>
                 ))}
               </div>
+            )}
+
+            {/* Hub&spoke: enlace al servicio relevante (spoke→hub) */}
+            {service && (
+              <aside className="mt-10 rounded-2xl border border-brand/30 bg-brand/5 p-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-text">Servicio relacionado</p>
+                <h2 className="mt-1 text-xl font-bold text-ink">{service.title}</h2>
+                <p className="mt-2 text-gray-600">{service.short}</p>
+                <Link href={`/${service.slug}/`} className="mt-4 inline-block font-semibold text-brand-text hover:underline">
+                  Ver {service.title} →
+                </Link>
+              </aside>
             )}
 
           </article>

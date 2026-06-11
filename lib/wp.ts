@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { REDIRECT_SLUGS, POST_REDIRECTS } from "./dedupe";
+import { SERVICES } from "./site";
 
 // El contenido se construye desde un snapshot local versionado (content/).
 // WordPress está archivado tras el lanzamiento; para actualizar el blog se
@@ -213,4 +214,17 @@ export async function getRelatedPosts(slug: string, limit = 8): Promise<WPPost[]
     })
     .sort((a, b) => b.score - a.score || new Date(b.p.date).getTime() - new Date(a.p.date).getTime());
   return scored.slice(0, limit).map((s) => s.p);
+}
+
+// Hub&spoke: artículos asociados a un servicio (por subcadena de slug de categoría
+// contra ServiceDef.topics), más recientes primero.
+export async function getPostsForService(serviceSlug: string, limit = 4): Promise<WPPost[]> {
+  const svc = SERVICES.find((s) => s.slug === serviceSlug);
+  if (!svc) return [];
+  const all = await getAllPosts();
+  const matches = all.filter((p) =>
+    p.categories.some((c) => svc.topics.some((t) => c.slug.includes(t))),
+  );
+  matches.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return matches.slice(0, limit);
 }
