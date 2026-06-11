@@ -17,7 +17,10 @@ export default function PageHero({
         <Reveal>
           {eyebrow && (
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-1.5 shadow-sm backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+              </span>
               <span className="text-xs font-semibold uppercase tracking-widest text-gray-600">{eyebrow}</span>
             </div>
           )}
