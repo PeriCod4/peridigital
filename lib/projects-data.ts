@@ -1,102 +1,121 @@
-// Generado desde el CPT proyectos_web (WordPress). 9 proyectos reales.
-export interface Project { slug: string; title: string; image: string; tipologia: string[]; description: string; }
+// Proyectos del portfolio. Este array es el SEED inicial y el FALLBACK de build:
+// en runtime el sitio intenta leer /data/projects.json (editable desde el panel
+// admin PHP en Hostinger) y, si no existe, usa estos datos.
+//
+// - `servicios`: slugs de los 9 servicios de lib/site.ts. Define los filtros de la
+//   página de proyectos (solo se muestran los servicios que tienen proyectos).
+// - `tags`: etiquetas libres y descriptivas (ej. "Moda", "Sistema de Reservas").
+export interface Project {
+  slug: string;
+  title: string;
+  image: string;
+  servicios: string[];
+  tags: string[];
+  description: string;
+  body?: string;
+  gallery?: string[];
+  published?: boolean;
+  order?: number;
+}
 
 export const PROJECTS: Project[] = [
   {
-    "slug": "alpha-link",
-    "title": "ALPHA LINK",
-    "image": "/media/proyectos/alpha-link.svg",
-    "tipologia": [
-      "Gimnasio",
-      "SEO",
-      "Web Corporativa"
-    ],
-    "description": "Web corporativa de un Gimnasio de Crossfit en Barcelona, donde se trabaja el SEO local, se añade el calendario de entrenamiento, parte privada donde ver los distintos entrenamientos semanales, e integración con su gestor de horarios, clases y capacidad por clase."
+    slug: "alpha-link",
+    title: "ALPHA LINK",
+    image: "/media/proyectos/alpha-link.svg",
+    servicios: ["diseno-web", "seo"],
+    tags: ["Gimnasio", "Web Corporativa", "SEO local"],
+    description:
+      "Web corporativa de un Gimnasio de Crossfit en Barcelona, donde se trabaja el SEO local, se añade el calendario de entrenamiento, parte privada donde ver los distintos entrenamientos semanales, e integración con su gestor de horarios, clases y capacidad por clase.",
+    published: true,
+    order: 1,
   },
   {
-    "slug": "silence-spa",
-    "title": "Silence SPA",
-    "image": "/media/proyectos/silence-spa.png",
-    "tipologia": [
-      "Ecommerce",
-      "Sistema de Reservas"
-    ],
-    "description": "Silence SPA es un balneario y centro de masajes situado en Calella, Barcelona. Para este proyecto, se realizó un sistema de reservas totalmente automatizado y a medida, integrado con pasarela de pagos, envío de mails, gestión de productos regalos, y gestión interno de reservas, capacidad diaria y flexibilidad para la edición de días, reservas, horarios y plazas disponibles dependiendo del producto que se adquiera."
+    slug: "silence-spa",
+    title: "Silence SPA",
+    image: "/media/proyectos/silence-spa.png",
+    servicios: ["diseno-web", "soluciones-digitales"],
+    tags: ["Ecommerce", "Sistema de Reservas"],
+    description:
+      "Silence SPA es un balneario y centro de masajes situado en Calella, Barcelona. Para este proyecto, se realizó un sistema de reservas totalmente automatizado y a medida, integrado con pasarela de pagos, envío de mails, gestión de productos regalos, y gestión interno de reservas, capacidad diaria y flexibilidad para la edición de días, reservas, horarios y plazas disponibles dependiendo del producto que se adquiera.",
+    published: true,
+    order: 2,
   },
   {
-    "slug": "renovar-carnet",
-    "title": "Renovar Carnet",
-    "image": "/media/proyectos/renovar-carnet.webp",
-    "tipologia": [
-      "SEO",
-      "Sistema de Reservas"
-    ],
-    "description": "Centro médico, especializado en la renovación de todo tipos de carnets. Sistema de reserva para las citas de carnet. No cuenta con pago online integrado, solo el formulario, con aviso al usuario en el momento de la cita y horas antes para recordar la reserva."
+    slug: "renovar-carnet",
+    title: "Renovar Carnet",
+    image: "/media/proyectos/renovar-carnet.webp",
+    servicios: ["diseno-web", "soluciones-digitales", "seo"],
+    tags: ["Centro médico", "Sistema de Reservas"],
+    description:
+      "Centro médico, especializado en la renovación de todo tipos de carnets. Sistema de reserva para las citas de carnet. No cuenta con pago online integrado, solo el formulario, con aviso al usuario en el momento de la cita y horas antes para recordar la reserva.",
+    published: true,
+    order: 3,
   },
   {
-    "slug": "oliver-bam",
-    "title": "Oliver Bam",
-    "image": "/media/proyectos/oliver-bam.webp",
-    "tipologia": [
-      "Branding",
-      "SEO Internacional",
-      "Web Corporativa"
-    ],
-    "description": "Web Corporativa para Oliver Bam, especialista en Marketing y Marca Personal, en la que se centra en su marca, sus servicios, y creación de infraestructura de entradas y noticias para optimizar e impulsar el SEO."
+    slug: "oliver-bam",
+    title: "Oliver Bam",
+    image: "/media/proyectos/oliver-bam.webp",
+    servicios: ["diseno-web", "creacion-de-marca", "seo"],
+    tags: ["Marca personal", "Web Corporativa", "SEO Internacional"],
+    description:
+      "Web Corporativa para Oliver Bam, especialista en Marketing y Marca Personal, en la que se centra en su marca, sus servicios, y creación de infraestructura de entradas y noticias para optimizar e impulsar el SEO.",
+    published: true,
+    order: 4,
   },
   {
-    "slug": "kelindas",
-    "title": "Kelindas",
-    "image": "/media/proyectos/kelindas.webp",
-    "tipologia": [
-      "Branding",
-      "Ecommerce",
-      "Moda",
-      "SEO"
-    ],
-    "description": "Tienda online de gafas y complementos, diseñada y programada por PeriDigital . Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo."
+    slug: "kelindas",
+    title: "Kelindas",
+    image: "/media/proyectos/kelindas.webp",
+    servicios: ["diseno-web", "creacion-de-marca", "crm-automatizacion", "seo"],
+    tags: ["Moda", "Ecommerce", "Branding"],
+    description:
+      "Tienda online de gafas y complementos, diseñada y programada por PeriDigital. Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo.",
+    published: true,
+    order: 5,
   },
   {
-    "slug": "la-fundicio",
-    "title": "La Fundicio",
-    "image": "/media/proyectos/la-fundicio.gif",
-    "tipologia": [
-      "Cooperativa",
-      "SEO",
-      "Web Corporativa"
-    ],
-    "description": "La Fundició es un proyecto de web corporativa en el que se le ha desarrollado un sistema de items y información complejo a medida, con el objetivo de hacer una landing informativa y una gran capacidad de interactuar con el usuario, sin necesidad de ir navegando entre distintas páginas."
+    slug: "la-fundicio",
+    title: "La Fundicio",
+    image: "/media/proyectos/la-fundicio.gif",
+    servicios: ["diseno-web", "seo"],
+    tags: ["Cooperativa", "Web Corporativa", "Web a medida"],
+    description:
+      "La Fundició es un proyecto de web corporativa en el que se le ha desarrollado un sistema de items e información complejo a medida, con el objetivo de hacer una landing informativa y una gran capacidad de interactuar con el usuario, sin necesidad de ir navegando entre distintas páginas.",
+    published: true,
+    order: 6,
   },
   {
-    "slug": "factoria-creativa",
-    "title": "Factoría Creativa",
-    "image": "/media/proyectos/factoria-creativa.webp",
-    "tipologia": [
-      "Diseño",
-      "SEO",
-      "Web Corporativa"
-    ],
-    "description": "Factoría Creativa es una agencia creativa, especializados en el montaje de stands, y en el diseño web. Se presento el diseño de lo que necesitaban exactamente, y haciendo un estudio de como querían autogestionar todo el sistema de contenidos, se les realizó una web a medida con contenido autogestionable sin necesidad de volver a tocar el código. Se hizo una auditoría SEO para posicionar la empresa a nivel nacional. Se le prepararon las diferentes landings preparadas para captación de leads."
+    slug: "factoria-creativa",
+    title: "Factoría Creativa",
+    image: "/media/proyectos/factoria-creativa.webp",
+    servicios: ["diseno-web", "seo", "paid-media"],
+    tags: ["Agencia creativa", "Web autogestionable", "Landing pages"],
+    description:
+      "Factoría Creativa es una agencia creativa, especializados en el montaje de stands, y en el diseño web. Se presentó el diseño de lo que necesitaban exactamente, y haciendo un estudio de cómo querían autogestionar todo el sistema de contenidos, se les realizó una web a medida con contenido autogestionable sin necesidad de volver a tocar el código. Se hizo una auditoría SEO para posicionar la empresa a nivel nacional. Se le prepararon las diferentes landings preparadas para captación de leads.",
+    published: true,
+    order: 7,
   },
   {
-    "slug": "gaela-tulum",
-    "title": "Gaela Tulum",
-    "image": "/media/proyectos/gaela-tulum.webp",
-    "tipologia": [
-      "Ecommerce",
-      "Moda",
-      "SEO Internacional"
-    ],
-    "description": "Tienda online de moda, con diversidad de divisas, venta internacional, optimizada para distintos idiomas, aplicando SEO internacional."
+    slug: "gaela-tulum",
+    title: "Gaela Tulum",
+    image: "/media/proyectos/gaela-tulum.webp",
+    servicios: ["diseno-web", "seo"],
+    tags: ["Moda", "Ecommerce", "SEO Internacional"],
+    description:
+      "Tienda online de moda, con diversidad de divisas, venta internacional, optimizada para distintos idiomas, aplicando SEO internacional.",
+    published: true,
+    order: 8,
   },
   {
-    "slug": "varullo",
-    "title": "Varullo",
-    "image": "/media/proyectos/varullo.webp",
-    "tipologia": [
-      "Branding",
-      "Web Corporativa"
-    ],
-    "description": "Agencia de Marketing Digital especializada en Paid Media, Growth y Automatizaciones. Diseño limpio, totalmente personalizado y moderno, destinado para captar leads, a través de tráfico orgánico y landing de aterrizaje para leads captados a través de cmapañas en Google"
-  }
+    slug: "varullo",
+    title: "Varullo",
+    image: "/media/proyectos/varullo.webp",
+    servicios: ["diseno-web", "creacion-de-marca", "paid-media"],
+    tags: ["Agencia de marketing", "Branding", "Landing pages"],
+    description:
+      "Agencia de Marketing Digital especializada en Paid Media, Growth y Automatizaciones. Diseño limpio, totalmente personalizado y moderno, destinado para captar leads, a través de tráfico orgánico y landing de aterrizaje para leads captados a través de campañas en Google.",
+    published: true,
+    order: 9,
+  },
 ];

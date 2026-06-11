@@ -1,0 +1,124 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Container from "./Container";
+import LeadCta from "./LeadCta";
+import { SERVICES } from "@/lib/site";
+import { type Project, normalizeProjects } from "@/lib/projects";
+
+function serviceTitle(slug: string): string {
+  return SERVICES.find((s) => s.slug === slug)?.title ?? slug;
+}
+
+export default function ProjectDetail({
+  initial,
+  slug,
+}: {
+  initial: Project | null;
+  slug: string;
+}) {
+  const [project, setProject] = useState<Project | null>(initial);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    fetch("/data/projects.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!alive) return;
+        if (data) {
+          const found = normalizeProjects(data).find((p) => p.slug === slug);
+          if (found) setProject(found);
+        }
+        setLoaded(true);
+      })
+      .catch(() => setLoaded(true));
+    return () => {
+      alive = false;
+    };
+  }, [slug]);
+
+  if (!project) {
+    return (
+      <Container className="py-24 text-center">
+        <p className="text-gray-500">
+          {loaded ? "Proyecto no encontrado." : "Cargando proyecto…"}
+        </p>
+        <Link href="/proyectos-web/" className="mt-4 inline-block font-semibold text-brand-text hover:underline">
+          ← Ver todos los proyectos
+        </Link>
+      </Container>
+    );
+  }
+
+  const p = project;
+
+  return (
+    <main>
+      <Container className="py-12 sm:py-16">
+        <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">
+          ← Proyectos
+        </Link>
+
+        <div className="mt-6 grid items-start gap-10 lg:grid-cols-[1fr_1.1fr]">
+          {/* Imagen */}
+          <div className="spotlight flex items-center justify-center rounded-3xl border border-gray-200 bg-white p-10 shadow-sm">
+            {p.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={p.image} alt={`Proyecto ${p.title}`} className="max-h-48 w-auto object-contain" />
+            )}
+          </div>
+
+          {/* Cabecera */}
+          <div>
+            <div className="flex flex-wrap gap-2">
+              {(p.servicios ?? []).map((s) => (
+                <Link
+                  key={s}
+                  href={`/${s}/`}
+                  className="rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-ink transition-colors hover:bg-brand/20"
+                >
+                  {serviceTitle(s)}
+                </Link>
+              ))}
+            </div>
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">{p.title}</h1>
+            <p className="mt-5 text-lg leading-relaxed text-gray-700">{p.description}</p>
+
+            {(p.tags ?? []).length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-1.5">
+                {p.tags.map((t) => (
+                  <span key={t} className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">{t}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Cuerpo opcional */}
+        {p.body && (
+          <div className="wp-content mx-auto mt-12 max-w-3xl" dangerouslySetInnerHTML={{ __html: p.body }} />
+        )}
+
+        {/* Galería opcional */}
+        {(p.gallery ?? []).length > 0 && (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {p.gallery!.map((g, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img key={i} src={g} alt={`${p.title} ${i + 1}`} className="w-full rounded-2xl border border-gray-200" loading="lazy" />
+            ))}
+          </div>
+        )}
+      </Container>
+
+      <LeadCta
+        title="¿Quieres algo así para tu negocio?"
+        subtitle={`Nos encantaría construir tu proyecto como hicimos con ${p.title}. Cuéntanos qué tienes en mente.`}
+        context={`Proyecto: ${p.title}`}
+        submitLabel="Quiero mi proyecto"
+        messagePlaceholder="Describe la web o el sistema que tienes en mente…"
+      />
+    </main>
+  );
+}

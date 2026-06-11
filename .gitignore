@@ -48,3 +48,10 @@ next-env.d.ts
 
 # Referencia de export en vivo (descargado, no es fuente)
 /_ref-live/
+
+# Admin PHP secret (created by setup.php on the server)
+server/admin/config.local.php
+
+# Datos propiedad del admin / artefactos de build (no versionar)
+server/data/article-images.json
+server/data/articles-index.json

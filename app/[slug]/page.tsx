@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import Toc from "@/components/blog/Toc";
 import RelatedCarousel, { type RelatedItem } from "@/components/blog/RelatedCarousel";
 import LeadCta from "@/components/LeadCta";
+import ArticleCoverOverride from "@/components/ArticleCoverOverride";
 import { getPostSlugs, getPost, getRelatedPosts } from "@/lib/wp";
 import { articleSchema, breadcrumbSchema } from "@/lib/jsonld";
 import { SITE, serviceForCategories } from "@/lib/site";
@@ -113,8 +114,9 @@ export default async function Article({
 
             {post.coverUrl && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={post.coverUrl} alt={post.coverAlt ?? plainTitle} className="mt-8 w-full rounded-xl" />
+              <img data-cover={post.slug} src={post.coverUrl} alt={post.coverAlt ?? plainTitle} className="mt-8 w-full rounded-xl" />
             )}
+            <ArticleCoverOverride slug={post.slug} hasServerCover={!!post.coverUrl} alt={plainTitle} />
 
             {/* Índice móvil (colapsable) */}
             {post.headings.length >= 2 && (

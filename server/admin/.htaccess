@@ -1,0 +1,12 @@
+# Panel admin PHP — no listar directorios
+Options -Indexes
+
+# Bloquear acceso directo a ficheros sensibles / temporales
+<FilesMatch "\.(tmp|local\.php|example\.php)$">
+  Require all denied
+</FilesMatch>
+
+# No cachear el panel
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
