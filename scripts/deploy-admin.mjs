@@ -34,6 +34,18 @@ try {
   await client.ensureDir(`${remoteRoot}/periklogin`);
   await client.uploadFromDir("server/periklogin", `${remoteRoot}/periklogin`);
 
+  // Si el panel ya está provisionado (existe config.local.php), eliminar setup.php
+  // del servidor (no debe quedar accesible una vez creadas las credenciales).
+  try {
+    await client.size(`${remoteRoot}/periklogin/config.local.php`);
+    try {
+      await client.remove(`${remoteRoot}/periklogin/setup.php`);
+      console.log("setup.php eliminado (panel ya provisionado).");
+    } catch {}
+  } catch {
+    console.log("Panel sin provisionar: setup.php disponible para el primer acceso.");
+  }
+
   // 2) Carpetas de subidas
   await client.ensureDir(`${remoteRoot}/uploads/proyectos`);
   await client.ensureDir(`${remoteRoot}/uploads/articulos`);
