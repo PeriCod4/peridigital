@@ -109,7 +109,7 @@ export default function Header() {
 
       {/* Drawer lateral mobile */}
       <aside
-        className={`fixed right-0 top-0 z-50 flex h-dvh w-[82%] max-w-sm flex-col bg-ink shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed right-0 top-0 z-50 flex h-dvh w-[82%] max-w-sm flex-col overflow-y-auto bg-ink shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!open}

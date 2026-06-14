@@ -26,7 +26,8 @@ export default function ArticleCoverOverride({
         if (!url || typeof url !== "string") return;
         if (hasServerCover) {
           // Ya hay portada del build: reemplazar su src.
-          const el = document.querySelector<HTMLImageElement>(`img[data-cover="${CSS.escape(slug)}"]`);
+          const sel = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(slug) : slug.replace(/["\\]/g, "\\$&");
+          const el = document.querySelector<HTMLImageElement>(`img[data-cover="${sel}"]`);
           if (el) el.src = url;
         } else {
           setSrc(url);

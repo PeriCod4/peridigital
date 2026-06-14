@@ -24,6 +24,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  /* Evita scroll horizontal accidental en cualquier dispositivo sin romper
+     position:sticky (clip no crea contenedor de scroll como overflow:hidden). */
+  overflow-x: clip;
 }
 
 /* Selección de texto en el color de marca (teal) en lugar del azul del sistema.
@@ -74,20 +77,54 @@ body {
 .wp-content ul { list-style: disc; }
 .wp-content ol { list-style: decimal; }
 .wp-content li + li { margin-top: 0.4rem; }
+.wp-content { overflow-wrap: break-word; word-break: break-word; }
 .wp-content img {
-  border-radius: 0.75rem;
+  max-width: 100%;
   height: auto;
+  border-radius: 0.75rem;
 }
+.wp-content figure { margin: 1.5rem 0; max-width: 100%; }
+.wp-content figure img { width: 100%; }
+.wp-content iframe,
+.wp-content video,
+.wp-content embed { max-width: 100%; }
+.wp-content a { word-break: break-word; }
+.wp-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+  background: #f5f6f8;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.wp-content code { overflow-wrap: anywhere; }
 .wp-content blockquote {
   border-left: 3px solid var(--color-brand);
   padding-left: 1rem;
   color: #555;
   font-style: italic;
 }
-.wp-content figure { margin: 1.5rem 0; }
-.wp-content table { width: 100%; border-collapse: collapse; }
+/* La tabla pasa a bloque con scroll horizontal propio: nunca desborda la página */
+.wp-content table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+}
 .wp-content th,
 .wp-content td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
+/* Bloque TOC inyectado por WP: que respete el ancho en móvil */
+.wp-content .periseo-toc { max-width: 100%; box-sizing: border-box; }
+
+/* Ajustes de tipografía de artículo en móviles pequeños */
+@media (max-width: 600px) {
+  .wp-content { font-size: 1rem; }
+  .wp-content h2 { font-size: 1.35rem; margin-top: 2rem; }
+  .wp-content h3 { font-size: 1.15rem; margin-top: 1.5rem; }
+  .wp-content ul, .wp-content ol { padding-left: 1.15rem; }
+}
 
 /* ============================================================
    Efectos / animaciones
