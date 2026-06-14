@@ -5,6 +5,14 @@
 // - `servicios`: slugs de los 9 servicios de lib/site.ts. Define los filtros de la
 //   página de proyectos (solo se muestran los servicios que tienen proyectos).
 // - `tags`: etiquetas libres y descriptivas (ej. "Moda", "Sistema de Reservas").
+// Bloques de contenido dinámico (repetidor tipo ACF), editables desde el admin.
+export type ProjectBlock =
+  | { type: "heading"; text: string }
+  | { type: "text"; html: string }
+  | { type: "quote"; text: string; author?: string }
+  | { type: "image"; url: string; alt?: string; caption?: string }
+  | { type: "image_text"; url: string; alt?: string; html: string; side?: "left" | "right" };
+
 export interface Project {
   slug: string;
   title: string;
@@ -13,7 +21,8 @@ export interface Project {
   tags: string[];
   description: string;
   url?: string; // enlace a la web del proyecto (opcional)
-  body?: string; // contenido dinámico / caso de estudio (HTML, opcional)
+  blocks?: ProjectBlock[]; // contenido dinámico por bloques
+  body?: string; // legacy: HTML libre (fallback si no hay blocks)
   gallery?: string[];
   published?: boolean;
   order?: number;

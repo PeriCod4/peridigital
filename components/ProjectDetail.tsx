@@ -107,8 +107,47 @@ export default function ProjectDetail({
           </div>
         </div>
 
-        {/* Cuerpo opcional */}
-        {p.body && (
+        {/* Contenido dinámico por bloques */}
+        {(p.blocks ?? []).length > 0 && (
+          <div className="mx-auto mt-12 max-w-3xl space-y-8">
+            {p.blocks!.map((b, i) => {
+              if (b.type === "heading") {
+                return <h2 key={i} className="text-2xl font-extrabold text-ink sm:text-3xl">{b.text}</h2>;
+              }
+              if (b.type === "text") {
+                return <div key={i} className="wp-content" dangerouslySetInnerHTML={{ __html: b.html }} />;
+              }
+              if (b.type === "quote") {
+                return (
+                  <blockquote key={i} className="border-l-4 border-brand pl-5 text-lg italic text-gray-700">
+                    <p>{b.text}</p>
+                    {b.author && <cite className="mt-2 block text-sm font-semibold not-italic text-gray-500">— {b.author}</cite>}
+                  </blockquote>
+                );
+              }
+              if (b.type === "image") {
+                return (
+                  <figure key={i} className="space-y-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={b.url} alt={b.alt ?? p.title} className="w-full rounded-2xl border border-gray-200" loading="lazy" />
+                    {b.caption && <figcaption className="text-center text-sm text-gray-500">{b.caption}</figcaption>}
+                  </figure>
+                );
+              }
+              // image_text
+              return (
+                <div key={i} className={`grid items-center gap-6 sm:grid-cols-2 ${b.side === "right" ? "" : ""}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={b.url} alt={b.alt ?? p.title} className={`w-full rounded-2xl border border-gray-200 ${b.side === "right" ? "sm:order-2" : ""}`} loading="lazy" />
+                  <div className="wp-content" dangerouslySetInnerHTML={{ __html: b.html }} />
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Cuerpo legacy (si no hay bloques) */}
+        {!(p.blocks ?? []).length && p.body && (
           <div className="wp-content mx-auto mt-12 max-w-3xl" dangerouslySetInnerHTML={{ __html: p.body }} />
         )}
 

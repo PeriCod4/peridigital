@@ -91,6 +91,17 @@ legend{font-weight:700;font-size:.85rem;padding:0 .4rem}
 .gthumb span{display:flex;align-items:center;gap:.25rem}
 .gthumb input{width:auto}
 
+/* repetidor de bloques (ACF-like) */
+.block-card{border:1px solid var(--line);border-radius:.7rem;background:var(--bg);padding:1rem;margin:.6rem 0}
+.block-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.block-actions{display:flex;gap:.3rem}
+.block-actions button{width:30px;height:30px;border:1px solid var(--line);background:#fff;border-radius:.4rem;cursor:pointer;font-size:.9rem;line-height:1}
+.block-actions button[data-rm]{color:#b91c1c}
+.block-actions button:hover{background:var(--bg)}
+.block-fields{display:flex;flex-direction:column;gap:.7rem}
+.block-fields label{display:flex;flex-direction:column;gap:.3rem;font-weight:600;font-size:.85rem}
+.blockadd{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+
 @media(max-width:720px){
   .layout{flex-direction:column}
   .sidebar{width:auto;height:auto;position:static;flex-direction:row;flex-wrap:wrap;align-items:center}

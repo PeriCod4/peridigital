@@ -1,7 +1,26 @@
-import { PROJECTS, type Project } from "./projects-data";
+import { PROJECTS, type Project, type ProjectBlock } from "./projects-data";
 import { SERVICES, type ServiceDef } from "./site";
 
-export type { Project } from "./projects-data";
+export type { Project, ProjectBlock } from "./projects-data";
+
+const BLOCK_TYPES = new Set(["heading", "text", "quote", "image", "image_text"]);
+
+function normalizeBlocks(raw: unknown): ProjectBlock[] | undefined {
+  if (!Array.isArray(raw)) return undefined;
+  const out: ProjectBlock[] = [];
+  for (const b of raw as Record<string, unknown>[]) {
+    if (!b || typeof b.type !== "string" || !BLOCK_TYPES.has(b.type)) continue;
+    const t = b.type;
+    const s = (k: string) => (typeof b[k] === "string" ? (b[k] as string) : "");
+    if (t === "heading") out.push({ type: "heading", text: s("text") });
+    else if (t === "text") out.push({ type: "text", html: s("html") });
+    else if (t === "quote") out.push({ type: "quote", text: s("text"), author: s("author") || undefined });
+    else if (t === "image") out.push({ type: "image", url: s("url"), alt: s("alt") || undefined, caption: s("caption") || undefined });
+    else if (t === "image_text")
+      out.push({ type: "image_text", url: s("url"), alt: s("alt") || undefined, html: s("html"), side: b.side === "right" ? "right" : "left" });
+  }
+  return out.length ? out : undefined;
+}
 
 // Slugs con página estática generada en build (generateStaticParams).
 export const BUILT_SLUGS = new Set(PROJECTS.map((p) => p.slug));
@@ -26,6 +45,7 @@ export function normalizeProjects(raw: unknown): Project[] {
       tags: Array.isArray(r.tags) ? (r.tags as string[]).filter((s) => typeof s === "string") : [],
       description: typeof r.description === "string" ? r.description : "",
       url: typeof r.url === "string" && r.url ? r.url : undefined,
+      blocks: normalizeBlocks(r.blocks),
       body: typeof r.body === "string" ? r.body : undefined,
       gallery: Array.isArray(r.gallery) ? (r.gallery as string[]).filter((s) => typeof s === "string") : undefined,
       published: r.published !== false,
