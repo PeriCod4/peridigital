@@ -309,3 +309,19 @@ summary:focus-visible {
   }
   .spotlight::after { display: none; }
 }
+
+/* ---- Rendimiento en móvil/táctil ----
+   En móvil la aurora animada (4 manchas blur 75px con animación infinita) y los
+   backdrop-filter saturan la GPU y provocan jank/"pillada". Aquí la dejamos estática
+   y barata; en escritorio sigue igual. */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .aurora-blob,
+  .aurora-blob > i { will-change: auto; }
+  .aurora-blob > i { animation: none !important; filter: blur(40px); }
+  .aurora-b3, .aurora-b4 { display: none; }
+  .backdrop-blur,
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
