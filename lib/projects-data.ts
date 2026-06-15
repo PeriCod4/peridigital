@@ -75,7 +75,8 @@ export const PROJECTS: Project[] = [
         "text": "Tener las reservas y los WODs en la propia web nos quitó trabajo manual y llenó más clases.",
         "author": "Alpha Link CrossFit"
       }
-    ]
+    ],
+    "url": "https://alphalinkcrossfit.com/"
   },
   {
     "slug": "silence-spa",
@@ -122,7 +123,8 @@ export const PROJECTS: Project[] = [
         "text": "Pasamos de coger reservas por teléfono a una agenda que se gestiona sola, incluso los packs regalo.",
         "author": "Silence SPA"
       }
-    ]
+    ],
+    "url": "https://silencespa.com/"
   },
   {
     "slug": "renovar-carnet",
@@ -170,7 +172,8 @@ export const PROJECTS: Project[] = [
         "text": "La gente ahora reserva sola y llegan menos llamadas: el equipo gana tiempo cada día.",
         "author": "Renovar Carnet CCCO"
       }
-    ]
+    ],
+    "url": "https://renovarcarnetccco.es/"
   },
   {
     "slug": "oliver-bam",
@@ -238,7 +241,8 @@ export const PROJECTS: Project[] = [
         "text": "Nació como proyecto propio y hoy es una marca que vende y se gestiona con muy poco esfuerzo.",
         "author": "Kelindas"
       }
-    ]
+    ],
+    "url": "https://kelindas.com/"
   },
   {
     "slug": "la-fundicio",
@@ -286,7 +290,8 @@ export const PROJECTS: Project[] = [
         "text": "Por fin publicamos nosotros, en nuestros idiomas, sin pedir ayuda para cada cambio.",
         "author": "LaFundició"
       }
-    ]
+    ],
+    "url": "https://lafundicio.net/"
   },
   {
     "slug": "factoria-creativa",
@@ -335,7 +340,8 @@ export const PROJECTS: Project[] = [
         "text": "Actualizamos la web nosotros y nos llegan más peticiones de presupuesto que nunca.",
         "author": "Factoría Creativa"
       }
-    ]
+    ],
+    "url": "https://www.factoriacreativabarcelona.es/"
   },
   {
     "slug": "gaela-tulum",
@@ -383,7 +389,8 @@ export const PROJECTS: Project[] = [
         "text": "Vender en varias divisas e idiomas nos abrió mercados que antes se nos escapaban.",
         "author": "Gaëla Tulum"
       }
-    ]
+    ],
+    "url": "https://gaelatulum.com/"
   },
   {
     "slug": "varullo",
@@ -432,6 +439,7 @@ export const PROJECTS: Project[] = [
         "text": "Nuestra web ahora capta como esperábamos: rápida, clara y pensada para convertir.",
         "author": "Varullo"
       }
-    ]
+    ],
+    "url": "https://www.varullo.com/"
   }
 ];

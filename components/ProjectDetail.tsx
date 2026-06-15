@@ -62,8 +62,8 @@ export default function ProjectDetail({
         </Link>
 
         <div className="mt-6 grid items-start gap-10 lg:grid-cols-[1fr_1.1fr]">
-          {/* Imagen */}
-          <div className="spotlight flex items-center justify-center rounded-3xl border border-gray-200 bg-white p-10 shadow-sm">
+          {/* Logo sobre el fondo, sin caja */}
+          <div className="flex items-center justify-center py-4">
             {p.image && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={p.image} alt={`Proyecto ${p.title}`} className="max-h-48 w-auto object-contain" />
@@ -101,7 +101,7 @@ export default function ProjectDetail({
                 rel="noopener noreferrer"
                 className="mt-7 inline-block rounded-full bg-gradient-to-r from-brand to-accent px-6 py-3 font-semibold text-ink transition-transform hover:scale-105"
               >
-                Visitar web →
+                Visitar la web →
               </a>
             )}
           </div>
