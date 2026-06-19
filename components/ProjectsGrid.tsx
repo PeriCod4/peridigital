@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import TiltCard from "./motion/TiltCard";
+import ProjectLogo from "./ProjectLogo";
 import { PROJECTS } from "@/lib/projects-data";
 import {
   type Project,
@@ -78,10 +79,7 @@ export default function ProjectsGrid() {
               <Link href={projectHref(p.slug)} className="block h-full">
                 <TiltCard className="spotlight flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
                   <div className="flex h-20 items-center">
-                    {p.image && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={p.image} alt={`Proyecto ${p.title}`} className="max-h-16 w-auto object-contain" loading="lazy" />
-                    )}
+                    <ProjectLogo image={p.image} title={p.title} imgClass="max-h-16 w-auto object-contain" textClass="text-lg" />
                   </div>
                   <h2 className="mt-4 text-lg font-bold text-ink">{p.title}</h2>
                   <div className="mt-2 flex flex-wrap gap-1.5">

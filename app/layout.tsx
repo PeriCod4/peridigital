@@ -8,6 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
 import Spotlight from "@/components/fx/Spotlight";
 import AuroraBackground from "@/components/fx/AuroraBackground";
+import { MotionConfig } from "motion/react";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -52,13 +53,16 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white" suppressHydrationWarning>
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
-        <AuroraBackground />
-        <Header />
-        <div className="relative z-10 flex-1">{children}</div>
-        <Footer />
-        <CookieConsent />
-        <Analytics />
-        <Spotlight />
+        {/* reducedMotion="user": respeta prefers-reduced-motion en todas las animaciones */}
+        <MotionConfig reducedMotion="user">
+          <AuroraBackground />
+          <Header />
+          <div className="relative z-10 flex-1">{children}</div>
+          <Footer />
+          <CookieConsent />
+          <Analytics />
+          <Spotlight />
+        </MotionConfig>
       </body>
     </html>
   );

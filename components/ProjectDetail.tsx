@@ -6,6 +6,7 @@ import Container from "./Container";
 import LeadCta from "./LeadCta";
 import { SERVICES } from "@/lib/site";
 import { type Project, normalizeProjects } from "@/lib/projects";
+import ProjectLogo from "./ProjectLogo";
 
 function serviceTitle(slug: string): string {
   return SERVICES.find((s) => s.slug === slug)?.title ?? slug;
@@ -62,12 +63,9 @@ export default function ProjectDetail({
         </Link>
 
         <div className="mt-6 grid items-start gap-10 lg:grid-cols-[1fr_1.1fr]">
-          {/* Logo sobre el fondo, sin caja */}
-          <div className="flex items-center justify-center py-4">
-            {p.image && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={p.image} alt={`Proyecto ${p.title}`} className="max-h-48 w-auto object-contain" />
-            )}
+          {/* Logo sobre el fondo, sin caja (imagen o nombre estilizado) */}
+          <div className="flex items-center justify-center py-4 text-center">
+            <ProjectLogo image={p.image} title={p.title} imgClass="max-h-48 w-auto object-contain" textClass="text-4xl sm:text-5xl" />
           </div>
 
           {/* Cabecera */}
