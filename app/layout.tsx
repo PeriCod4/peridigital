@@ -8,6 +8,8 @@ import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
 import Spotlight from "@/components/fx/Spotlight";
 import AuroraBackground from "@/components/fx/AuroraBackground";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import ChatWidget from "@/components/ChatWidget";
 import { MotionConfig } from "motion/react";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
@@ -62,6 +64,8 @@ export default function RootLayout({
           <CookieConsent />
           <Analytics />
           <Spotlight />
+          <WhatsAppFloat />
+          <ChatWidget />
         </MotionConfig>
       </body>
     </html>
