@@ -58,3 +58,5 @@ server/data/articles-index.json
 
 # generic local-only files
 *.local
+
+.vercel

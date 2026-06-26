@@ -7,18 +7,6 @@
       "destination": "https://peridigital.es/$1",
       "permanent": true
     },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "camperodigital.com" }],
-      "destination": "https://peridigital.es/$1",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.camperodigital.com" }],
-      "destination": "https://peridigital.es/$1",
-      "permanent": true
-    },
     { "source": "/proyectos-web", "destination": "/proyectos/", "permanent": true },
     { "source": "/proyectos-web/", "destination": "/proyectos/", "permanent": true },
     { "source": "/proyectos-web/:path*", "destination": "/proyectos/:path*", "permanent": true }
