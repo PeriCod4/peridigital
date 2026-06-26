@@ -30,419 +30,6 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    "slug": "alpha-link",
-    "title": "ALPHA LINK",
-    "image": "/media/proyectos/alpha-link.svg",
-    "servicios": [
-      "diseno-web",
-      "seo"
-    ],
-    "tags": [
-      "Gimnasio",
-      "Web Corporativa",
-      "SEO local"
-    ],
-    "description": "Web corporativa de un Gimnasio de Crossfit en Barcelona, donde se trabaja el SEO local, se añade el calendario de entrenamiento, parte privada donde ver los distintos entrenamientos semanales, e integración con su gestor de horarios, clases y capacidad por clase.",
-    "published": true,
-    "order": 1,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Alpha Link es un box de CrossFit con dos centros en Barcelona (Sagrada Família y Gran Via) y una oferta muy amplia: CrossFit, híbrido, DEKA, HIIT y más. Necesitaban una web que transmitiera esa versatilidad y, sobre todo, que convirtiera las visitas en reservas de clase sin fricción.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Diseñamos y desarrollamos una web rápida y moderna, optimizada para SEO local en Barcelona, con:</p><ul><li>Sistema de reserva de clases y horarios integrado con su gestor.</li><li>Catálogo de planes y <em>drop-in</em> para clases puntuales.</li><li>Área privada con los entrenamientos (WODs) de cada semana.</li><li>Control de aforo y capacidad por clase.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+42%</strong> de reservas de clase desde la web en los primeros 3 meses.</li><li><strong>-31%</strong> de <em>no-shows</em> gracias a los recordatorios automáticos.</li><li><strong>x2</strong> altas de nuevos socios captadas online.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Tener las reservas y los WODs en la propia web nos quitó trabajo manual y llenó más clases.",
-        "author": "Alpha Link CrossFit"
-      }
-    ],
-    "url": "https://alphalinkcrossfit.com/"
-  },
-  {
-    "slug": "silence-spa",
-    "title": "Silence SPA",
-    "image": "/media/proyectos/silence-spa.png",
-    "servicios": [
-      "diseno-web",
-      "soluciones-digitales"
-    ],
-    "tags": [
-      "Ecommerce",
-      "Sistema de Reservas"
-    ],
-    "description": "Silence SPA es un balneario y centro de masajes situado en Calella, Barcelona. Para este proyecto, se realizó un sistema de reservas totalmente automatizado y a medida, integrado con pasarela de pagos, envío de mails, gestión de productos regalos, y gestión interno de reservas, capacidad diaria y flexibilidad para la edición de días, reservas, horarios y plazas disponibles dependiendo del producto que se adquiera.",
-    "published": true,
-    "order": 2,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Silence Thalasso Spa &amp; Fitness, en el Maresme (Barcelona), quería vender su experiencia de bienestar online —circuito de spa, masajes, tratamientos con aparatología y packs regalo— con reserva y pago integrados y atención en varios idiomas.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Un ecommerce con sistema de reservas a medida, totalmente automatizado:</p><ul><li>Reserva online con pasarela de pago integrada.</li><li>Venta de packs y tarjetas regalo.</li><li>Gestión interna de reservas, aforo diario y disponibilidad por producto.</li><li>Web multiidioma (ES/CAT/EN/FR/RU) con emails automáticos.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+55%</strong> de reservas realizadas online.</li><li><strong>+38%</strong> en venta de packs y tarjetas regalo.</li><li><strong>-40%</strong> de gestión telefónica al automatizar la agenda.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Pasamos de coger reservas por teléfono a una agenda que se gestiona sola, incluso los packs regalo.",
-        "author": "Silence SPA"
-      }
-    ],
-    "url": "https://silencespa.com/"
-  },
-  {
-    "slug": "renovar-carnet",
-    "title": "Renovar Carnet",
-    "image": "/media/proyectos/renovar-carnet.webp",
-    "servicios": [
-      "diseno-web",
-      "soluciones-digitales",
-      "seo"
-    ],
-    "tags": [
-      "Centro médico",
-      "Sistema de Reservas"
-    ],
-    "description": "Centro médico, especializado en la renovación de todo tipos de carnets. Sistema de reserva para las citas de carnet. No cuenta con pago online integrado, solo el formulario, con aviso al usuario en el momento de la cita y horas antes para recordar la reserva.",
-    "published": true,
-    "order": 3,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Centro médico en Molins de Rei (Barcelona) con más de 50 años emitiendo certificados para carnet de conducir, náutica, armas y seguridad privada. Querían dejar de depender del teléfono y que la gente reservara su cita online.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Una web clara y de confianza, optimizada para SEO local, con:</p><ul><li>Reserva de cita online para cada tipo de certificado.</li><li>Catálogo de servicios con precios.</li><li>Avisos y recordatorios al usuario antes de la cita.</li><li>Diseño responsive centrado en convertir.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+60%</strong> de citas gestionadas online.</li><li><strong>-45%</strong> de llamadas para pedir cita.</li><li><strong>Top 3</strong> en Google para búsquedas locales de renovación de carnet.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "La gente ahora reserva sola y llegan menos llamadas: el equipo gana tiempo cada día.",
-        "author": "Renovar Carnet CCCO"
-      }
-    ],
-    "url": "https://renovarcarnetccco.es/"
-  },
-  {
-    "slug": "oliver-bam",
-    "title": "Oliver Bam",
-    "image": "/media/proyectos/oliver-bam.webp",
-    "servicios": [
-      "diseno-web",
-      "creacion-de-marca",
-      "seo"
-    ],
-    "tags": [
-      "Marca personal",
-      "Web Corporativa",
-      "SEO Internacional"
-    ],
-    "description": "Web Corporativa para Oliver Bam, especialista en Marketing y Marca Personal, en la que se centra en su marca, sus servicios, y creación de infraestructura de entradas y noticias para optimizar e impulsar el SEO.",
-    "published": true,
-    "order": 4
-  },
-  {
-    "slug": "kelindas",
-    "title": "Kelindas",
-    "image": "/media/proyectos/kelindas.webp",
-    "servicios": [
-      "diseno-web",
-      "creacion-de-marca",
-      "crm-automatizacion",
-      "seo"
-    ],
-    "tags": [
-      "Moda",
-      "Ecommerce",
-      "Branding"
-    ],
-    "description": "Tienda online de gafas y complementos, diseñada y programada por PeriDigital. Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo.",
-    "published": true,
-    "order": 5,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Kelindas es un proyecto propio de PeriDigital: una marca de gafas de sol y complementos personalizables, joven y desenfadada. El reto era construir la marca desde cero y montar un ecommerce que vendiera y se gestionara casi solo.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Branding completo, ecommerce y automatización:</p><ul><li>Creación de marca: nombre, identidad y tono.</li><li>Tienda online con producto personalizable (charms) y colecciones temáticas.</li><li>CRM integrado con la web y automatizaciones de marketing.</li><li>Contenido para redes sociales alineado con la marca.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+48%</strong> de conversión tras rediseñar la ficha de producto y el checkout.</li><li><strong>+22%</strong> de ticket medio con los complementos personalizables.</li><li><strong>~10 h/semana</strong> ahorradas con las automatizaciones del CRM.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Nació como proyecto propio y hoy es una marca que vende y se gestiona con muy poco esfuerzo.",
-        "author": "Kelindas"
-      }
-    ],
-    "url": "https://kelindas.com/"
-  },
-  {
-    "slug": "la-fundicio",
-    "title": "La Fundicio",
-    "image": "/media/proyectos/la-fundicio.gif",
-    "servicios": [
-      "diseno-web",
-      "seo"
-    ],
-    "tags": [
-      "Cooperativa",
-      "Web Corporativa",
-      "Web a medida"
-    ],
-    "description": "La Fundició es un proyecto de web corporativa en el que se le ha desarrollado un sistema de items e información complejo a medida, con el objetivo de hacer una landing informativa y una gran capacidad de interactuar con el usuario, sin necesidad de ir navegando entre distintas páginas.",
-    "published": true,
-    "order": 6,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>LaFundició es una cooperativa cultural que desarrolla procesos comunitarios y educativos. Necesitaban una web editorial, multilingüe y fácil de actualizar para mostrar sus procesos en curso, noticias y ecosistema sin pelearse con el código.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Una web corporativa a medida con un sistema de contenidos autogestionable:</p><ul><li>Secciones de Procesos en curso, Noticias, Equipo y Ecosistema.</li><li>Contenido editable por ellos, sin tocar código.</li><li>Multilingüe (ES/CAT/EN), newsletter y buscador integrado.</li><li>Landing informativa de gran interactividad, sin saltar entre páginas.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+120%</strong> de tiempo medio en página.</li><li><strong>x3</strong> suscriptores a la newsletter.</li><li><strong>Cero</strong> dependencia técnica: publican ellos mismos.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Por fin publicamos nosotros, en nuestros idiomas, sin pedir ayuda para cada cambio.",
-        "author": "LaFundició"
-      }
-    ],
-    "url": "https://lafundicio.net/"
-  },
-  {
-    "slug": "factoria-creativa",
-    "title": "Factoría Creativa",
-    "image": "/media/proyectos/factoria-creativa.webp",
-    "servicios": [
-      "diseno-web",
-      "seo",
-      "paid-media"
-    ],
-    "tags": [
-      "Agencia creativa",
-      "Web autogestionable",
-      "Landing pages"
-    ],
-    "description": "Factoría Creativa es una agencia creativa, especializados en el montaje de stands, y en el diseño web. Se presentó el diseño de lo que necesitaban exactamente, y haciendo un estudio de cómo querían autogestionar todo el sistema de contenidos, se les realizó una web a medida con contenido autogestionable sin necesidad de volver a tocar el código. Se hizo una auditoría SEO para posicionar la empresa a nivel nacional. Se le prepararon las diferentes landings preparadas para captación de leads.",
-    "published": true,
-    "order": 7,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Factoría Creativa diseña y monta stands para ferias en Barcelona y toda Europa. Querían una web que enseñara su portfolio, posicionara a nivel nacional y que pudieran actualizar ellos mismos sin tocar código.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Una web a medida con contenido autogestionable:</p><ul><li>Portfolio de proyectos y stands, editable por ellos.</li><li>Landings de captación de leads por tipo de servicio.</li><li>Auditoría y SEO para posicionar a nivel nacional.</li><li>FAQ y contenido que posiciona a la marca como experta.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+40%</strong> de solicitudes de presupuesto desde la web.</li><li><strong>100%</strong> del contenido gestionable sin programar.</li><li><strong>4,9/5</strong> de valoración media de clientes.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Actualizamos la web nosotros y nos llegan más peticiones de presupuesto que nunca.",
-        "author": "Factoría Creativa"
-      }
-    ],
-    "url": "https://www.factoriacreativabarcelona.es/"
-  },
-  {
-    "slug": "gaela-tulum",
-    "title": "Gaela Tulum",
-    "image": "/media/proyectos/gaela-tulum.webp",
-    "servicios": [
-      "diseno-web",
-      "seo"
-    ],
-    "tags": [
-      "Moda",
-      "Ecommerce",
-      "SEO Internacional"
-    ],
-    "description": "Tienda online de moda, con diversidad de divisas, venta internacional, optimizada para distintos idiomas, aplicando SEO internacional.",
-    "published": true,
-    "order": 8,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Gaëla Tulum es una marca de moda y accesorios de piel —<em>Italian design, French taste, Mexican spirit</em>— que vende a varios países. Necesitaba un ecommerce internacional, en varios idiomas y divisas, a la altura de un producto premium.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Una tienda online internacional con SEO multi-idioma:</p><ul><li>Multidivisa (MXN, USD, EUR, CAD) y multiidioma (EN/ES).</li><li>Catálogo de bolsos y accesorios con fotografía cuidada.</li><li>SEO internacional para captar en distintos mercados.</li><li>Experiencia de compra premium y responsive.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+65%</strong> de ventas internacionales.</li><li><strong>+30%</strong> de conversión al mostrar precios en la divisa del cliente.</li><li>Venta activa en <strong>4 mercados</strong> a la vez.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Vender en varias divisas e idiomas nos abrió mercados que antes se nos escapaban.",
-        "author": "Gaëla Tulum"
-      }
-    ],
-    "url": "https://gaelatulum.com/"
-  },
-  {
-    "slug": "varullo",
-    "title": "Varullo",
-    "image": "/media/proyectos/varullo.webp",
-    "servicios": [
-      "diseno-web",
-      "creacion-de-marca",
-      "paid-media"
-    ],
-    "tags": [
-      "Agencia de marketing",
-      "Branding",
-      "Landing pages"
-    ],
-    "description": "Agencia de Marketing Digital especializada en Paid Media, Growth y Automatizaciones. Diseño limpio, totalmente personalizado y moderno, destinado para captar leads, a través de tráfico orgánico y landing de aterrizaje para leads captados a través de campañas en Google.",
-    "published": true,
-    "order": 9,
-    "blocks": [
-      {
-        "type": "heading",
-        "text": "El reto"
-      },
-      {
-        "type": "text",
-        "html": "<p>Varullo es una agencia de growth y paid media. Como expertos en marketing, su propia web tenía que estar a la altura: moderna, rápida y diseñada para captar leads cualificados, sin lenguaje corporativo vacío.</p>"
-      },
-      {
-        "type": "heading",
-        "text": "Qué construimos"
-      },
-      {
-        "type": "text",
-        "html": "<p>Una web de captación, limpia y directa:</p><ul><li>Diseño 100% personalizado y moderno, con un mensaje contundente.</li><li>Estructura orientada a conversión (qué hacen, cómo trabajan, resultados, FAQ).</li><li>Landing de aterrizaje para el tráfico de campañas en Google.</li><li>Formularios de captación y portal de cliente.</li></ul>"
-      },
-      {
-        "type": "heading",
-        "text": "Resultados"
-      },
-      {
-        "type": "text",
-        "html": "<ul><li><strong>+35%</strong> de leads cualificados desde la web.</li><li><strong>-50%</strong> de coste por lead en la landing de campañas.</li><li>Carga de la home por debajo de <strong>1 segundo</strong>.</li></ul>"
-      },
-      {
-        "type": "quote",
-        "text": "Nuestra web ahora capta como esperábamos: rápida, clara y pensada para convertir.",
-        "author": "Varullo"
-      }
-    ],
-    "url": "https://www.varullo.com/"
-  },
-  {
     "slug": "peri-seo",
     "title": "PeriSEO",
     "image": "/media/proyectos/peri-seo.png",
@@ -458,7 +45,7 @@ export const PROJECTS: Project[] = [
     ],
     "description": "PeriSEO es nuestra plataforma SaaS de SEO con inteligencia artificial: auditorías automáticas, generación de contenido optimizado, seguimiento de posiciones e integración con Google Search Console y Analytics 4. Un proyecto propio de PeriDigital que también ofrecemos como servicio a nuestros clientes.",
     "published": true,
-    "order": 10,
+    "order": 1,
     "blocks": [
       {
         "type": "heading",
@@ -508,7 +95,7 @@ export const PROJECTS: Project[] = [
     ],
     "description": "PeriCheck es nuestro CRM todo-en-uno con facturación legal VERI*FACTU integrada: gestión de leads y clientes, oportunidades, presupuestos, facturas, cobros, proyectos y automatizaciones en una sola plataforma. Un proyecto propio de PeriDigital pensado para autónomos, pymes y gestorías.",
     "published": true,
-    "order": 11,
+    "order": 2,
     "blocks": [
       {
         "type": "heading",
@@ -541,5 +128,467 @@ export const PROJECTS: Project[] = [
       }
     ],
     "url": "https://pericheck.es/"
+  },
+  {
+    "slug": "sunfield",
+    "title": "Sunfield",
+    "image": "/media/proyectos/sunfield.png",
+    "servicios": [
+      "diseno-web",
+      "seo"
+    ],
+    "tags": [
+      "Ecommerce",
+      "Joyería",
+      "SEO"
+    ],
+    "description": "Sunfield es una tienda online de joyería. Desarrollamos su ecommerce WooCommerce con un catálogo cuidado, métodos de pago modernos (tarjeta, Apple Pay, Google Pay, Bizum, Klarna) y un trabajo a fondo de rendimiento y SEO para posicionar la marca y vender más.",
+    "published": true,
+    "order": 3,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Sunfield vende joyería online, un sector muy visual y de mucha confianza. Necesitaban una tienda rápida, bonita y bien posicionada en Google, capaz de convertir visitas en ventas y de crecer hacia la venta internacional.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Un ecommerce WooCommerce a medida, optimizado para vender:</p><ul><li>Catálogo de joyas con fichas de producto cuidadas.</li><li>Múltiples métodos de pago: tarjeta, Apple Pay, Google Pay, Bizum y Klarna.</li><li>Optimización de rendimiento y Core Web Vitals para una carga rápida.</li><li>SEO técnico y de contenidos para ganar posiciones en Google.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li>Tienda <strong>rápida y estable</strong>, también en móvil.</li><li>Mejor <strong>posicionamiento orgánico</strong> y visibilidad de marca.</li><li>Checkout <strong>sin fricción</strong> con los métodos de pago que la gente ya usa.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Una tienda cuidada y rápida que transmite la confianza que necesita una marca de joyería.",
+        "author": "Sunfield"
+      }
+    ],
+    "url": "https://sunfield.es/"
+  },
+  {
+    "slug": "alpha-link",
+    "title": "ALPHA LINK",
+    "image": "/media/proyectos/alpha-link.svg",
+    "servicios": [
+      "diseno-web",
+      "seo"
+    ],
+    "tags": [
+      "Gimnasio",
+      "Web Corporativa",
+      "SEO local"
+    ],
+    "description": "Web corporativa de un Gimnasio de Crossfit en Barcelona, donde se trabaja el SEO local, se añade el calendario de entrenamiento, parte privada donde ver los distintos entrenamientos semanales, e integración con su gestor de horarios, clases y capacidad por clase.",
+    "published": true,
+    "order": 4,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Alpha Link es un box de CrossFit con dos centros en Barcelona (Sagrada Família y Gran Via) y una oferta muy amplia: CrossFit, híbrido, DEKA, HIIT y más. Necesitaban una web que transmitiera esa versatilidad y, sobre todo, que convirtiera las visitas en reservas de clase sin fricción.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Diseñamos y desarrollamos una web rápida y moderna, optimizada para SEO local en Barcelona, con:</p><ul><li>Sistema de reserva de clases y horarios integrado con su gestor.</li><li>Catálogo de planes y <em>drop-in</em> para clases puntuales.</li><li>Área privada con los entrenamientos (WODs) de cada semana.</li><li>Control de aforo y capacidad por clase.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+42%</strong> de reservas de clase desde la web en los primeros 3 meses.</li><li><strong>-31%</strong> de <em>no-shows</em> gracias a los recordatorios automáticos.</li><li><strong>x2</strong> altas de nuevos socios captadas online.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Tener las reservas y los WODs en la propia web nos quitó trabajo manual y llenó más clases.",
+        "author": "Alpha Link CrossFit"
+      }
+    ],
+    "url": "https://alphalinkcrossfit.com/"
+  },
+  {
+    "slug": "silence-spa",
+    "title": "Silence SPA",
+    "image": "/media/proyectos/silence-spa.png",
+    "servicios": [
+      "diseno-web",
+      "soluciones-digitales"
+    ],
+    "tags": [
+      "Ecommerce",
+      "Sistema de Reservas"
+    ],
+    "description": "Silence SPA es un balneario y centro de masajes situado en Calella, Barcelona. Para este proyecto, se realizó un sistema de reservas totalmente automatizado y a medida, integrado con pasarela de pagos, envío de mails, gestión de productos regalos, y gestión interno de reservas, capacidad diaria y flexibilidad para la edición de días, reservas, horarios y plazas disponibles dependiendo del producto que se adquiera.",
+    "published": true,
+    "order": 5,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Silence Thalasso Spa &amp; Fitness, en el Maresme (Barcelona), quería vender su experiencia de bienestar online —circuito de spa, masajes, tratamientos con aparatología y packs regalo— con reserva y pago integrados y atención en varios idiomas.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Un ecommerce con sistema de reservas a medida, totalmente automatizado:</p><ul><li>Reserva online con pasarela de pago integrada.</li><li>Venta de packs y tarjetas regalo.</li><li>Gestión interna de reservas, aforo diario y disponibilidad por producto.</li><li>Web multiidioma (ES/CAT/EN/FR/RU) con emails automáticos.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+55%</strong> de reservas realizadas online.</li><li><strong>+38%</strong> en venta de packs y tarjetas regalo.</li><li><strong>-40%</strong> de gestión telefónica al automatizar la agenda.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Pasamos de coger reservas por teléfono a una agenda que se gestiona sola, incluso los packs regalo.",
+        "author": "Silence SPA"
+      }
+    ],
+    "url": "https://silencespa.com/"
+  },
+  {
+    "slug": "renovar-carnet",
+    "title": "Renovar Carnet",
+    "image": "/media/proyectos/renovar-carnet.webp",
+    "servicios": [
+      "diseno-web",
+      "soluciones-digitales",
+      "seo"
+    ],
+    "tags": [
+      "Centro médico",
+      "Sistema de Reservas"
+    ],
+    "description": "Centro médico, especializado en la renovación de todo tipos de carnets. Sistema de reserva para las citas de carnet. No cuenta con pago online integrado, solo el formulario, con aviso al usuario en el momento de la cita y horas antes para recordar la reserva.",
+    "published": true,
+    "order": 6,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Centro médico en Molins de Rei (Barcelona) con más de 50 años emitiendo certificados para carnet de conducir, náutica, armas y seguridad privada. Querían dejar de depender del teléfono y que la gente reservara su cita online.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una web clara y de confianza, optimizada para SEO local, con:</p><ul><li>Reserva de cita online para cada tipo de certificado.</li><li>Catálogo de servicios con precios.</li><li>Avisos y recordatorios al usuario antes de la cita.</li><li>Diseño responsive centrado en convertir.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+60%</strong> de citas gestionadas online.</li><li><strong>-45%</strong> de llamadas para pedir cita.</li><li><strong>Top 3</strong> en Google para búsquedas locales de renovación de carnet.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "La gente ahora reserva sola y llegan menos llamadas: el equipo gana tiempo cada día.",
+        "author": "Renovar Carnet CCCO"
+      }
+    ],
+    "url": "https://renovarcarnetccco.es/"
+  },
+  {
+    "slug": "oliver-bam",
+    "title": "Oliver Bam",
+    "image": "/media/proyectos/oliver-bam.webp",
+    "servicios": [
+      "diseno-web",
+      "creacion-de-marca",
+      "seo"
+    ],
+    "tags": [
+      "Marca personal",
+      "Web Corporativa",
+      "SEO Internacional"
+    ],
+    "description": "Web Corporativa para Oliver Bam, especialista en Marketing y Marca Personal, en la que se centra en su marca, sus servicios, y creación de infraestructura de entradas y noticias para optimizar e impulsar el SEO.",
+    "published": true,
+    "order": 7
+  },
+  {
+    "slug": "kelindas",
+    "title": "Kelindas",
+    "image": "/media/proyectos/kelindas.webp",
+    "servicios": [
+      "diseno-web",
+      "creacion-de-marca",
+      "crm-automatizacion",
+      "seo"
+    ],
+    "tags": [
+      "Moda",
+      "Ecommerce",
+      "Branding"
+    ],
+    "description": "Tienda online de gafas y complementos, diseñada y programada por PeriDigital. Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo.",
+    "published": true,
+    "order": 8,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Kelindas es un proyecto propio de PeriDigital: una marca de gafas de sol y complementos personalizables, joven y desenfadada. El reto era construir la marca desde cero y montar un ecommerce que vendiera y se gestionara casi solo.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Branding completo, ecommerce y automatización:</p><ul><li>Creación de marca: nombre, identidad y tono.</li><li>Tienda online con producto personalizable (charms) y colecciones temáticas.</li><li>CRM integrado con la web y automatizaciones de marketing.</li><li>Contenido para redes sociales alineado con la marca.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+48%</strong> de conversión tras rediseñar la ficha de producto y el checkout.</li><li><strong>+22%</strong> de ticket medio con los complementos personalizables.</li><li><strong>~10 h/semana</strong> ahorradas con las automatizaciones del CRM.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Nació como proyecto propio y hoy es una marca que vende y se gestiona con muy poco esfuerzo.",
+        "author": "Kelindas"
+      }
+    ],
+    "url": "https://kelindas.com/"
+  },
+  {
+    "slug": "la-fundicio",
+    "title": "La Fundicio",
+    "image": "/media/proyectos/la-fundicio.gif",
+    "servicios": [
+      "diseno-web",
+      "seo"
+    ],
+    "tags": [
+      "Cooperativa",
+      "Web Corporativa",
+      "Web a medida"
+    ],
+    "description": "La Fundició es un proyecto de web corporativa en el que se le ha desarrollado un sistema de items e información complejo a medida, con el objetivo de hacer una landing informativa y una gran capacidad de interactuar con el usuario, sin necesidad de ir navegando entre distintas páginas.",
+    "published": true,
+    "order": 9,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>LaFundició es una cooperativa cultural que desarrolla procesos comunitarios y educativos. Necesitaban una web editorial, multilingüe y fácil de actualizar para mostrar sus procesos en curso, noticias y ecosistema sin pelearse con el código.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una web corporativa a medida con un sistema de contenidos autogestionable:</p><ul><li>Secciones de Procesos en curso, Noticias, Equipo y Ecosistema.</li><li>Contenido editable por ellos, sin tocar código.</li><li>Multilingüe (ES/CAT/EN), newsletter y buscador integrado.</li><li>Landing informativa de gran interactividad, sin saltar entre páginas.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+120%</strong> de tiempo medio en página.</li><li><strong>x3</strong> suscriptores a la newsletter.</li><li><strong>Cero</strong> dependencia técnica: publican ellos mismos.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Por fin publicamos nosotros, en nuestros idiomas, sin pedir ayuda para cada cambio.",
+        "author": "LaFundició"
+      }
+    ],
+    "url": "https://lafundicio.net/"
+  },
+  {
+    "slug": "factoria-creativa",
+    "title": "Factoría Creativa",
+    "image": "/media/proyectos/factoria-creativa.webp",
+    "servicios": [
+      "diseno-web",
+      "seo",
+      "paid-media"
+    ],
+    "tags": [
+      "Agencia creativa",
+      "Web autogestionable",
+      "Landing pages"
+    ],
+    "description": "Factoría Creativa es una agencia creativa, especializados en el montaje de stands, y en el diseño web. Se presentó el diseño de lo que necesitaban exactamente, y haciendo un estudio de cómo querían autogestionar todo el sistema de contenidos, se les realizó una web a medida con contenido autogestionable sin necesidad de volver a tocar el código. Se hizo una auditoría SEO para posicionar la empresa a nivel nacional. Se le prepararon las diferentes landings preparadas para captación de leads.",
+    "published": true,
+    "order": 10,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Factoría Creativa diseña y monta stands para ferias en Barcelona y toda Europa. Querían una web que enseñara su portfolio, posicionara a nivel nacional y que pudieran actualizar ellos mismos sin tocar código.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una web a medida con contenido autogestionable:</p><ul><li>Portfolio de proyectos y stands, editable por ellos.</li><li>Landings de captación de leads por tipo de servicio.</li><li>Auditoría y SEO para posicionar a nivel nacional.</li><li>FAQ y contenido que posiciona a la marca como experta.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+40%</strong> de solicitudes de presupuesto desde la web.</li><li><strong>100%</strong> del contenido gestionable sin programar.</li><li><strong>4,9/5</strong> de valoración media de clientes.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Actualizamos la web nosotros y nos llegan más peticiones de presupuesto que nunca.",
+        "author": "Factoría Creativa"
+      }
+    ],
+    "url": "https://www.factoriacreativabarcelona.es/"
+  },
+  {
+    "slug": "gaela-tulum",
+    "title": "Gaela Tulum",
+    "image": "/media/proyectos/gaela-tulum.webp",
+    "servicios": [
+      "diseno-web",
+      "seo"
+    ],
+    "tags": [
+      "Moda",
+      "Ecommerce",
+      "SEO Internacional"
+    ],
+    "description": "Tienda online de moda, con diversidad de divisas, venta internacional, optimizada para distintos idiomas, aplicando SEO internacional.",
+    "published": true,
+    "order": 11,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Gaëla Tulum es una marca de moda y accesorios de piel —<em>Italian design, French taste, Mexican spirit</em>— que vende a varios países. Necesitaba un ecommerce internacional, en varios idiomas y divisas, a la altura de un producto premium.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una tienda online internacional con SEO multi-idioma:</p><ul><li>Multidivisa (MXN, USD, EUR, CAD) y multiidioma (EN/ES).</li><li>Catálogo de bolsos y accesorios con fotografía cuidada.</li><li>SEO internacional para captar en distintos mercados.</li><li>Experiencia de compra premium y responsive.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+65%</strong> de ventas internacionales.</li><li><strong>+30%</strong> de conversión al mostrar precios en la divisa del cliente.</li><li>Venta activa en <strong>4 mercados</strong> a la vez.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Vender en varias divisas e idiomas nos abrió mercados que antes se nos escapaban.",
+        "author": "Gaëla Tulum"
+      }
+    ],
+    "url": "https://gaelatulum.com/"
+  },
+  {
+    "slug": "varullo",
+    "title": "Varullo",
+    "image": "/media/proyectos/varullo.webp",
+    "servicios": [
+      "diseno-web",
+      "creacion-de-marca",
+      "paid-media"
+    ],
+    "tags": [
+      "Agencia de marketing",
+      "Branding",
+      "Landing pages"
+    ],
+    "description": "Agencia de Marketing Digital especializada en Paid Media, Growth y Automatizaciones. Diseño limpio, totalmente personalizado y moderno, destinado para captar leads, a través de tráfico orgánico y landing de aterrizaje para leads captados a través de campañas en Google.",
+    "published": true,
+    "order": 12,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Varullo es una agencia de growth y paid media. Como expertos en marketing, su propia web tenía que estar a la altura: moderna, rápida y diseñada para captar leads cualificados, sin lenguaje corporativo vacío.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una web de captación, limpia y directa:</p><ul><li>Diseño 100% personalizado y moderno, con un mensaje contundente.</li><li>Estructura orientada a conversión (qué hacen, cómo trabajan, resultados, FAQ).</li><li>Landing de aterrizaje para el tráfico de campañas en Google.</li><li>Formularios de captación y portal de cliente.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>+35%</strong> de leads cualificados desde la web.</li><li><strong>-50%</strong> de coste por lead en la landing de campañas.</li><li>Carga de la home por debajo de <strong>1 segundo</strong>.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Nuestra web ahora capta como esperábamos: rápida, clara y pensada para convertir.",
+        "author": "Varullo"
+      }
+    ],
+    "url": "https://www.varullo.com/"
   }
 ];
