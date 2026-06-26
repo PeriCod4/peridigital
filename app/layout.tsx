@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
+import WebVitals from "@/components/WebVitals";
 import Spotlight from "@/components/fx/Spotlight";
 import AuroraBackground from "@/components/fx/AuroraBackground";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Footer />
           <CookieConsent />
           <Analytics />
+          <WebVitals />
           <Spotlight />
           <WhatsAppFloat />
           <ChatWidget />
