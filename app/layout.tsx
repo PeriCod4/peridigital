@@ -9,9 +9,7 @@ import Analytics from "@/components/Analytics";
 import WebVitals from "@/components/WebVitals";
 import Spotlight from "@/components/fx/Spotlight";
 import AuroraBackground from "@/components/fx/AuroraBackground";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
-import ChatWidget from "@/components/ChatWidget";
-import { MotionConfig } from "motion/react";
+import DeferredWidgets from "@/components/DeferredWidgets";
 import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 
 const montserrat = Montserrat({
@@ -56,19 +54,17 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white" suppressHydrationWarning>
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
-        {/* reducedMotion="user": respeta prefers-reduced-motion en todas las animaciones */}
-        <MotionConfig reducedMotion="user">
-          <AuroraBackground />
-          <Header />
-          <div className="relative z-10 flex-1">{children}</div>
-          <Footer />
-          <CookieConsent />
-          <Analytics />
-          <WebVitals />
-          <Spotlight />
-          <WhatsAppFloat />
-          <ChatWidget />
-        </MotionConfig>
+        {/* Sin MotionConfig global: cargaba Framer en TODAS las páginas. Las animaciones
+            que usan motion lo importan localmente; Reveal respeta reduced-motion por su cuenta. */}
+        <AuroraBackground />
+        <Header />
+        <div className="relative z-10 flex-1">{children}</div>
+        <Footer />
+        <CookieConsent />
+        <Analytics />
+        <WebVitals />
+        <Spotlight />
+        <DeferredWidgets />
       </body>
     </html>
   );
