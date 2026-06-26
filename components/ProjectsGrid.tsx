@@ -88,8 +88,7 @@ export default function ProjectsGrid() {
                     ))}
                   </div>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">
-                    {p.description.slice(0, 180)}
-                    {p.description.length > 180 ? "…" : ""}
+                    {p.excerpt ?? `${p.description.slice(0, 180)}${p.description.length > 180 ? "…" : ""}`}
                   </p>
                   <span className="mt-4 inline-block text-sm font-semibold text-brand-text">Ver proyecto →</span>
                 </TiltCard>

@@ -196,7 +196,7 @@ export default async function Home() {
                     <img src={p.image} alt={p.title} className="max-h-12 w-auto object-contain" loading="lazy" />
                   </div>
                   <h3 className="mt-4 font-bold text-ink">{p.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{p.description.slice(0, 110)}…</p>
+                  <p className="mt-2 text-sm text-gray-600">{p.excerpt ?? `${p.description.slice(0, 110)}…`}</p>
                 </div>
               </Reveal>
             ))}

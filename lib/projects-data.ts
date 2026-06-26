@@ -20,6 +20,7 @@ export interface Project {
   servicios: string[];
   tags: string[];
   description: string;
+  excerpt?: string; // resumen corto orientado al cliente para las tarjetas (entra entero, sin truncar)
   url?: string; // enlace a la web del proyecto (opcional)
   blocks?: ProjectBlock[]; // contenido dinámico por bloques
   body?: string; // legacy: HTML libre (fallback si no hay blocks)
@@ -31,6 +32,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     "slug": "peri-seo",
+    "excerpt": "Nuestro SaaS de SEO con IA: auditorías, contenido optimizado y seguimiento de posiciones en piloto automático.",
     "title": "PeriSEO",
     "image": "/media/proyectos/peri-seo.png",
     "servicios": [
@@ -85,6 +87,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "peri-check",
+    "excerpt": "CRM con facturación legal VERI*FACTU y automatizaciones: capta, gestiona y factura sin cambiar de herramienta.",
     "title": "PeriCheck",
     "image": "/media/proyectos/peri-check.png",
     "servicios": [
@@ -140,6 +143,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "sunfield",
+    "excerpt": "Ecommerce de joyería rápido y bien posicionado, con dashboard de negocio en vivo: ventas, inversión en ads y margen real.",
     "title": "Sunfield",
     "image": "/media/proyectos/sunfield.png",
     "servicios": [
@@ -202,6 +206,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "alpha-link",
+    "excerpt": "Web y reservas de clase para un box de CrossFit: más reservas online y menos no-shows, con SEO local en Barcelona.",
     "title": "ALPHA LINK",
     "image": "/media/proyectos/alpha-link.svg",
     "servicios": [
@@ -254,6 +259,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "silence-spa",
+    "excerpt": "Ecommerce y reservas para un spa: packs y tarjetas regalo, pago integrado y agenda automática multiidioma.",
     "title": "Silence SPA",
     "image": "/media/proyectos/silence-spa.png",
     "servicios": [
@@ -305,6 +311,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "renovar-carnet",
+    "excerpt": "Web con cita previa online para un centro médico de certificados: más citas y menos llamadas, con SEO local.",
     "title": "Renovar Carnet",
     "image": "/media/proyectos/renovar-carnet.webp",
     "servicios": [
@@ -357,6 +364,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "oliver-bam",
+    "excerpt": "Web de marca personal y blog para un especialista en marketing, lista para posicionar su marca a nivel internacional.",
     "title": "Oliver Bam",
     "image": "/media/proyectos/oliver-bam.webp",
     "servicios": [
@@ -375,6 +383,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "kelindas",
+    "excerpt": "Marca propia de gafas y complementos: branding, ecommerce y dashboard de negocio con la rentabilidad en tiempo real.",
     "title": "Kelindas",
     "image": "/media/proyectos/kelindas.webp",
     "servicios": [
@@ -439,6 +448,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "la-fundicio",
+    "excerpt": "Web corporativa multilingüe y autogestionable para una cooperativa cultural: publican ellos, sin tocar código.",
     "title": "La Fundicio",
     "image": "/media/proyectos/la-fundicio.gif",
     "servicios": [
@@ -491,6 +501,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "factoria-creativa",
+    "excerpt": "Web autogestionable + SaaS de gestión comercial a medida con automatizaciones de correo que generan ventas.",
     "title": "Factoría Creativa",
     "image": "/media/proyectos/factoria-creativa.webp",
     "servicios": [
@@ -560,6 +571,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "gaela-tulum",
+    "excerpt": "Ecommerce internacional de moda en piel: multidivisa, multiidioma y SEO para vender en varios mercados a la vez.",
     "title": "Gaela Tulum",
     "image": "/media/proyectos/gaela-tulum.webp",
     "servicios": [
@@ -612,6 +624,7 @@ export const PROJECTS: Project[] = [
   },
   {
     "slug": "varullo",
+    "excerpt": "Web de captación para una agencia de growth: diseño a medida orientado a convertir y carga en menos de un segundo.",
     "title": "Varullo",
     "image": "/media/proyectos/varullo.webp",
     "servicios": [

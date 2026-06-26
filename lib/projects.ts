@@ -44,6 +44,7 @@ export function normalizeProjects(raw: unknown): Project[] {
       servicios: Array.isArray(r.servicios) ? (r.servicios as string[]).filter((s) => typeof s === "string") : [],
       tags: Array.isArray(r.tags) ? (r.tags as string[]).filter((s) => typeof s === "string") : [],
       description: typeof r.description === "string" ? r.description : "",
+      excerpt: typeof r.excerpt === "string" && r.excerpt ? r.excerpt : undefined,
       url: typeof r.url === "string" && r.url ? r.url : undefined,
       blocks: normalizeBlocks(r.blocks),
       body: typeof r.body === "string" ? r.body : undefined,
