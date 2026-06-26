@@ -1,7 +1,7 @@
-// Post-build: genera out/data/articles-index.json (índice READ-ONLY de artículos
-// canónicos para que el panel admin liste artículos y les ponga portada).
-// NO genera projects.json ni article-images.json: esos son propiedad del admin
-// (viven en el servidor y no deben pisarse en cada redeploy).
+// Post-build: genera out/data/articles-index.json (índice READ-ONLY de artículos)
+// y out/data/projects.json (proyectos, ahora gestionados EN CÓDIGO tras migrar a
+// Vercel y retirar el panel admin PHP). projects.json se deriva de lib/projects-data.ts
+// en cada build para que el sitio lo sirva siempre sincronizado con el repo.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 
 const posts = JSON.parse(readFileSync("content/posts.json", "utf8"));
@@ -28,3 +28,12 @@ const index = posts
 mkdirSync("out/data", { recursive: true });
 writeFileSync("out/data/articles-index.json", JSON.stringify(index));
 console.log(`articles-index.json: ${index.length} artículos`);
+
+// projects.json derivado de lib/projects-data.ts (el array es JSON puro).
+const ts = readFileSync("lib/projects-data.ts", "utf8");
+const at = ts.indexOf("] = [");
+let arr = ts.slice(at + 4).trim();
+if (arr.endsWith(";")) arr = arr.slice(0, -1);
+const projects = JSON.parse(arr);
+writeFileSync("out/data/projects.json", JSON.stringify(projects, null, 2) + "\n");
+console.log(`projects.json: ${projects.length} proyectos`);
