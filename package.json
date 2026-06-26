@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/gen-data.mjs",
+    "vercel-build": "next build && node scripts/gen-data.mjs",
     "start": "next start",
     "lint": "eslint"
   },
