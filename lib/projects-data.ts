@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
       "SEO con IA",
       "Software a medida"
     ],
-    "description": "Plataforma SaaS propia de SEO con inteligencia artificial: auditorías automáticas, generación y publicación de contenido optimizado, seguimiento de posiciones e integración con Search Console y Analytics 4. Toda la estrategia SEO, centralizada y automatizada en un solo panel.",
+    "description": "PeriSEO es nuestro software SaaS de SEO con inteligencia artificial: auditorías automáticas, generación de contenido optimizado, seguimiento de posiciones e integración con Google Search Console y Analytics 4. SEO centralizado y en piloto automático.",
     "published": true,
     "order": 1,
     "blocks": [
@@ -77,7 +77,11 @@ export const PROJECTS: Project[] = [
         "author": "PeriDigital"
       }
     ],
-    "url": "https://periseo.es/"
+    "url": "https://periseo.es/",
+    "gallery": [
+      "/media/proyectos/peri-seo-web.webp",
+      "/media/proyectos/peri-seo-app.webp"
+    ]
   },
   {
     "slug": "peri-check",
@@ -93,7 +97,7 @@ export const PROJECTS: Project[] = [
       "CRM",
       "Facturación VERI*FACTU"
     ],
-    "description": "CRM todo-en-uno propio con facturación legal VERI*FACTU integrada: leads, oportunidades, presupuestos, facturas y cobros, proyectos y automatizaciones en una misma plataforma. Captar, gestionar y facturar sin saltar entre herramientas.",
+    "description": "PeriCheck es nuestro CRM con facturación legal VERI*FACTU integrada: leads, oportunidades, presupuestos, facturas, cobros y automatizaciones en una sola plataforma. Para autónomos, pymes y gestorías que quieren captar, gestionar y facturar sin cambiar de herramienta.",
     "published": true,
     "order": 2,
     "blocks": [
@@ -127,7 +131,12 @@ export const PROJECTS: Project[] = [
         "author": "PeriDigital"
       }
     ],
-    "url": "https://pericheck.es/"
+    "url": "https://pericheck.es/",
+    "gallery": [
+      "/media/proyectos/peri-check-web.webp",
+      "/media/proyectos/peri-check-app.webp",
+      "/media/proyectos/peri-check-app2.webp"
+    ]
   },
   {
     "slug": "sunfield",
@@ -142,7 +151,7 @@ export const PROJECTS: Project[] = [
       "Joyería",
       "SEO"
     ],
-    "description": "Ecommerce WooCommerce para una marca de joyería: catálogo cuidado, métodos de pago modernos (Apple Pay, Google Pay, Bizum, Klarna) y un trabajo a fondo de rendimiento y SEO. Una tienda rápida que transmite confianza y convierte.",
+    "description": "Sunfield es una tienda online de joyería desarrollada en WooCommerce. Diseñamos su ecommerce con catálogo cuidado, pagos modernos (Apple Pay, Google Pay, Bizum, Klarna) y optimización de rendimiento y SEO para vender más.",
     "published": true,
     "order": 3,
     "blocks": [
@@ -176,7 +185,10 @@ export const PROJECTS: Project[] = [
         "author": "Sunfield"
       }
     ],
-    "url": "https://sunfield.es/"
+    "url": "https://sunfield.es/",
+    "gallery": [
+      "/media/proyectos/sunfield-web.webp"
+    ]
   },
   {
     "slug": "alpha-link",
@@ -191,7 +203,7 @@ export const PROJECTS: Project[] = [
       "Web Corporativa",
       "SEO local"
     ],
-    "description": "Web corporativa y de reservas para un box de CrossFit con dos centros en Barcelona: reserva de clases integrada con su gestor, área privada con los WODs semanales, control de aforo y SEO local. Más reservas online y menos gestión manual.",
+    "description": "Web y sistema de reservas para Alpha Link, un box de CrossFit con dos centros en Barcelona. Reserva de clases integrada con su gestor, área privada con los WODs, control de aforo y SEO local para llenar más clases.",
     "published": true,
     "order": 4,
     "blocks": [
@@ -225,7 +237,10 @@ export const PROJECTS: Project[] = [
         "author": "Alpha Link CrossFit"
       }
     ],
-    "url": "https://alphalinkcrossfit.com/"
+    "url": "https://alphalinkcrossfit.com/",
+    "gallery": [
+      "/media/proyectos/alpha-link-web.webp"
+    ]
   },
   {
     "slug": "silence-spa",
@@ -239,7 +254,7 @@ export const PROJECTS: Project[] = [
       "Ecommerce",
       "Sistema de Reservas"
     ],
-    "description": "Ecommerce y sistema de reservas a medida para un spa del Maresme: pago online, packs y tarjetas regalo, gestión de aforo por producto y web multiidioma con emails automáticos. Pasaron del teléfono a una agenda que se gestiona sola.",
+    "description": "Ecommerce y sistema de reservas online para Silence Spa, un balneario del Maresme (Barcelona). Pago integrado, packs y tarjetas regalo, gestión de aforo por servicio y web multiidioma con emails automáticos.",
     "published": true,
     "order": 5,
     "blocks": [
@@ -273,7 +288,10 @@ export const PROJECTS: Project[] = [
         "author": "Silence SPA"
       }
     ],
-    "url": "https://silencespa.com/"
+    "url": "https://silencespa.com/",
+    "gallery": [
+      "/media/proyectos/silence-spa-web.webp"
+    ]
   },
   {
     "slug": "renovar-carnet",
@@ -288,7 +306,7 @@ export const PROJECTS: Project[] = [
       "Centro médico",
       "Sistema de Reservas"
     ],
-    "description": "Web de captación con reserva de cita online para un centro médico de certificados (conducir, náutica, armas): SEO local, catálogo de servicios y recordatorios automáticos. Más citas gestionadas online y muchas menos llamadas.",
+    "description": "Web con cita previa online para un centro médico de certificados (carnet de conducir, náutica y armas) en Molins de Rei. SEO local, catálogo de servicios y recordatorios automáticos para reducir llamadas y llenar la agenda.",
     "published": true,
     "order": 6,
     "blocks": [
@@ -322,7 +340,10 @@ export const PROJECTS: Project[] = [
         "author": "Renovar Carnet CCCO"
       }
     ],
-    "url": "https://renovarcarnetccco.es/"
+    "url": "https://renovarcarnetccco.es/",
+    "gallery": [
+      "/media/proyectos/renovar-carnet-web.webp"
+    ]
   },
   {
     "slug": "oliver-bam",
@@ -338,7 +359,7 @@ export const PROJECTS: Project[] = [
       "Web Corporativa",
       "SEO Internacional"
     ],
-    "description": "Web corporativa y de marca personal para un especialista en marketing, con una infraestructura de entradas y noticias pensada para impulsar el SEO y posicionar su marca a nivel internacional.",
+    "description": "Web corporativa y de marca personal para Oliver Bam, especialista en marketing. Infraestructura de blog con entradas y noticias para impulsar el SEO y posicionar su marca a nivel internacional.",
     "published": true,
     "order": 7
   },
@@ -357,7 +378,7 @@ export const PROJECTS: Project[] = [
       "Ecommerce",
       "Branding"
     ],
-    "description": "Proyecto propio: creación de marca desde cero y ecommerce de gafas y complementos personalizables, con CRM integrado y automatizaciones de marketing. Branding, tienda y captación que funcionan casi solos.",
+    "description": "Kelindas: creación de marca y tienda online de gafas de sol y complementos personalizables. Branding desde cero, ecommerce, CRM integrado y automatizaciones de marketing. Un proyecto propio de PeriDigital.",
     "published": true,
     "order": 8,
     "blocks": [
@@ -391,7 +412,10 @@ export const PROJECTS: Project[] = [
         "author": "Kelindas"
       }
     ],
-    "url": "https://kelindas.com/"
+    "url": "https://kelindas.com/",
+    "gallery": [
+      "/media/proyectos/kelindas-web.webp"
+    ]
   },
   {
     "slug": "la-fundicio",
@@ -406,7 +430,7 @@ export const PROJECTS: Project[] = [
       "Web Corporativa",
       "Web a medida"
     ],
-    "description": "Web corporativa a medida y autogestionable para una cooperativa cultural: procesos, noticias y equipo editables por ellos, multilingüe y con newsletter. Publican sin depender de nadie y duplicaron el tiempo en página.",
+    "description": "Web corporativa a medida y autogestionable para LaFundició, cooperativa cultural. Multilingüe, con newsletter y secciones (procesos, noticias, equipo) editables por ellos sin tocar código.",
     "published": true,
     "order": 9,
     "blocks": [
@@ -440,7 +464,10 @@ export const PROJECTS: Project[] = [
         "author": "LaFundició"
       }
     ],
-    "url": "https://lafundicio.net/"
+    "url": "https://lafundicio.net/",
+    "gallery": [
+      "/media/proyectos/la-fundicio-web.webp"
+    ]
   },
   {
     "slug": "factoria-creativa",
@@ -456,7 +483,7 @@ export const PROJECTS: Project[] = [
       "Web autogestionable",
       "Landing pages"
     ],
-    "description": "Web a medida y autogestionable para una agencia de stands para ferias: portfolio editable por ellos, landings de captación por servicio y SEO nacional. Más solicitudes de presupuesto sin tocar una línea de código.",
+    "description": "Web a medida y autogestionable para Factoría Creativa, agencia de diseño y montaje de stands para ferias en Barcelona. Portfolio editable, landings de captación de leads y SEO nacional.",
     "published": true,
     "order": 10,
     "blocks": [
@@ -490,7 +517,10 @@ export const PROJECTS: Project[] = [
         "author": "Factoría Creativa"
       }
     ],
-    "url": "https://www.factoriacreativabarcelona.es/"
+    "url": "https://www.factoriacreativabarcelona.es/",
+    "gallery": [
+      "/media/proyectos/factoria-creativa-web.webp"
+    ]
   },
   {
     "slug": "gaela-tulum",
@@ -505,7 +535,7 @@ export const PROJECTS: Project[] = [
       "Ecommerce",
       "SEO Internacional"
     ],
-    "description": "Ecommerce internacional de moda y accesorios de piel: multidivisa (MXN, USD, EUR, CAD), multiidioma y SEO internacional para vender en varios mercados a la vez, con una experiencia de compra premium.",
+    "description": "Ecommerce internacional de moda y accesorios de piel para Gaëla Tulum. Tienda multidivisa (MXN, USD, EUR, CAD), multiidioma y con SEO internacional para vender en varios mercados a la vez.",
     "published": true,
     "order": 11,
     "blocks": [
@@ -539,7 +569,10 @@ export const PROJECTS: Project[] = [
         "author": "Gaëla Tulum"
       }
     ],
-    "url": "https://gaelatulum.com/"
+    "url": "https://gaelatulum.com/",
+    "gallery": [
+      "/media/proyectos/gaela-tulum-web.webp"
+    ]
   },
   {
     "slug": "varullo",
@@ -555,7 +588,7 @@ export const PROJECTS: Project[] = [
       "Branding",
       "Landing pages"
     ],
-    "description": "Web de captación para una agencia de growth y paid media: diseño 100% a medida, estructura orientada a conversión y landing para el tráfico de Google Ads. Rápida, clara y pensada para generar leads cualificados.",
+    "description": "Web de captación de leads para Varullo, agencia de growth y paid media. Diseño 100% a medida orientado a conversión y landing optimizada para el tráfico de campañas de Google Ads.",
     "published": true,
     "order": 12,
     "blocks": [
@@ -589,6 +622,9 @@ export const PROJECTS: Project[] = [
         "author": "Varullo"
       }
     ],
-    "url": "https://www.varullo.com/"
+    "url": "https://www.varullo.com/",
+    "gallery": [
+      "/media/proyectos/varullo-web.webp"
+    ]
   }
 ];
