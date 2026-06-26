@@ -13,7 +13,7 @@
       "SEO con IA",
       "Software a medida"
     ],
-    "description": "PeriSEO es nuestra plataforma SaaS de SEO con inteligencia artificial: auditorías automáticas, generación de contenido optimizado, seguimiento de posiciones e integración con Google Search Console y Analytics 4. Un proyecto propio de PeriDigital que también ofrecemos como servicio a nuestros clientes.",
+    "description": "Plataforma SaaS propia de SEO con inteligencia artificial: auditorías automáticas, generación y publicación de contenido optimizado, seguimiento de posiciones e integración con Search Console y Analytics 4. Toda la estrategia SEO, centralizada y automatizada en un solo panel.",
     "published": true,
     "order": 1,
     "blocks": [
@@ -63,7 +63,7 @@
       "CRM",
       "Facturación VERI*FACTU"
     ],
-    "description": "PeriCheck es nuestro CRM todo-en-uno con facturación legal VERI*FACTU integrada: gestión de leads y clientes, oportunidades, presupuestos, facturas, cobros, proyectos y automatizaciones en una sola plataforma. Un proyecto propio de PeriDigital pensado para autónomos, pymes y gestorías.",
+    "description": "CRM todo-en-uno propio con facturación legal VERI*FACTU integrada: leads, oportunidades, presupuestos, facturas y cobros, proyectos y automatizaciones en una misma plataforma. Captar, gestionar y facturar sin saltar entre herramientas.",
     "published": true,
     "order": 2,
     "blocks": [
@@ -112,7 +112,7 @@
       "Joyería",
       "SEO"
     ],
-    "description": "Sunfield es una tienda online de joyería. Desarrollamos su ecommerce WooCommerce con un catálogo cuidado, métodos de pago modernos (tarjeta, Apple Pay, Google Pay, Bizum, Klarna) y un trabajo a fondo de rendimiento y SEO para posicionar la marca y vender más.",
+    "description": "Ecommerce WooCommerce para una marca de joyería: catálogo cuidado, métodos de pago modernos (Apple Pay, Google Pay, Bizum, Klarna) y un trabajo a fondo de rendimiento y SEO. Una tienda rápida que transmite confianza y convierte.",
     "published": true,
     "order": 3,
     "blocks": [
@@ -161,7 +161,7 @@
       "Web Corporativa",
       "SEO local"
     ],
-    "description": "Web corporativa de un Gimnasio de Crossfit en Barcelona, donde se trabaja el SEO local, se añade el calendario de entrenamiento, parte privada donde ver los distintos entrenamientos semanales, e integración con su gestor de horarios, clases y capacidad por clase.",
+    "description": "Web corporativa y de reservas para un box de CrossFit con dos centros en Barcelona: reserva de clases integrada con su gestor, área privada con los WODs semanales, control de aforo y SEO local. Más reservas online y menos gestión manual.",
     "published": true,
     "order": 4,
     "blocks": [
@@ -209,7 +209,7 @@
       "Ecommerce",
       "Sistema de Reservas"
     ],
-    "description": "Silence SPA es un balneario y centro de masajes situado en Calella, Barcelona. Para este proyecto, se realizó un sistema de reservas totalmente automatizado y a medida, integrado con pasarela de pagos, envío de mails, gestión de productos regalos, y gestión interno de reservas, capacidad diaria y flexibilidad para la edición de días, reservas, horarios y plazas disponibles dependiendo del producto que se adquiera.",
+    "description": "Ecommerce y sistema de reservas a medida para un spa del Maresme: pago online, packs y tarjetas regalo, gestión de aforo por producto y web multiidioma con emails automáticos. Pasaron del teléfono a una agenda que se gestiona sola.",
     "published": true,
     "order": 5,
     "blocks": [
@@ -258,7 +258,7 @@
       "Centro médico",
       "Sistema de Reservas"
     ],
-    "description": "Centro médico, especializado en la renovación de todo tipos de carnets. Sistema de reserva para las citas de carnet. No cuenta con pago online integrado, solo el formulario, con aviso al usuario en el momento de la cita y horas antes para recordar la reserva.",
+    "description": "Web de captación con reserva de cita online para un centro médico de certificados (conducir, náutica, armas): SEO local, catálogo de servicios y recordatorios automáticos. Más citas gestionadas online y muchas menos llamadas.",
     "published": true,
     "order": 6,
     "blocks": [
@@ -308,7 +308,7 @@
       "Web Corporativa",
       "SEO Internacional"
     ],
-    "description": "Web Corporativa para Oliver Bam, especialista en Marketing y Marca Personal, en la que se centra en su marca, sus servicios, y creación de infraestructura de entradas y noticias para optimizar e impulsar el SEO.",
+    "description": "Web corporativa y de marca personal para un especialista en marketing, con una infraestructura de entradas y noticias pensada para impulsar el SEO y posicionar su marca a nivel internacional.",
     "published": true,
     "order": 7
   },
@@ -327,7 +327,7 @@
       "Ecommerce",
       "Branding"
     ],
-    "description": "Tienda online de gafas y complementos, diseñada y programada por PeriDigital. Proyecto propio que surgió en 2024, en el que se trabajó el Branding de creación, construcción y consolidación de una nueva marca. Además de la creación de marca, se ha trabajado el diseño propio, la creación de contenidos para redes sociales, construcción e integración del CRM con la web, y creación de automatizaciones, con el objetivo de ahorro de recursos y tiempo.",
+    "description": "Proyecto propio: creación de marca desde cero y ecommerce de gafas y complementos personalizables, con CRM integrado y automatizaciones de marketing. Branding, tienda y captación que funcionan casi solos.",
     "published": true,
     "order": 8,
     "blocks": [
@@ -376,7 +376,7 @@
       "Web Corporativa",
       "Web a medida"
     ],
-    "description": "La Fundició es un proyecto de web corporativa en el que se le ha desarrollado un sistema de items e información complejo a medida, con el objetivo de hacer una landing informativa y una gran capacidad de interactuar con el usuario, sin necesidad de ir navegando entre distintas páginas.",
+    "description": "Web corporativa a medida y autogestionable para una cooperativa cultural: procesos, noticias y equipo editables por ellos, multilingüe y con newsletter. Publican sin depender de nadie y duplicaron el tiempo en página.",
     "published": true,
     "order": 9,
     "blocks": [
@@ -426,7 +426,7 @@
       "Web autogestionable",
       "Landing pages"
     ],
-    "description": "Factoría Creativa es una agencia creativa, especializados en el montaje de stands, y en el diseño web. Se presentó el diseño de lo que necesitaban exactamente, y haciendo un estudio de cómo querían autogestionar todo el sistema de contenidos, se les realizó una web a medida con contenido autogestionable sin necesidad de volver a tocar el código. Se hizo una auditoría SEO para posicionar la empresa a nivel nacional. Se le prepararon las diferentes landings preparadas para captación de leads.",
+    "description": "Web a medida y autogestionable para una agencia de stands para ferias: portfolio editable por ellos, landings de captación por servicio y SEO nacional. Más solicitudes de presupuesto sin tocar una línea de código.",
     "published": true,
     "order": 10,
     "blocks": [
@@ -475,7 +475,7 @@
       "Ecommerce",
       "SEO Internacional"
     ],
-    "description": "Tienda online de moda, con diversidad de divisas, venta internacional, optimizada para distintos idiomas, aplicando SEO internacional.",
+    "description": "Ecommerce internacional de moda y accesorios de piel: multidivisa (MXN, USD, EUR, CAD), multiidioma y SEO internacional para vender en varios mercados a la vez, con una experiencia de compra premium.",
     "published": true,
     "order": 11,
     "blocks": [
@@ -525,7 +525,7 @@
       "Branding",
       "Landing pages"
     ],
-    "description": "Agencia de Marketing Digital especializada en Paid Media, Growth y Automatizaciones. Diseño limpio, totalmente personalizado y moderno, destinado para captar leads, a través de tráfico orgánico y landing de aterrizaje para leads captados a través de campañas en Google.",
+    "description": "Web de captación para una agencia de growth y paid media: diseño 100% a medida, estructura orientada a conversión y landing para el tráfico de Google Ads. Rápida, clara y pensada para generar leads cualificados.",
     "published": true,
     "order": 12,
     "blocks": [
