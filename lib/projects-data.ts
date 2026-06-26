@@ -441,5 +441,105 @@ export const PROJECTS: Project[] = [
       }
     ],
     "url": "https://www.varullo.com/"
+  },
+  {
+    "slug": "peri-seo",
+    "title": "PeriSEO",
+    "image": "/media/proyectos/peri-seo.png",
+    "servicios": [
+      "soluciones-digitales",
+      "seo",
+      "analitica-datos"
+    ],
+    "tags": [
+      "SaaS propio",
+      "SEO con IA",
+      "Software a medida"
+    ],
+    "description": "PeriSEO es nuestra plataforma SaaS de SEO con inteligencia artificial: auditorías automáticas, generación de contenido optimizado, seguimiento de posiciones e integración con Google Search Console y Analytics 4. Un proyecto propio de PeriDigital que también ofrecemos como servicio a nuestros clientes.",
+    "published": true,
+    "order": 10,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>Hacer SEO bien consume horas: auditar, encontrar oportunidades, escribir contenido y medir resultados. Queríamos una herramienta propia que automatizara ese trabajo repetitivo y lo pusiera al alcance de cualquier negocio, no solo de agencias.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Una plataforma SaaS completa de SEO potenciada por IA:</p><ul><li>Auditorías técnicas automáticas con puntuación y plan de acción.</li><li>Generación de artículos optimizados y publicación directa en WordPress.</li><li>Seguimiento de posiciones y alertas cuando una keyword cae.</li><li>Integración con Google Search Console y Analytics 4 para decidir con datos.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li>Auditoría SEO completa en <strong>segundos</strong>, sin conocimientos técnicos.</li><li>Contenido optimizado generado y publicado de forma <strong>automática</strong>.</li><li>Toda la estrategia SEO <strong>centralizada</strong> en un único panel.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Construimos PeriSEO para automatizar nuestro propio trabajo de SEO; hoy es una herramienta que usan también nuestros clientes.",
+        "author": "PeriDigital"
+      }
+    ],
+    "url": "https://periseo.es/"
+  },
+  {
+    "slug": "peri-check",
+    "title": "PeriCheck",
+    "image": "/media/proyectos/peri-check.png",
+    "servicios": [
+      "soluciones-digitales",
+      "crm-automatizacion",
+      "diseno-web"
+    ],
+    "tags": [
+      "SaaS propio",
+      "CRM",
+      "Facturación VERI*FACTU"
+    ],
+    "description": "PeriCheck es nuestro CRM todo-en-uno con facturación legal VERI*FACTU integrada: gestión de leads y clientes, oportunidades, presupuestos, facturas, cobros, proyectos y automatizaciones en una sola plataforma. Un proyecto propio de PeriDigital pensado para autónomos, pymes y gestorías.",
+    "published": true,
+    "order": 11,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "El reto"
+      },
+      {
+        "type": "text",
+        "html": "<p>La mayoría de negocios usa un CRM para los clientes, otra herramienta para facturar y una tercera para automatizar. Queríamos unir todo —captación, gestión y facturación legal VERI*FACTU— en una sola plataforma que trabajara sola 24/7.</p>"
+      },
+      {
+        "type": "heading",
+        "text": "Qué construimos"
+      },
+      {
+        "type": "text",
+        "html": "<p>Un CRM completo con facturación y automatización integradas:</p><ul><li>CRM de leads, oportunidades, contactos y empresas.</li><li>Facturación legal VERI*FACTU, presupuestos, cobros con Stripe y resumen fiscal.</li><li>Proyectos con kanban y gantt, campañas de email y workflows automáticos.</li><li>Panel totalmente editable y multiusuario por roles.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Resultados"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li>Captación, gestión y facturación en una <strong>única</strong> plataforma.</li><li>Cumplimiento <strong>VERI*FACTU</strong> sin software fiscal aparte.</li><li>Tareas repetitivas resueltas con <strong>automatizaciones</strong> que trabajan solas.</li></ul>"
+      },
+      {
+        "type": "quote",
+        "text": "Queríamos un CRM que además facturara de forma legal y se gestionara solo; como no existía tal cual, lo construimos.",
+        "author": "PeriDigital"
+      }
+    ],
+    "url": "https://pericheck.es/"
   }
 ];
