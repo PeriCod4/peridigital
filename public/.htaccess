@@ -9,6 +9,12 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP_HOST} ^www\.peridigital\.es [NC]
   RewriteRule ^(.*)$ https://peridigital.es/$1 [R=301,L]
 
+  # 301: /proyectos-web/ -> /proyectos/ (slug renombrado, preserva SEO).
+  # Va antes de la regla que sirve directorios reales, porque el dir viejo
+  # /proyectos-web/ sigue en el servidor (deploy FTP aditivo).
+  RewriteRule ^proyectos-web/?$ /proyectos/ [R=301,L]
+  RewriteRule ^proyectos-web/(.+)$ /proyectos/$1 [R=301,L]
+
   # Servir ficheros y carpetas reales (assets, artículos, y subsitios: crm, informes, etc.)
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

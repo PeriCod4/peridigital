@@ -46,7 +46,7 @@ export default function ProjectDetail({
         <p className="text-gray-500">
           {loaded ? "Proyecto no encontrado." : "Cargando proyecto…"}
         </p>
-        <Link href="/proyectos-web/" className="mt-4 inline-block font-semibold text-brand-text hover:underline">
+        <Link href="/proyectos/" className="mt-4 inline-block font-semibold text-brand-text hover:underline">
           ← Ver todos los proyectos
         </Link>
       </Container>
@@ -58,7 +58,7 @@ export default function ProjectDetail({
   return (
     <main>
       <Container className="py-12 sm:py-16">
-        <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">
+        <Link href="/proyectos/" className="text-sm font-semibold text-brand-text hover:underline">
           ← Proyectos
         </Link>
 

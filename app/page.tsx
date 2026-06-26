@@ -184,7 +184,7 @@ export default async function Home() {
           <Reveal>
             <div className="flex items-end justify-between">
               <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Proyectos</h2>
-              <Link href="/proyectos-web/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
+              <Link href="/proyectos/" className="text-sm font-semibold text-brand-text hover:underline">Ver todos →</Link>
             </div>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

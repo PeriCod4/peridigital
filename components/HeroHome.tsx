@@ -58,7 +58,7 @@ export default function HeroHome() {
           <Button href="/hablemos/" withArrow>
             Agenda una reunión
           </Button>
-          <Button href="/proyectos-web/" variant="outline">
+          <Button href="/proyectos/" variant="outline">
             Ver proyectos
           </Button>
         </div>

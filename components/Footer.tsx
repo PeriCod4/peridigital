@@ -4,7 +4,7 @@ import Container from "./Container";
 import { SERVICES, SITE } from "@/lib/site";
 
 const COMPANY_LINKS = [
-  { href: "/proyectos-web/", label: "Proyectos" },
+  { href: "/proyectos/", label: "Proyectos" },
   { href: "/nosotros/", label: "Nosotros" },
   { href: "/blog/", label: "Blog" },
   { href: "/hablemos/", label: "Hablemos" },

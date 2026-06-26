@@ -5,7 +5,7 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import LeadCta from "@/components/LeadCta";
 
 export const metadata = {
-  ...pageMeta("/proyectos-web/"),
+  ...pageMeta("/proyectos/"),
   title: "Proyectos web y ecommerce",
   description:
     "Portfolio de PeriDigital: webs corporativas, tiendas online y sistemas a medida construidos para generar resultados.",

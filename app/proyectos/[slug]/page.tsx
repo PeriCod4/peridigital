@@ -55,7 +55,7 @@ export default async function ProjectPage({
       <JsonLd
         data={breadcrumbSchema([
           { name: "Inicio", url: `${SITE.url}/` },
-          { name: "Proyectos", url: `${SITE.url}/proyectos-web/` },
+          { name: "Proyectos", url: `${SITE.url}/proyectos/` },
           { name: p.title, url: `${SITE.url}/proyectos/${p.slug}/` },
         ])}
       />

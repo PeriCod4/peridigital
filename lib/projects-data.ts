@@ -144,12 +144,14 @@ export const PROJECTS: Project[] = [
     "image": "/media/proyectos/sunfield.png",
     "servicios": [
       "diseno-web",
-      "seo"
+      "seo",
+      "analitica-datos"
     ],
     "tags": [
       "Ecommerce",
       "Joyería",
-      "SEO"
+      "SEO",
+      "Dashboard de negocio"
     ],
     "description": "Sunfield es una tienda online de joyería desarrollada en WooCommerce. Diseñamos su ecommerce con catálogo cuidado, pagos modernos (Apple Pay, Google Pay, Bizum, Klarna) y optimización de rendimiento y SEO para vender más.",
     "published": true,
@@ -178,6 +180,14 @@ export const PROJECTS: Project[] = [
       {
         "type": "text",
         "html": "<ul><li>Tienda <strong>rápida y estable</strong>, también en móvil.</li><li>Mejor <strong>posicionamiento orgánico</strong> y visibilidad de marca.</li><li>Checkout <strong>sin fricción</strong> con los métodos de pago que la gente ya usa.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Dashboard de negocio en tiempo real"
+      },
+      {
+        "type": "text",
+        "html": "<p>Vender es solo la mitad: la otra mitad es saber cuánto ganas de verdad. Para Sunfield desarrollamos un cuadro de mando vivo, alojado en su propio servidor, que cruza en un único panel toda la operación del negocio y la actualiza en tiempo real:</p><ul><li><strong>Ingresos y ventas</strong> sincronizados directamente con WooCommerce: pedidos, facturación, ticket medio y productos más vendidos.</li><li><strong>Inversión publicitaria</strong> de Google Ads y Meta Ads, con el gasto diario y desglosado por campaña.</li><li><strong>Costes y gastos</strong> del negocio para calcular el <em>margen real</em>, no la facturación bruta.</li><li><strong>Rentabilidad consolidada</strong>: ROAS, beneficio neto y coste de adquisición, de un vistazo.</li></ul><p>El resultado es que Sunfield deja de decidir a ciegas: ve al instante qué campañas generan beneficio y cuáles queman presupuesto, y reparte la inversión donde de verdad vende.</p>"
       },
       {
         "type": "quote",
@@ -371,12 +381,14 @@ export const PROJECTS: Project[] = [
       "diseno-web",
       "creacion-de-marca",
       "crm-automatizacion",
-      "seo"
+      "seo",
+      "analitica-datos"
     ],
     "tags": [
       "Moda",
       "Ecommerce",
-      "Branding"
+      "Branding",
+      "Dashboard de negocio"
     ],
     "description": "Kelindas: creación de marca y tienda online de gafas de sol y complementos personalizables. Branding desde cero, ecommerce, CRM integrado y automatizaciones de marketing. Un proyecto propio de PeriDigital.",
     "published": true,
@@ -405,6 +417,14 @@ export const PROJECTS: Project[] = [
       {
         "type": "text",
         "html": "<ul><li><strong>+48%</strong> de conversión tras rediseñar la ficha de producto y el checkout.</li><li><strong>+22%</strong> de ticket medio con los complementos personalizables.</li><li><strong>~10 h/semana</strong> ahorradas con las automatizaciones del CRM.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Dashboard de negocio en tiempo real"
+      },
+      {
+        "type": "text",
+        "html": "<p>Al ser una marca propia, en Kelindas medimos cada euro como si fuera el último. Por eso montamos un panel de control vivo que unifica toda la rentabilidad del ecommerce en una sola pantalla:</p><ul><li><strong>Ventas en tiempo real</strong> conectadas con la tienda: pedidos, ticket medio y los productos y charms más vendidos.</li><li><strong>Inversión en Meta Ads y Google Ads</strong>, con el gasto por campaña y por canal.</li><li><strong>Costes de producto, envío y operación</strong> para conocer el margen real de cada venta.</li><li><strong>ROAS y beneficio neto consolidados</strong>, actualizados al momento.</li></ul><p>Así sabemos exactamente qué creatividades y colecciones son rentables, y escalamos solo lo que deja margen —sin intuiciones, con datos.</p>"
       },
       {
         "type": "quote",
@@ -476,12 +496,16 @@ export const PROJECTS: Project[] = [
     "servicios": [
       "diseno-web",
       "seo",
-      "paid-media"
+      "paid-media",
+      "soluciones-digitales",
+      "crm-automatizacion"
     ],
     "tags": [
       "Agencia creativa",
       "Web autogestionable",
-      "Landing pages"
+      "Landing pages",
+      "SaaS a medida",
+      "CRM y automatización"
     ],
     "description": "Web a medida y autogestionable para Factoría Creativa, agencia de diseño y montaje de stands para ferias en Barcelona. Portfolio editable, landings de captación de leads y SEO nacional.",
     "published": true,
@@ -510,6 +534,18 @@ export const PROJECTS: Project[] = [
       {
         "type": "text",
         "html": "<ul><li><strong>+40%</strong> de solicitudes de presupuesto desde la web.</li><li><strong>100%</strong> del contenido gestionable sin programar.</li><li><strong>4,9/5</strong> de valoración media de clientes.</li></ul>"
+      },
+      {
+        "type": "heading",
+        "text": "Software de gestión a medida + automatización"
+      },
+      {
+        "type": "text",
+        "html": "<p>Más allá de la web, desarrollamos para Factoría Creativa un <strong>SaaS de gestión interno a medida</strong> para ordenar y hacer crecer toda su operación comercial, sustituyendo las hojas de cálculo y los correos sueltos por un único sistema:</p><ul><li><strong>Gestión de clientes (CRM)</strong>: ficha única de cada cliente con su historial de proyectos de stands, presupuestos y estado de cada oportunidad.</li><li><strong>Gestión comercial</strong>: embudo de ventas, seguimiento de presupuestos enviados y previsión de cierre, para que ninguna oportunidad se quede por el camino.</li><li><strong>Automatizaciones de correo que generan ventas</strong>: secuencias de seguimiento de presupuestos, recordatorios antes de cada feria y reactivación de clientes inactivos, trabajando solas 24/7.</li></ul><p>El equipo pasa de perseguir correos a un sistema que centraliza la información y empuja cada oportunidad hacia el cierre, convirtiendo gestiones manuales en ventas recurrentes.</p>"
+      },
+      {
+        "type": "text",
+        "html": "<ul><li><strong>Cero</strong> oportunidades perdidas por falta de seguimiento.</li><li><strong>Ventas recurrentes</strong> activadas con automatizaciones de email.</li><li>Toda la operación comercial <strong>centralizada</strong> en una sola herramienta.</li></ul>"
       },
       {
         "type": "quote",
