@@ -55,3 +55,6 @@ server/admin/config.local.php
 # Datos propiedad del admin / artefactos de build (no versionar)
 server/data/article-images.json
 server/data/articles-index.json
+
+# generic local-only files
+*.local
